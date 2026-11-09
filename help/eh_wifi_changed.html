@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Wifi Changed</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/events">Events</a></li>
+                        <li aria-current="page">Wifi Changed</li>
+                    </ol>
+                </nav>-->
+                <h1>Wifi Changed</h1>
+                <p class="description">Triggers whenever the state of Wi-Fi changes: when the Wi-Fi radio is switched on or off, or when the device connects to or disconnects from a Wi-Fi network.</p>
+            </header>
+
+            <p>There are four kinds of change:</p>
+            <ul>
+                <li><code>enabled</code> - the Wi-Fi radio was turned on</li>
+                <li><code>disabled</code> - the Wi-Fi radio was turned off</li>
+                <li><code>connected</code> - the device joined a Wi-Fi network</li>
+                <li><code>disconnected</code> - the device left a Wi-Fi network</li>
+            </ul>
+            <p>Requires Android 7.0 (Nougat) or later.</p>
+
+            <section>
+                <h2>Event Inputs</h2>
+                <h3 class="param icon icon-text">State</h3>
+                <p>Restrict the event to only certain changes.</p>
+                <p>Enter one or more of <code>enabled</code>, <code>disabled</code>, <code>connected</code> or <code>disconnected</code>, separated by <code>/</code> to match several at once (for example <code>connected/disconnected</code>).</p>
+                <p>Leave empty to trigger on every change. <a href="../matching.html">Pattern matching</a> is supported.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Get SSID</h3>
+                <p>When enabled, Tasker reads the SSID and MAC address (BSSID) of the connected network and reveals the <span class="param icon icon-text">SSID</span> and <span class="param icon icon-text">MAC</span> fields below, letting you restrict the event to specific networks.</p>
+                <p>Looking up the network details requires the Location permission.</p>
+                <hr />
+                <h3 class="param icon icon-text">SSID</h3>
+                <p>Only available when <span class="param icon icon-boolean">Get SSID</span> is enabled.</p>
+                <p>Only trigger when the connected network's name matches. Separate multiple names with <code>/</code>, or leave empty to match any network.</p>
+                <hr />
+                <h3 class="param icon icon-text">MAC</h3>
+                <p>Only available when <span class="param icon icon-boolean">Get SSID</span> is enabled.</p>
+                <p>Like <span class="param icon icon-text">SSID</span>, but matches the access point's MAC address (BSSID) instead of its name.</p>
+            </section>
+        </main>
+    </body>
+</html>

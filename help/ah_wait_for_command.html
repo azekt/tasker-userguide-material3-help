@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Wait For Command</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/actions">Actions</a></li>
+                        <li aria-current="page">Wait For Command</li>
+                    </ol>
+                </nav>-->
+                <h1>Wait For Command</h1>
+                <p class="description">Pauses the current task until a command is received via the <a href="https://tasker.joaoapps.com/commandsystem.html">Tasker Command System</a> or times out.</p>
+            </header>
+
+            <p>Use <span class="param icon icon-text">Command Pattern</span> to filter which commands should unblock this action. The pattern supports Tasker's standard match syntax (wildcards like <code>*</code> and multi-pattern separators like <code>/</code>). Leave it empty to accept any incoming command.</p>
+            <p><span class="param icon icon-number">Timeout (Seconds)</span> sets the maximum wait time. If no matching command arrives within this period, the action fails and you can handle it with the usual action error-handling options (e.g. <i>Continue Task After Error</i>, or an <i>If</i>/<i>Stop</i> check on <code>%err</code>).</p>
+            <p>Only commands triggered <strong>after</strong> this action starts running are considered; commands emitted earlier will not unblock it.</p>
+            <p>When a matching command is received, the full command string is stored in the output variable <code>%wfc_command</code> so the rest of the task can react to its contents.</p>
+            <p>Commands can be sent from the <a href="ah_command.html">Command action</a>, AutoApps, or any other source that uses the Tasker Command System, and can be received by the <a href="eh_command.html">Command event</a> as well.</p>
+        </main>
+    </body>
+</html>

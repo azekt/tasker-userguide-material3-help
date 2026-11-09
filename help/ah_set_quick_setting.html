@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Set up Quick Setting Tile</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/actions">Actions</a></li>
+                        <li aria-current="page">Set up Quick Setting Tile</li>
+                    </ol>
+                </nav>-->
+                <h1>Set up Quick Setting Tile</h1>
+                <p class="description">Dynamically configure one of Tasker's Quick Settings tiles: the tiles in the panel you pull down from the top of the screen.</p>
+            </header>
+
+            <p>Tasker provides up to 50 tiles. The first 3 are always available to add from Android's own Quick Settings editor. The other 47 stay hidden from that editor until you configure them here: as soon as you give a tile a Task or a Command for any click type, it becomes available to add. Setting up a tile with no Task and no Command, or using the Clear Quick Setting Tile action, hides it from the editor again.</p>
+            <p>When you clear a dynamic tile (4 to 50) it also disappears from your active tiles in the panel, and setting the same tile up again brings it back in the same position as before. This lets you build dynamic tile layouts that grow and shrink on demand while keeping their order. See <a href="ah_clear_quick_setting.html">Clear Quick Setting Tile</a>.</p>
+
+
+            <section>
+                <h2>Action Inputs</h2>
+
+                <h3 class="param icon icon-list">Number</h3>
+                <p>Which tile to configure, from <var>1st</var> to <var>50th</var>.</p>
+                <hr/>
+
+                <h3>
+                    <span class="param icon icon-text">Task</span> / <span class="param icon icon-text">Long Click Task</span> / <span class="param icon icon-text">Double Click Task</span>
+                </h3>
+                <p>The tasks to run on a short click, long click or double click. If no task is specified, the tile receives its default appearance and functionality.</p>
+                <hr/>
+
+                <h3>
+                    <span class="param icon icon-text">Command</span> / <span class="param icon icon-text">Long Click Command</span> / <span class="param icon icon-text">Double Click Command</span>
+                </h3>
+                <p>Instead of, or as well as, a task, send a Tasker command for that click type. The optional <span class="param icon icon-text">Command Prefix</span> is sent along with the commands.</p>
+                <hr/>
+
+                <h3 class="param icon icon-list">Status</h3>
+                <p>The visual state of the tile (<var>Active</var>, <var>Inactive</var> or <var>Disabled</var>) in a way defined by the system. A <var>Disabled</var> tile does not respond to clicks.</p>
+                <hr/>
+
+                <h3>
+                    <span class="param icon icon-text">Title</span> / <span class="param icon icon-text">Subtitle</span> / <span class="param icon icon-text">Icon</span>
+                </h3>
+                <p>Customise how the tile looks. The <span class="param icon icon-text">Subtitle</span> is only shown on Android 10 and later.</p>
+                <hr/>
+
+                <h3 class="param icon icon-boolean">Can Use On Locked Device</h3>
+                <p>When off, clicking the tile on a locked device first asks the user to unlock and then runs the task. The <span class="param icon icon-text">Long Click Task</span> will not work on a locked device due to an Android limitation. Unfortunately there's no way to make it work.</p>
+                <hr/>
+
+                <h3 class="param icon icon-boolean">Hide Notification Shade</h3>
+                <p>When on, the pulled-down panel is closed automatically after the tile is clicked.</p>
+                <p>The effects of this action are only visible once the tile has been added to the set of used tiles via the Android UI.</p>
+                <p>Requires Android 7.0 or later.</p>
+            </section>
+
+            <footer>
+                <h2>See also:</h2>
+                <ul>
+                    <li><a href="ah_clear_quick_setting.html">Clear Quick Setting Tile</a>, Prefs / Action / Quick Settings Tasks.</li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

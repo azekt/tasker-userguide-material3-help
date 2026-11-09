@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Wait For Scene V2 Result</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/actions">Actions</a></li>
+                    </ol>
+                </nav>-->
+                <h1>Wait For Scene V2 Result</h1>
+                <p class="description">Wait for a currently visible Scene V2 to be dismissed and return its result.</p>
+            </header>
+
+            <p>This action is useful when a scene was shown with <span class="param icon icon-boolean">Continue Task Immediately</span> enabled in the <a href="ah_show_scene_v2.html">Show Scene V2</a> action, and you want to wait for a response at a later point in your task.</p>
+            <p><span class="param icon icon-text">Screen ID</span> is required and must match the ID of the scene you want to wait for. The scene must already be visible.</p>
+            <p>Set <span class="param icon icon-text">Timeout (ms)</span> to specify a maximum wait time in milliseconds. If the scene is not dismissed within this time, the action will fail. Leave empty to wait indefinitely.</p>
+            <p>When the scene is dismissed, the result will be returned in the output variables shown in the action's configuration.</p>
+
+            <footer>
+                <h2>See also:</h2>
+                <ul>
+                    <li>Check <a href="../scenes_v2.html">Scenes V2 (Screen Builder) Manual</a> for full details on how Scenes V2 work.</li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

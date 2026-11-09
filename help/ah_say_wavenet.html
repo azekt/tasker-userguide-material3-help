@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Say WaveNet</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/actions">Actions</a></li>
+                        <li aria-current="page">Say WaveNet</li>
+                    </ol>
+                </nav>-->
+                <h1 id="page-title">Say WaveNet</h1>
+                <p class="description" id="feature-description">Allows you to make Tasker say something out loud using advanced <a href="https://cloud.google.com/text-to-speech/" target="_blank">WaveNet Voices</a>.</p>
+            </header>
+
+            <p id="ssml-info">You can use <a href="https://cloud.google.com/text-to-speech/docs/ssml" target="_blank">SSML</a> to more accurately structure your speech.</p>
+            <p>To use this action, you'll have to have a Google Cloud project on your Google account and use an API Key from that project.</p>
+            <p>To do that:</p>
+            <ul>
+                <li>Select or create a <a href="https://console.cloud.google.com/cloud-resource-manager" target="_blank">Google Cloud project</a>.</li>
+                <li><a href="https://console.cloud.google.com/billing/linkedaccount" target="_blank">Enable billing</a> for your project. <span class="note">(Note: even though billing is enabled, you'll only be charged if you go over the <a href="https://cloud.google.com/text-to-speech/pricing" id="pricing-link" target="_blank">free quota</a>.)</span></li>
+                <li>Enable the <a href="https://console.cloud.google.com/flows/enableapi?apiid=texttospeech.googleapis.com" id="enable-api-link" target="_blank"><strong id="api-name-text">Text-to-Speech</strong> API</a>.</li>
+                <li>Go to the <a href="https://console.cloud.google.com/apis/credentials" target="_blank">Credentials</a> page.</li>
+                <li>Click on <b>Create credentials</b> &gt; <b>API key</b>. A new key will be generated.</li>
+                <li>Copy and paste the API Key into <strong id="api-key-location-text">Tasker &gt; Preferences &gt; Misc &gt; Google API Key</strong>.</li>
+                <li><strong>Important Security Note:</strong> It's highly recommended to restrict your API key. Choose only the specific API you enabled (e.g., "<span id="api-name-restrict-text">Text-to-Speech</span>").</li>
+            </ul>
+
+            <section id="default-inputs">
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-boolean">Continue Task Immediately</h3>
+                <p>Enable if you don't want the task to wait for it to finish speaking. You must select this in order to do a Shut Up action later.</p>
+                <hr />
+                <h3 class="param icon icon-text">File</h3>
+                <p>If set, will write the speech to a file with the mp3 format</p>
+                <hr />
+                <h3 class="param icon icon-text">Override API Key</h3>
+                <p>If set will override the key entered in the main Tasker Preferences.</p>
+            </section>
+        </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let isCustomized = false; // Flag to track if any overrides are applied
+
+            // --- Apply Overrides ONLY if Query Parameter Exists ---
+
+            const pageTitleParam = urlParams.get('pageTitle');
+            if (pageTitleParam) {
+                isCustomized = true; // Mark as customized
+                const titleElement = document.getElementById('page-title');
+                if (titleElement) titleElement.textContent = pageTitleParam;
+                document.title = pageTitleParam;
+            }
+
+            const featureDescParam = urlParams.get('featureDescription');
+            if (featureDescParam) {
+                isCustomized = true; // Mark as customized
+                const descElement = document.getElementById('feature-description');
+                if (descElement) descElement.textContent = featureDescParam;
+
+                const ssmlElement = document.getElementById('ssml-info');
+                const hideSsml = urlParams.get('hideSsml');
+                if (hideSsml === 'true' && ssmlElement) {
+                   ssmlElement.style.display = 'none';
+                } else if (ssmlElement) {
+                    ssmlElement.style.display = '';
+                }
+            }
+
+            const apiNameParam = urlParams.get('apiName');
+            if (apiNameParam) {
+                isCustomized = true; // Mark as customized
+                const apiNameElements = document.querySelectorAll('#api-name-text, #api-name-restrict-text');
+                apiNameElements.forEach(el => { if (el) el.textContent = apiNameParam });
+            }
+
+            const enableApiParam = urlParams.get('enableApiUrl');
+            if (enableApiParam) {
+                isCustomized = true; // Mark as customized
+                const enableLink = document.getElementById('enable-api-link');
+                if (enableLink) enableLink.href = enableApiParam;
+            }
+
+            const pricingParam = urlParams.get('pricingUrl');
+            if (pricingParam) {
+                isCustomized = true; // Mark as customized
+                const pricingLink = document.getElementById('pricing-link');
+                if (pricingLink) pricingLink.href = pricingParam;
+            }
+
+            const locationParam = urlParams.get('apiKeyLocation');
+            if (locationParam) {
+                isCustomized = true; // Mark as customized
+                const locationElement = document.getElementById('api-key-location-text');
+                if (locationElement) locationElement.textContent = locationParam;
+            }
+
+            // --- Hide Default Inputs ONLY if page was customized ---
+            const defaultInputsElement = document.getElementById('default-inputs');
+            if (isCustomized && defaultInputsElement) {
+                defaultInputsElement.style.display = 'none';
+            } else if (defaultInputsElement) {
+                 defaultInputsElement.style.display = 'block'; // Ensure it's visible if not customized
+            }
+        });
+    </script>
+    </body>
+</html>

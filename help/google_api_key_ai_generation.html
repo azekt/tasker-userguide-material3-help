@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Google API Key for Tasker AI Generation</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/help">Help</a></li>
+                        <li aria-current="page">Google API Key for Tasker AI Generation</li>
+                    </ol>
+                </nav>-->
+                <h1>Google API Key for Tasker AI Generation</h1>
+                <p class="description">To use the Tasker AI Generator feature, you need a Google Cloud API Key enabled for the Generative Language API.</p>
+            </header>
+
+            <p>To use this action, you'll have to get a Google AI Studio API Key on your Google account.</p>
+            <p>To do that:</p>
+            <ul>
+                <li>Open Google AI Studio on the <a href="https://aistudio.google.com/apikey" target="_blank">API Key</a> page.</li>
+                <li>Make sure you're logged in to your Google Account</li>
+                <li>Click on <b>Create API key</b>. When you do this, Google automatically creates a Google Cloud project for you with the <b>Generative Language API</b> enabled on it.</li>
+                <li>Optionally upgrade to a paid tier by clicking <b>Set up Billing</b>. A paid tier will give you <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank">higher rate limits but can cost you if you use it often</a>. Using a free tier allows Google to <a href="https://ai.google.dev/gemini-api/terms#data-use-unpaid" target="_blank">use your AI Tasker Generations to improve their services</a>.</li>
+                <li>Copy and paste the API Key into Tasker's AI Generation screen where prompted.</li>
+            </ul>
+
+            <h2>Important note</h2>
+            <p>If you already have a Google API Key in Tasker, you can continue using it, but you have to <a href="https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com" id="enable-api-link" target="_blank">enable the <b>Generative Language API</b></a> on your Google Cloud project so you can continue to use it with both this, <a href="ah_say_wavenet.html">Say Wavenet</a> and any other Google API that requires a key in Tasker.</p>
+        </main>
+    </body>
+</html>

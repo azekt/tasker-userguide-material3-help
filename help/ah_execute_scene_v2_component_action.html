@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Run Scene v2 Action</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/actions">Actions</a></li>
+                        <li aria-current="page">Run Scene v2 Action</li>
+                    </ol>
+                </nav>-->
+                <h1>Run Scene v2 Action</h1>
+                <p class="description">Runs a built-in action on an element of a currently visible Scene V2, the same way the in-scene Run Component Action action does. Use it to control a scene from a task, for example to focus a <var>TextInput</var>, toggle a <var>Switch</var>, seek a <var>Video</var> or reload a <var>WebView</var>.</p>
+            </header>
+
+            <p><span class="param icon icon-text">Screen ID</span> is required and must match the Screen ID used when the scene was shown.</p>
+            <p><span class="param icon icon-text">Element ID</span> is required and must refer to an element that is currently rendered in that scene. Use the magnifying glass to pick from the elements in one of your scenes.</p>
+            <p><span class="param icon icon-text">Action Name</span> is the action to run, such as <code>focus</code>, <code>toggle</code>, <code>play</code> or <code>seek</code>. Each element type supports its own set of actions; use the magnifying glass to see the actions available for the chosen element.</p>
+            <p><span class="param icon icon-text">Names</span> and <span class="param icon icon-text">Values</span> are optional comma-separated lists that pass parameters to the action, and must have the same number of items. They are only shown for actions that take parameters. Use the magnifying glass on <span class="param icon icon-text">Names</span> to browse the parameter names of the selected action. For example, the <code>seek</code> action of a <var>Video</var> takes <code>position</code>, in milliseconds, so <span class="param icon icon-text">Names</span>=<code>position</code> and <span class="param icon icon-text">Values</span>=<code>30000</code> jumps to 30 seconds. You can use Tasker arrays directly in <span class="param icon icon-text">Values</span>.</p>
+            <p>Some actions return values. These are set as local variables named after the action's outputs, and are listed in this action's output variables once an action that returns something is selected. For example, <code>togglePlayback</code> on a <var>Video</var> returns <code>is_playing</code>.</p>
+            <p>The action fails if no scene with the given <span class="param icon icon-text">Screen ID</span> is currently showing, or if <span class="param icon icon-text">Names</span> and <span class="param icon icon-text">Values</span> have a different number of items.</p>
+
+            <footer>
+                <h2>See also:</h2>
+                <ul>
+                    <li>Check <a href="../scenes_v2.html">Scenes V2 (Screen Builder) Manual</a> for full details on how Scenes V2 work.</li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

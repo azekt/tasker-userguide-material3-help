@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Scene V2 Event</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/events">Events</a></li>
+                        <li aria-current="page">Scene V2 Event</li>
+                    </ol>
+                </nav>-->
+                <h1>Scene V2 Event</h1>
+                <p class="description">Triggers when the user interacts with an element in a Scene V2 (taps, long-presses, swipes, or changes its value).</p>
+            </header>
+
+            <p>Use this event to react to interactions on scenes shown via the <a href="ah_show_scene_v2.html">Show Scene V2</a> action without having to wire each component up to its own task.</p>
+            <p>Set <span class="param icon icon-text">Scene Name</span> to only react to interactions on a specific scene. Leave empty to match any scene. Pattern matching is supported (see <a href="../matching.html">Pattern Matching</a> in the Userguide).</p>
+            <p>Set <span class="param icon icon-text">Element ID</span> to only react to interactions on a specific element. Leave empty to match any element on the scene. Pattern matching is supported.</p>
+            <p>Set <span class="param icon icon-text">Interaction Type</span> to only react to a specific kind of interaction. Leave empty to match any interaction. Generic gesture types apply to almost any element:</p>
+            <ul>
+                <li><code>single</code> - a single tap</li>
+                <li><code>multi_2</code>, <code>multi_3</code>, ... - a double tap, triple tap, and so on</li>
+                <li><code>long_press</code> - a long press</li>
+                <li><code>swipe</code> - a swipe gesture (when the swipe ends, swipe-related output variables are populated)</li>
+            </ul>
+            <p>On top of the generic gestures, each component type defines its own interaction types for things that only make sense for it. A few examples:</p>
+            <ul>
+                <li><code>text_changed</code> - fired by <var>TextInput</var> when its text changes</li>
+                <li><code>checked_changed</code> - fired by <var>Switch</var> / <var>Checkbox</var> when toggled</li>
+                <li><code>slider_value_changed</code> - fired by <var>Slider</var> when its value changes</li>
+            </ul>
+            <p>To find out exactly which interaction types are supported by a given component, open the scene in the Scenes V2 editor, select the component, and look at its Interaction tab: every entry there corresponds to one interaction type that this event can match. New component types added in future versions will expose their own types in the same place.</p>
+            <p>Pattern matching works on this field too, so you can use values like <code>single/long_press</code> to match more than one interaction type at once.</p>
+            <p>Output variables are added dynamically based on the selected <span class="param icon icon-text">Scene Name</span> and <span class="param icon icon-text">Element ID</span>: each component on the scene that produces a value contributes its own variable, and swipe interactions add extra variables describing the gesture (start/end positions, direction, distance, etc.). The full list is shown in the event's configuration screen.</p>
+
+            <footer>
+                <h2>See also:</h2>
+                <ul>
+                    <li>Check <a href="../scenes_v2.html">Scenes V2 (Screen Builder) Manual</a> for full details on how Scenes V2 work.</li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

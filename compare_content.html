@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Content (Offline JS)</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: #333;
+    background-color: #fff;
+}
+
+.container {
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 1400px;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Toolbar */
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 15px;
+    padding: 12px 20px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.toolbar .nav-btn {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 7px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #1a73e8;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.toolbar .nav-btn:hover {
+    background: #e8f0fe;
+    border-color: #1a73e8;
+}
+
+.toolbar .nav-btn.active {
+    background: #1a73e8;
+    color: #fff;
+    border-color: #1a73e8;
+}
+
+.toolbar .nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f0f0f0;
+    border-color: #ddd;
+    color: #888;
+}
+
+/* Folder Selection Card */
+.folder-selection-card {
+    background: #fbfdff;
+    border: 2px dashed #90caf9;
+    border-radius: 10px;
+    padding: 30px 20px;
+    margin: 20px auto;
+    max-width: 850px;
+    text-align: center;
+    box-sizing: border-box;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.folder-selection-card.dragover {
+    background: #e3f2fd;
+    border-color: #1976d2;
+}
+
+.folder-selection-card h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #1565c0;
+    font-size: 1.5rem;
+}
+
+.folder-selection-card .subtitle {
+    margin: 0 0 25px;
+    color: #666;
+    font-size: 14px;
+}
+
+.folder-pickers {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.folder-picker-box {
+    background: #fff;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    padding: 24px 20px;
+    width: 320px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.folder-picker-box .folder-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.folder-picker-box .folder-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.btn-select-folder {
+    display: inline-block;
+    background: #1a73e8;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background 0.15s, box-shadow 0.15s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.btn-select-folder:hover {
+    background: #1557b0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.btn-select-folder input[type="file"] {
+    display: none;
+}
+
+.folder-status {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #666;
+    word-break: break-all;
+    min-height: 18px;
+}
+
+.folder-status.loaded {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.selection-summary {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 15px;
+    min-height: 22px;
+}
+
+.selection-summary.success {
+    color: #2e7d32;
+}
+
+.selection-summary.info {
+    color: #1565c0;
+}
+
+/* File selector */
+.file-list {
+    margin-bottom: 1rem;
+}
+
+.file-selector {
+    margin: 10px 0;
+}
+
+#fileFilter {
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+#fileSelect {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+#fileSelect option {
+    padding: 5px 8px;
+}
+
+#fileSelect option:hover {
+    background-color: #f0f0f0;
+}
+
+#fileSelect option[disabled] {
+    color: #666;
+    font-weight: bold;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+/* Comparison table */
+table.diff {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    table-layout: fixed;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+}
+
+.diff th,
+.diff td {
+    border: 1px solid #ddd;
+    padding: 6px 8px;
+    vertical-align: top;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.diff th {
+    background-color: #f7f7f7;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 8px;
+}
+
+.diff .line-num {
+    width: 40px;
+    text-align: right;
+    color: #888;
+    padding-right: 10px;
+    user-select: none;
+    background-color: #f7f7f7;
+}
+
+.diff tr:hover td {
+    background-color: #f5f5f5;
+}
+
+.diff td.content.added {
+    background-color: #e6ffed;
+}
+
+.diff td.content.deleted {
+    background-color: #ffeef0;
+}
+
+.diff td.line-num.added {
+    background-color: #d6f5e0;
+}
+
+.diff td.line-num.deleted {
+    background-color: #ffdce0;
+}
+
+.diff .empty-cell {
+    background-color: #fafafa;
+}
+
+.diff .char-added {
+    background-color: #a6f3a6;
+    font-weight: bold;
+}
+
+.diff .char-deleted {
+    background-color: #f8c4c4;
+    text-decoration: line-through;
+}
+
+.diff td.content.modified_orange,
+.diff td.line-num.modified_orange {
+    background-color: #FFE4B5;
+}
+
+.diff td.line-num.modified_orange {
+    background-color: #FFDAB9;
+}
+
+/* File info header */
+.file-info-header {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 12px 18px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.file-info-header h2 {
+    margin: 0;
+    font-size: 1.15rem;
+    color: #333;
+    word-break: break-all;
+}
+
+.file-info-header .stats-pill {
+    font-size: 13px;
+    display: flex;
+    gap: 12px;
+}
+
+.stats-pill span {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.stats-added { background: #d6f5e0; color: #155724; }
+.stats-deleted { background: #ffdce0; color: #721c24; }
+.stats-modified { background: #ffe4b5; color: #856404; }
+
+.status-identical {
+    text-align: center;
+    color: #155724;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e6ffed;
+    border: 1px solid #b8e6bf;
+    border-radius: 4px;
+}
+
+.status-missing {
+    text-align: center;
+    color: #856404;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 4px;
+}
+
+.no-diff {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e6ffed;
+    border: 1px solid #b8e6bf;
+    border-radius: 4px;
+}
+
+/* Batch report */
+.report h2 {
+    margin: 2rem 0 0;
+    font-size: 1.1rem;
+    word-break: break-all;
+}
+
+.report-meta {
+    text-align: center;
+}
+
+table.summary {
+    border-collapse: collapse;
+    margin: 1rem auto;
+}
+
+table.summary th,
+table.summary td {
+    border: 1px solid #ddd;
+    padding: 6px 14px;
+    text-align: left;
+}
+
+table.summary td + td {
+    text-align: right;
+}
+
+.report details {
+    margin: 1rem 0;
+}
+
+.file-section {
+    margin-top: 2rem;
+}
+
+.back-to-top {
+    display: inline-block;
+    margin-top: 10px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+
+<div class="toolbar" id="top">
+    <button type="button" class="nav-btn active" id="btnSingleView" onclick="switchView('single')">Single File</button>
+    <button type="button" class="nav-btn" id="btnAllView" onclick="switchView('all')">All Files on One Page</button>
+    <button type="button" class="nav-btn" id="btnToggleFolders" onclick="toggleFolderCard()">📁 Change Folders</button>
+    <button type="button" class="nav-btn" id="btnDownloadReport" onclick="exportStaticReport()">💾 Download HTML Report</button>
+</div>
+
+<div class="container">
+
+    <!-- Card with the TWO folder selection inputs -->
+    <div class="folder-selection-card" id="folderCard">
+        <h2>Select Folders to Compare</h2>
+        <p class="subtitle">Choose the old files folder and the new files folder from your computer. Everything is processed locally in your browser.</p>
+
+        <div class="folder-pickers">
+            <div class="folder-picker-box" id="oldPickerBox">
+                <div class="folder-icon">📂</div>
+                <div class="folder-title">Old Folder</div>
+                <label class="btn-select-folder">
+                    Select Old Folder
+                    <input type="file" id="inputOldFolder" webkitdirectory directory multiple onchange="onOldFolderSelected(event)">
+                </label>
+                <div class="folder-status" id="oldFolderStatus">No folder selected</div>
+            </div>
+
+            <div class="folder-picker-box" id="newPickerBox">
+                <div class="folder-icon">📂</div>
+                <div class="folder-title">New Folder</div>
+                <label class="btn-select-folder">
+                    Select New Folder
+                    <input type="file" id="inputNewFolder" webkitdirectory directory multiple onchange="onNewFolderSelected(event)">
+                </label>
+                <div class="folder-status" id="newFolderStatus">No folder selected</div>
+            </div>
+        </div>
+
+        <div class="selection-summary info" id="selectionSummary">
+            Please select both folders to start the comparison.
+        </div>
+    </div>
+
+    <!-- Single file view -->
+    <div id="singleFileView">
+        <div class="file-list">
+            <h2>Available files:</h2>
+            <div class="file-selector">
+                <input type="text" id="fileFilter" placeholder="Filter files (e.g. calendar, scene)..." oninput="filterFiles()" onkeydown="handleFilterInputKeyDown(event)">
+                <select id="fileSelect" size="10" onkeydown="handleSelectKeyDown(event)" onclick="handleSelectClick()" onchange="onSelectChange()">
+                    <option value="">-- No files loaded yet --</option>
+                </select>
+            </div>
+        </div>
+        <div id="singleContentArea">
+            <h2 style="color: #666; text-align: center; margin-top: 40px;" id="emptyNotice">
+                Please select both the old and new folders above to view comparison.
+            </h2>
+        </div>
+    </div>
+
+    <!-- Batch report view -->
+    <div id="allFilesView" style="display: none;">
+        <div id="allContentArea"></div>
+    </div>
+
+</div>
+
+<script>
+// State
+let oldFilesMap = new Map(); // basename -> File
+let newFilesMap = new Map(); // basename -> File
+let oldFolderName = '';
+let newFolderName = '';
+
+let COMPARISON_ITEMS = []; // List of compared file pairs
+let computedResults = new Map(); // key -> diff result
+let currentView = 'single';
+let currentSelectedKey = '';
+
+// ==========================================
+// TEXT EXTRACTION AND DIFF ENGINE
+// ==========================================
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;')
+              .replace(/"/g, '&quot;')
+              .replace(/'/g, '&#039;');
+}
+
+function normalizeTextLines(text) {
+    if (!text) return '';
+    text = text.replace(/\u00A0/g, ' ');
+    const lines = text.split(/\r?\n/);
+    const cleaned = [];
+    for (const rawLine of lines) {
+        const line = rawLine.replace(/\s+/g, ' ').trim();
+        if (line !== '') {
+            cleaned.push(line);
+        }
+    }
+    return cleaned.join('\n');
+}
+
+/**
+ * Extracts and cleans textual body content from HTML using browser DOMParser
+ */
+function extractBodyTextFromHtml(htmlContent) {
+    if (!htmlContent || !htmlContent.trim()) return '';
+    try {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlContent, 'text/html');
+        if (!doc || !doc.body) return '';
+
+        const blockElements = new Set([
+            'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'ul', 'ol', 'li',
+            'hr', 'table', 'tr', 'th', 'td', 'br', 'header', 'footer', 'main', 'section',
+            'article', 'aside', 'nav', 'blockquote', 'pre', 'form', 'fieldset',
+            'dl', 'dt', 'dd'
+        ]);
+        const skippedElements = new Set(['script', 'style', 'noscript', 'template', 'head', 'title']);
+
+        let buffer = '';
+
+        function walk(node) {
+            if (node.nodeType === Node.TEXT_NODE || node.nodeType === Node.CDATA_SECTION_NODE) {
+                buffer += (node.textContent || '').replace(/\u00A0/g, ' ').replace(/\s+/g, ' ');
+                return;
+            }
+            if (node.nodeType === Node.ELEMENT_NODE) {
+                const tag = node.nodeName.toLowerCase();
+                if (skippedElements.has(tag)) return;
+                const isBlock = blockElements.has(tag);
+                if (isBlock) buffer += '\n';
+                for (let i = 0; i < node.childNodes.length; i++) {
+                    walk(node.childNodes[i]);
+                }
+                if (isBlock) buffer += '\n';
+            }
+        }
+
+        walk(doc.body);
+        return normalizeTextLines(buffer);
+    } catch (e) {
+        console.error('HTML parse error:', e);
+        return normalizeTextLines(htmlContent.replace(/<[^>]+>/g, ' '));
+    }
+}
+
+function computeDiffOps(oldLines, newLines) {
+    const n = oldLines.length;
+    const m = newLines.length;
+
+    let prefix = 0;
+    while (prefix < n && prefix < m && oldLines[prefix] === newLines[prefix]) {
+        prefix++;
+    }
+    let suffix = 0;
+    while (suffix < n - prefix && suffix < m - prefix &&
+           oldLines[n - 1 - suffix] === newLines[m - 1 - suffix]) {
+        suffix++;
+    }
+
+    const ops = [];
+    for (let i = 0; i < prefix; i++) {
+        ops.push({ type: 'equal', old_line: oldLines[i], new_line: newLines[i] });
+    }
+
+    const middleOld = oldLines.slice(prefix, n - suffix);
+    const middleNew = newLines.slice(prefix, m - suffix);
+    const middle = computeLcsOps(middleOld, middleNew);
+    for (const op of middle) {
+        ops.push(op);
+    }
+
+    for (let i = suffix; i > 0; i--) {
+        ops.push({ type: 'equal', old_line: oldLines[n - i], new_line: newLines[m - i] });
+    }
+    return ops;
+}
+
+function computeLcsOps(oldLines, newLines) {
+    const n = oldLines.length;
+    const m = newLines.length;
+
+    if (n === 0 || m === 0 || n * m > 2000000) {
+        const ops = [];
+        for (const line of oldLines) {
+            ops.push({ type: 'deleted', old_line: line, new_line: null });
+        }
+        for (const line of newLines) {
+            ops.push({ type: 'added', old_line: null, new_line: line });
+        }
+        return ops;
+    }
+
+    const dp = Array.from({ length: n + 1 }, () => new Int32Array(m + 1));
+    for (let i = 1; i <= n; i++) {
+        const row = dp[i];
+        const prevRow = dp[i - 1];
+        const oldVal = oldLines[i - 1];
+        for (let j = 1; j <= m; j++) {
+            if (oldVal === newLines[j - 1]) {
+                row[j] = prevRow[j - 1] + 1;
+            } else {
+                row[j] = Math.max(prevRow[j], row[j - 1]);
+            }
+        }
+    }
+
+    const diffOpsReversed = [];
+    let i = n, j = m;
+    while (i > 0 || j > 0) {
+        if (i > 0 && j > 0 && oldLines[i - 1] === newLines[j - 1]) {
+            diffOpsReversed.push({ type: 'equal', old_line: oldLines[i - 1], new_line: newLines[j - 1] });
+            i--; j--;
+        } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
+            diffOpsReversed.push({ type: 'added', old_line: null, new_line: newLines[j - 1] });
+            j--;
+        } else {
+            diffOpsReversed.push({ type: 'deleted', old_line: oldLines[i - 1], new_line: null });
+            i--;
+        }
+    }
+    return diffOpsReversed.reverse();
+}
+
+function tokenizeLine(line) {
+    if (!line) return [];
+    const tokens = line.split(/(\s+|[^\p{L}\p{N}_\s])/u).filter(Boolean);
+    return tokens.length > 0 ? tokens : [line];
+}
+
+function lcsLength(a, b) {
+    const lb = b.length;
+    let prev = new Int32Array(lb + 1);
+    for (let i = 0; i < a.length; i++) {
+        const x = a[i];
+        const cur = new Int32Array(lb + 1);
+        for (let j = 0; j < lb; j++) {
+            cur[j + 1] = (x === b[j]) ? (prev[j] + 1) : Math.max(prev[j + 1], cur[j]);
+        }
+        prev = cur;
+    }
+    return prev[lb];
+}
+
+function renderWordDiff(oldLine, newLine) {
+    let oldHtml = '';
+    let newHtml = '';
+    const ops = computeDiffOps(tokenizeLine(oldLine), tokenizeLine(newLine));
+    for (const op of ops) {
+        if (op.type === 'equal') {
+            const text = escapeHtml(op.old_line);
+            oldHtml += text;
+            newHtml += text;
+        } else if (op.type === 'deleted') {
+            oldHtml += '<span class="char-deleted">' + escapeHtml(op.old_line) + '</span>';
+        } else {
+            newHtml += '<span class="char-added">' + escapeHtml(op.new_line) + '</span>';
+        }
+    }
+    return [oldHtml, newHtml];
+}
+
+function pairHunk(dels, adds, threshold = 0.5) {
+    const nd = dels.length;
+    const na = adds.length;
+
+    if (nd === 0 || na === 0 || nd * na > 2500) {
+        const rows = [];
+        for (const line of dels) rows.push({ type: 'deleted', old: line });
+        for (const line of adds) rows.push({ type: 'added', new: line });
+        return rows;
+    }
+
+    const splitWords = (line) => line.trim().split(/\s+/).filter(Boolean);
+    const wordsOld = dels.map(splitWords);
+    const wordsNew = adds.map(splitWords);
+
+    const sim = Array.from({ length: nd }, () => new Float64Array(na));
+    for (let i = 0; i < nd; i++) {
+        for (let j = 0; j < na; j++) {
+            const total = wordsOld[i].length + wordsNew[j].length;
+            sim[i][j] = total === 0 ? 0.0 : (2 * lcsLength(wordsOld[i], wordsNew[j])) / total;
+        }
+    }
+
+    const score = Array.from({ length: nd + 1 }, () => new Float64Array(na + 1));
+    for (let i = 1; i <= nd; i++) {
+        for (let j = 1; j <= na; j++) {
+            let best = Math.max(score[i - 1][j], score[i][j - 1]);
+            if (sim[i - 1][j - 1] >= threshold) {
+                best = Math.max(best, score[i - 1][j - 1] + sim[i - 1][j - 1]);
+            }
+            score[i][j] = best;
+        }
+    }
+
+    const rowsReversed = [];
+    let i = nd, j = na;
+    while (i > 0 || j > 0) {
+        if (i > 0 && j > 0 && sim[i - 1][j - 1] >= threshold &&
+            Math.abs(score[i][j] - (score[i - 1][j - 1] + sim[i - 1][j - 1])) < 1e-9) {
+            rowsReversed.push({ type: 'modified', old: dels[i - 1], new: adds[j - 1] });
+            i--; j--;
+        } else if (j > 0 && (i === 0 || score[i][j] === score[i][j - 1])) {
+            rowsReversed.push({ type: 'added', new: adds[j - 1] });
+            j--;
+        } else {
+            rowsReversed.push({ type: 'deleted', old: dels[i - 1] });
+            i--;
+        }
+    }
+    return rowsReversed.reverse();
+}
+
+function buildDiffRows(oldLines, newLines) {
+    const rows = [];
+    let oldNo = 0;
+    let newNo = 0;
+    let dels = [];
+    let adds = [];
+
+    const flush = () => {
+        for (const pair of pairHunk(dels, adds)) {
+            if (pair.type === 'modified') {
+                const [oldHtml, newHtml] = renderWordDiff(pair.old, pair.new);
+                rows.push({
+                    type: 'modified',
+                    old_no: ++oldNo,
+                    new_no: ++newNo,
+                    old_html: oldHtml,
+                    new_html: newHtml
+                });
+            } else if (pair.type === 'deleted') {
+                rows.push({
+                    type: 'deleted',
+                    old_no: ++oldNo,
+                    new_no: null,
+                    old_html: escapeHtml(pair.old),
+                    new_html: ''
+                });
+            } else {
+                rows.push({
+                    type: 'added',
+                    old_no: null,
+                    new_no: ++newNo,
+                    old_html: '',
+                    new_html: escapeHtml(pair.new)
+                });
+            }
+        }
+        dels = [];
+        adds = [];
+    };
+
+    for (const op of computeDiffOps(oldLines, newLines)) {
+        if (op.type === 'deleted') {
+            dels.push(op.old_line);
+        } else if (op.type === 'added') {
+            adds.push(op.new_line);
+        } else {
+            flush();
+            const text = escapeHtml(op.old_line);
+            rows.push({
+                type: 'equal',
+                old_no: ++oldNo,
+                new_no: ++newNo,
+                old_html: text,
+                new_html: text
+            });
+        }
+    }
+    flush();
+    return rows;
+}
+
+function countRowTypes(rows) {
+    const stats = { added: 0, deleted: 0, modified: 0 };
+    for (const row of rows) {
+        if (stats[row.type] !== undefined) {
+            stats[row.type]++;
+        }
+    }
+    return stats;
+}
+
+function renderDiffTable(rows) {
+    const cssClass = { equal: '', added: 'added', deleted: 'deleted', modified: 'modified_orange' };
+    let html = '<table class="diff"><colgroup><col style="width: 40px;"><col style="width: calc(50% - 40px);">'
+             + '<col style="width: 40px;"><col style="width: calc(50% - 40px);"></colgroup>'
+             + '<thead><tr><th colspan="2">Old file</th><th colspan="2">New file</th></tr></thead><tbody>';
+
+    for (const row of rows) {
+        const type = row.type;
+        const cls = cssClass[type] || '';
+        const oldClass = type === 'added' ? 'empty-cell' : cls;
+        const newClass = type === 'deleted' ? 'empty-cell' : cls;
+
+        html += '<tr>'
+            + '<td class="line-num ' + oldClass + '">' + (row.old_no ?? '&nbsp;') + '</td>'
+            + '<td class="content ' + oldClass + '">' + (row.old_html !== '' ? row.old_html : '&nbsp;') + '</td>'
+            + '<td class="line-num ' + newClass + '">' + (row.new_no ?? '&nbsp;') + '</td>'
+            + '<td class="content ' + newClass + '">' + (row.new_html !== '' ? row.new_html : '&nbsp;') + '</td>'
+            + '</tr>';
+    }
+    return html + '</tbody></table>';
+}
+
+function compareTexts(oldText, newText) {
+    const normOld = normalizeTextLines(oldText);
+    const normNew = normalizeTextLines(newText);
+
+    if (normOld === normNew) {
+        return {
+            identical: true,
+            empty: normOld === '',
+            stats: { added: 0, deleted: 0, modified: 0 },
+            table: ''
+        };
+    }
+
+    const oldLines = normOld === '' ? [] : normOld.split('\n');
+    const newLines = normNew === '' ? [] : normNew.split('\n');
+    const rows = buildDiffRows(oldLines, newLines);
+
+    return {
+        identical: false,
+        empty: false,
+        stats: countRowTypes(rows),
+        table: renderDiffTable(rows)
+    };
+}
+
+function getOrComputeResult(item) {
+    if (computedResults.has(item.key)) {
+        return computedResults.get(item.key);
+    }
+    if (!item.old_exists || !item.new_exists) {
+        const res = { missing: true, stats: { added: 0, deleted: 0, modified: 0 } };
+        computedResults.set(item.key, res);
+        return res;
+    }
+    const res = compareTexts(item.old_text, item.new_text);
+    computedResults.set(item.key, res);
+    return res;
+}
+
+// ==========================================
+// FOLDER SELECTION AND FILE MATCHING
+// ==========================================
+
+function toggleFolderCard() {
+    const card = document.getElementById('folderCard');
+    card.style.display = card.style.display === 'none' ? 'block' : 'none';
+}
+
+async function onOldFolderSelected(event) {
+    const files = Array.from(event.target.files).filter(f => f.name.toLowerCase().endsWith('.html'));
+    oldFilesMap.clear();
+
+    if (files.length > 0) {
+        const firstRel = files[0].webkitRelativePath || '';
+        oldFolderName = firstRel.split('/')[0] || 'Selected Folder';
+        for (const f of files) {
+            oldFilesMap.set(f.name, f);
+        }
+        document.getElementById('oldFolderStatus').textContent = `${oldFolderName} (${files.length} HTML files)`;
+        document.getElementById('oldFolderStatus').classList.add('loaded');
+    } else {
+        document.getElementById('oldFolderStatus').textContent = 'No .html files found in selected folder';
+        document.getElementById('oldFolderStatus').classList.remove('loaded');
+    }
+
+    checkAndRunComparison();
+}
+
+async function onNewFolderSelected(event) {
+    const files = Array.from(event.target.files).filter(f => f.name.toLowerCase().endsWith('.html'));
+    newFilesMap.clear();
+
+    if (files.length > 0) {
+        const firstRel = files[0].webkitRelativePath || '';
+        newFolderName = firstRel.split('/')[0] || 'Selected Folder';
+        for (const f of files) {
+            newFilesMap.set(f.name, f);
+        }
+        document.getElementById('newFolderStatus').textContent = `${newFolderName} (${files.length} HTML files)`;
+        document.getElementById('newFolderStatus').classList.add('loaded');
+    } else {
+        document.getElementById('newFolderStatus').textContent = 'No .html files found in selected folder';
+        document.getElementById('newFolderStatus').classList.remove('loaded');
+    }
+
+    checkAndRunComparison();
+}
+
+async function checkAndRunComparison() {
+    const summary = document.getElementById('selectionSummary');
+
+    if (oldFilesMap.size === 0 && newFilesMap.size === 0) {
+        summary.className = 'selection-summary info';
+        summary.textContent = 'Please select both folders to start the comparison.';
+        return;
+    }
+
+    if (oldFilesMap.size === 0) {
+        summary.className = 'selection-summary info';
+        summary.textContent = `New folder loaded (${newFilesMap.size} files). Please select the old folder.`;
+        return;
+    }
+
+    if (newFilesMap.size === 0) {
+        summary.className = 'selection-summary info';
+        summary.textContent = `Old folder loaded (${oldFilesMap.size} files). Please select the new folder.`;
+        return;
+    }
+
+    summary.className = 'selection-summary info';
+    summary.textContent = 'Processing and comparing files...';
+
+    // Collect all unique basenames
+    const allBasenames = new Set([...oldFilesMap.keys(), ...newFilesMap.keys()]);
+    const sortedBasenames = Array.from(allBasenames).sort();
+
+    const items = [];
+
+    for (const name of sortedBasenames) {
+        const oldFile = oldFilesMap.get(name);
+        const newFile = newFilesMap.get(name);
+
+        let oldText = '';
+        if (oldFile) {
+            const raw = await oldFile.text();
+            oldText = extractBodyTextFromHtml(raw);
+        }
+
+        let newText = '';
+        if (newFile) {
+            const raw = await newFile.text();
+            newText = extractBodyTextFromHtml(raw);
+        }
+
+        items.push({
+            key: name,
+            old_name: oldFile ? (oldFile.webkitRelativePath || `${oldFolderName}/${name}`) : `[Missing in old: ${name}]`,
+            new_name: newFile ? (newFile.webkitRelativePath || `${newFolderName}/${name}`) : `[Missing in new: ${name}]`,
+            old_exists: !!oldFile,
+            new_exists: !!newFile,
+            old_text: oldText,
+            new_text: newText
+        });
+    }
+
+    COMPARISON_ITEMS = items;
+    computedResults.clear();
+
+    // Populate dropdown options
+    populateSelectOptions();
+
+    // Summary calculation
+    let changed = 0, identical = 0, missing = 0;
+    for (const item of COMPARISON_ITEMS) {
+        const res = getOrComputeResult(item);
+        if (res.missing) missing++;
+        else if (res.identical) identical++;
+        else changed++;
+    }
+
+    summary.className = 'selection-summary success';
+    summary.textContent = `Comparison ready: ${COMPARISON_ITEMS.length} file pairs (${changed} changed, ${identical} identical, ${missing} missing).`;
+
+    // Render current view
+    if (currentView === 'all') {
+        renderAllReportView();
+    } else {
+        // Automatically select first changed file or first file
+        const firstChanged = COMPARISON_ITEMS.find(it => {
+            const r = getOrComputeResult(it);
+            return !r.identical && !r.missing;
+        });
+        const initialKey = firstChanged ? firstChanged.key : (COMPARISON_ITEMS[0] ? COMPARISON_ITEMS[0].key : '');
+        if (initialKey) {
+            selectFileByKey(initialKey);
+        }
+    }
+}
+
+// Drag & drop support for dropping two folders or project folder
+const dropArea = document.getElementById('folderCard');
+['dragenter', 'dragover'].forEach(name => {
+    window.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropArea.classList.add('dragover');
+    });
+});
+['dragleave', 'drop'].forEach(name => {
+    window.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropArea.classList.remove('dragover');
+    });
+});
+window.addEventListener('drop', async (e) => {
+    e.preventDefault();
+    const items = e.dataTransfer.items;
+    if (!items || items.length === 0) return;
+
+    // Check dropped entries
+    const entries = [];
+    for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        if (item.webkitGetAsEntry) {
+            const entry = item.webkitGetAsEntry();
+            if (entry && entry.isDirectory) entries.push(entry);
+        }
+    }
+
+    async function getHtmlFiles(dirEntry) {
+        const files = [];
+        const reader = dirEntry.createReader();
+        const readEntries = () => new Promise(res => reader.readEntries(res));
+        let batch = await readEntries();
+        while (batch.length > 0) {
+            for (const child of batch) {
+                if (child.isFile && child.name.toLowerCase().endsWith('.html')) {
+                    const f = await new Promise(r => child.file(r));
+                    files.push(f);
+                } else if (child.isDirectory) {
+                    const sub = await getHtmlFiles(child);
+                    files.push(...sub);
+                }
+            }
+            batch = await readEntries();
+        }
+        return files;
+    }
+
+    if (entries.length >= 2) {
+        // First folder -> old, Second folder -> new
+        const oldFiles = await getHtmlFiles(entries[0]);
+        const newFiles = await getHtmlFiles(entries[1]);
+        oldFolderName = entries[0].name;
+        newFolderName = entries[1].name;
+
+        oldFilesMap.clear();
+        for (const f of oldFiles) oldFilesMap.set(f.name, f);
+        document.getElementById('oldFolderStatus').textContent = `${oldFolderName} (${oldFiles.length} HTML files)`;
+        document.getElementById('oldFolderStatus').classList.add('loaded');
+
+        newFilesMap.clear();
+        for (const f of newFiles) newFilesMap.set(f.name, f);
+        document.getElementById('newFolderStatus').textContent = `${newFolderName} (${newFiles.length} HTML files)`;
+        document.getElementById('newFolderStatus').classList.add('loaded');
+
+        await checkAndRunComparison();
+    } else if (entries.length === 1) {
+        // Single parent folder containing subfolders
+        const subReader = entries[0].createReader();
+        const subEntries = await new Promise(r => subReader.readEntries(r));
+        const subDirs = subEntries.filter(e => e.isDirectory);
+
+        // Try to identify old / new or material_you
+        let oldDir = subDirs.find(d => /old|backup/i.test(d.name));
+        let newDir = subDirs.find(d => /new|material_you/i.test(d.name));
+
+        if (!oldDir && subDirs.length >= 2) oldDir = subDirs[0];
+        if (!newDir && subDirs.length >= 2) newDir = subDirs[1];
+
+        if (oldDir && newDir) {
+            const oldFiles = await getHtmlFiles(oldDir);
+            const newFiles = await getHtmlFiles(newDir);
+            oldFolderName = oldDir.name;
+            newFolderName = newDir.name;
+
+            oldFilesMap.clear();
+            for (const f of oldFiles) oldFilesMap.set(f.name, f);
+            document.getElementById('oldFolderStatus').textContent = `${oldFolderName} (${oldFiles.length} HTML files)`;
+            document.getElementById('oldFolderStatus').classList.add('loaded');
+
+            newFilesMap.clear();
+            for (const f of newFiles) newFilesMap.set(f.name, f);
+            document.getElementById('newFolderStatus').textContent = `${newFolderName} (${newFiles.length} HTML files)`;
+            document.getElementById('newFolderStatus').classList.add('loaded');
+
+            await checkAndRunComparison();
+        } else {
+            // Assign as old folder
+            const files = await getHtmlFiles(entries[0]);
+            oldFolderName = entries[0].name;
+            oldFilesMap.clear();
+            for (const f of files) oldFilesMap.set(f.name, f);
+            document.getElementById('oldFolderStatus').textContent = `${oldFolderName} (${files.length} HTML files)`;
+            document.getElementById('oldFolderStatus').classList.add('loaded');
+            await checkAndRunComparison();
+        }
+    }
+});
+
+// ==========================================
+// USER INTERFACE AND VIEWS
+// ==========================================
+
+function populateSelectOptions() {
+    const select = document.getElementById('fileSelect');
+    if (!select) return;
+
+    if (COMPARISON_ITEMS.length === 0) {
+        select.innerHTML = '<option value="">-- No files loaded yet --</option>';
+        return;
+    }
+
+    select.innerHTML = '<option value="">-- Select file --</option>';
+
+    for (const item of COMPARISON_ITEMS) {
+        const res = getOrComputeResult(item);
+        let statusBadge = '';
+        if (!item.old_exists) {
+            statusBadge = ' [Missing in Old]';
+        } else if (!item.new_exists) {
+            statusBadge = ' [Missing in New]';
+        } else if (res.identical) {
+            statusBadge = ' [Identical]';
+        } else {
+            statusBadge = ` (+${res.stats.added} -${res.stats.deleted} ~${res.stats.modified})`;
+        }
+
+        const opt = document.createElement('option');
+        opt.value = item.key;
+        opt.textContent = item.key + statusBadge;
+        select.appendChild(opt);
+    }
+}
+
+function switchView(viewName) {
+    currentView = viewName;
+    const btnSingle = document.getElementById('btnSingleView');
+    const btnAll = document.getElementById('btnAllView');
+    const singleView = document.getElementById('singleFileView');
+    const allView = document.getElementById('allFilesView');
+
+    if (viewName === 'all') {
+        btnAll.classList.add('active');
+        btnSingle.classList.remove('active');
+        singleView.style.display = 'none';
+        allView.style.display = 'block';
+        window.location.hash = '#all';
+        renderAllReportView();
+    } else {
+        btnSingle.classList.add('active');
+        btnAll.classList.remove('active');
+        allView.style.display = 'none';
+        singleView.style.display = 'block';
+        if (currentSelectedKey) {
+            window.location.hash = '#' + currentSelectedKey;
+            renderSingleFile(currentSelectedKey);
+        } else {
+            window.location.hash = '';
+        }
+    }
+}
+
+function handleHashRouting() {
+    const hash = window.location.hash.replace(/^#/, '');
+    if (hash === 'all') {
+        switchView('all');
+    } else if (hash === 'top') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (hash.startsWith('file_')) {
+        if (currentView !== 'all') {
+            switchView('all');
+        }
+        setTimeout(() => {
+            const el = document.getElementById(hash);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+    } else if (hash) {
+        if (COMPARISON_ITEMS.some(it => it.key === hash)) {
+            switchView('single');
+            selectFileByKey(hash);
+        }
+    }
+}
+
+function selectFileByKey(key) {
+    currentSelectedKey = key;
+    const select = document.getElementById('fileSelect');
+    if (select) {
+        select.value = key;
+    }
+    renderSingleFile(key);
+}
+
+function renderSingleFile(key) {
+    const container = document.getElementById('singleContentArea');
+    const item = COMPARISON_ITEMS.find(f => f.key === key);
+
+    if (!item) {
+        container.innerHTML = '<h2 style="color: #666; text-align: center; margin-top: 40px;">Select a file from the list above to view the comparison.</h2>';
+        return;
+    }
+
+    if (!item.old_exists || !item.new_exists) {
+        container.innerHTML = '<div class="status-missing">Cannot compare: ' +
+            (!item.old_exists ? 'file is missing in old folder.' : 'file is missing in new folder.') +
+            '<br>(' + escapeHtml(item.old_exists ? item.old_name : item.new_name) + ')</div>';
+        return;
+    }
+
+    const res = getOrComputeResult(item);
+
+    let html = '<div class="file-info-header">'
+             + '<h2>' + escapeHtml(item.old_name) + ' &rarr; ' + escapeHtml(item.new_name) + '</h2>'
+             + '<div class="stats-pill">'
+             + '<span class="stats-added">Added: ' + res.stats.added + '</span>'
+             + '<span class="stats-deleted">Deleted: ' + res.stats.deleted + '</span>'
+             + '<span class="stats-modified">Modified: ' + res.stats.modified + '</span>'
+             + '</div></div>';
+
+    if (res.identical) {
+        html += '<div class="status-identical">' + (res.empty
+            ? 'Both files (or their body text content) are empty.'
+            : 'Textual content of both files is identical.') + '</div>';
+    } else {
+        html += res.table;
+    }
+
+    container.innerHTML = html;
+}
+
+function renderAllReportView() {
+    const container = document.getElementById('allContentArea');
+
+    if (COMPARISON_ITEMS.length === 0) {
+        container.innerHTML = '<div class="container report"><h1>Content Comparison Report</h1><p style="text-align:center; color:#666;">No folders selected yet. Please select the old and new folders above.</p></div>';
+        return;
+    }
+
+    const changed = [];
+    const identical = [];
+    const missing = [];
+
+    for (const item of COMPARISON_ITEMS) {
+        if (!item.old_exists || !item.new_exists) {
+            missing.push(item);
+            continue;
+        }
+        const res = getOrComputeResult(item);
+        if (res.identical) {
+            identical.push(item);
+        } else {
+            changed.push({ item, res });
+        }
+    }
+
+    const now = new Date();
+    const dateStr = now.getFullYear() + '-'
+        + String(now.getMonth() + 1).padStart(2, '0') + '-'
+        + String(now.getDate()).padStart(2, '0') + ' '
+        + String(now.getHours()).padStart(2, '0') + ':'
+        + String(now.getMinutes()).padStart(2, '0') + ':'
+        + String(now.getSeconds()).padStart(2, '0');
+
+    let html = '<div class="container report">'
+             + '<h1>Content Comparison Report</h1>'
+             + '<p class="report-meta">Generated in browser: ' + dateStr + ' &middot; file pairs: ' + COMPARISON_ITEMS.length
+             + ' &middot; changed: <strong>' + changed.length + '</strong>'
+             + ' &middot; identical: ' + identical.length
+             + ' &middot; missing: ' + missing.length + '</p>';
+
+    if (changed.length > 0) {
+        html += '<table class="summary"><thead><tr><th>File (old &rarr; new)</th><th>Added</th><th>Deleted</th><th>Modified</th></tr></thead><tbody>';
+        for (const { item, res } of changed) {
+            const anchorId = 'file_' + item.key.replace(/[^a-zA-Z0-9_]/g, '_');
+            html += '<tr><td><a href="#' + anchorId + '">' + escapeHtml(item.old_name) + ' &rarr; ' + escapeHtml(item.new_name) + '</a></td>'
+                 + '<td>' + res.stats.added + '</td><td>' + res.stats.deleted + '</td><td>' + res.stats.modified + '</td></tr>';
+        }
+        html += '</tbody></table>';
+    }
+
+    if (missing.length > 0) {
+        html += '<details><summary>Missing files (' + missing.length + ')</summary><ul>';
+        for (const item of missing) {
+            html += '<li>' + escapeHtml(item.old_exists ? item.old_name : item.new_name) +
+                    (!item.old_exists ? ' &mdash; missing in old folder' : ' &mdash; missing in new folder') + '</li>';
+        }
+        html += '</ul></details>';
+    }
+
+    if (identical.length > 0) {
+        html += '<details><summary>Identical files (' + identical.length + ')</summary><ul>';
+        for (const item of identical) {
+            html += '<li>' + escapeHtml(item.old_name) + '</li>';
+        }
+        html += '</ul></details>';
+    }
+
+    for (const { item, res } of changed) {
+        const anchorId = 'file_' + item.key.replace(/[^a-zA-Z0-9_]/g, '_');
+        html += '<section class="file-section" id="' + anchorId + '">'
+             + '<h2>' + escapeHtml(item.old_name) + ' &rarr; ' + escapeHtml(item.new_name) + '</h2>'
+             + res.table
+             + '<p><a href="#top" class="back-to-top">&uarr; Back to top</a></p>'
+             + '</section>';
+    }
+
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+// ==========================================
+// LIST AND FILTER INTERACTION
+// ==========================================
+
+function filterFiles() {
+    const input = document.getElementById("fileFilter");
+    const filter = (input ? input.value : '').toLowerCase();
+    const select = document.getElementById("fileSelect");
+    if (!select) return;
+
+    const options = select.getElementsByTagName("option");
+    for (let i = 0; i < options.length; i++) {
+        if (options[i].value === "") {
+            options[i].style.display = "";
+            continue;
+        }
+        const txtValue = options[i].text;
+        if (txtValue.toLowerCase().indexOf(filter) > -1) {
+            options[i].style.display = "";
+        } else {
+            options[i].style.display = "none";
+        }
+    }
+}
+
+function handleFilterInputKeyDown(event) {
+    const fileSelect = document.getElementById("fileSelect");
+    const fileFilterInput = document.getElementById("fileFilter");
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        const allOptions = Array.from(fileSelect.options);
+        const visibleEnabledOptions = allOptions.filter(
+            opt => opt.style.display !== "none" && !opt.disabled && opt.value !== ""
+        );
+
+        if (visibleEnabledOptions.length > 0) {
+            event.preventDefault();
+            fileSelect.focus();
+            let currentSelectedIndex = fileSelect.selectedIndex;
+            const currentSelectedOption = currentSelectedIndex !== -1 ? allOptions[currentSelectedIndex] : null;
+
+            let makeInitialOrAdjustSelection = false;
+            if (!currentSelectedOption || 
+                currentSelectedOption.style.display === "none" || 
+                currentSelectedOption.disabled || 
+                currentSelectedOption.value === "" ||
+                !visibleEnabledOptions.includes(currentSelectedOption) 
+            ) {
+                makeInitialOrAdjustSelection = true;
+            }
+
+            if (makeInitialOrAdjustSelection) {
+                if (event.key === "ArrowDown") {
+                    fileSelect.selectedIndex = allOptions.indexOf(visibleEnabledOptions[0]);
+                } else {
+                    fileSelect.selectedIndex = allOptions.indexOf(visibleEnabledOptions[visibleEnabledOptions.length - 1]);
+                }
+            }
+        }
+    } else if (event.key === "Enter") {
+        if (document.activeElement === fileFilterInput) {
+            event.preventDefault();
+            const selectedIdx = fileSelect.selectedIndex;
+            let optionToProcess = null;
+
+            if (selectedIdx > -1) {
+                const currentSelectedOption = fileSelect.options[selectedIdx];
+                if (currentSelectedOption.style.display !== "none" && 
+                    !currentSelectedOption.disabled && 
+                    currentSelectedOption.value !== "") {
+                    optionToProcess = currentSelectedOption;
+                }
+            }
+
+            if (optionToProcess) {
+                selectFile();
+            } else {
+                for (let i = 0; i < fileSelect.options.length; i++) {
+                    const opt = fileSelect.options[i];
+                    if (opt.style.display !== "none" && !opt.disabled && opt.value !== "") {
+                        fileSelect.value = opt.value;
+                        selectFile();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+
+function handleSelectKeyDown(event) {
+    const fileSelect = document.getElementById("fileSelect");
+    const fileFilterInput = document.getElementById("fileFilter");
+
+    if (event.key === "Enter") {
+        event.preventDefault();
+        selectFile();
+    } else if (event.key === "ArrowUp") {
+        const options = Array.from(fileSelect.options);
+        const firstVisible = options.find(opt => opt.style.display !== "none" && !opt.disabled && opt.value !== "");
+        if (firstVisible && options[fileSelect.selectedIndex] === firstVisible) {
+            event.preventDefault();
+            fileFilterInput.focus();
+        }
+    }
+}
+
+function handleSelectClick() {
+    selectFile();
+}
+
+function onSelectChange() {
+    selectFile();
+}
+
+function selectFile() {
+    const select = document.getElementById("fileSelect");
+    const selectedValue = select.value;
+    if (selectedValue) {
+        window.location.hash = '#' + selectedValue;
+        currentSelectedKey = selectedValue;
+        renderSingleFile(selectedValue);
+    }
+}
+
+// Export static standalone HTML report
+function exportStaticReport() {
+    if (COMPARISON_ITEMS.length === 0) {
+        alert('Please select both folders first before downloading the report.');
+        return;
+    }
+    renderAllReportView();
+    const content = document.getElementById('allContentArea').innerHTML;
+    const fullHtml = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Content Comparison Report</title><style>${document.querySelector('style').textContent}</style></head><body><div class="toolbar"><a href="#top" class="nav-btn">&uarr; Top</a></div>${content}</body></html>`;
+    
+    const blob = new Blob([fullHtml], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'compare_content_report_' + new Date().toISOString().slice(0, 10) + '.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('hashchange', handleHashRouting);
+    handleHashRouting();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Format JSON</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/actions">Actions</a></li>
+                        <li aria-current="page">Format JSON</li>
+                    </ol>
+                </nav>-->
+                <h1>Format JSON</h1>
+                <p class="description">Takes JSON text and outputs a reformatted version: either minified (compact, all on one line) or pretty-printed with the indentation you choose.</p>
+            </header>
+
+            <ul>
+                <li>Put the JSON you want to reformat in the <span class="param icon icon-text">JSON</span> field. It can be a literal value or a variable like <var>%myjson</var>.</li>
+                <li>Set <span class="param icon icon-list">Format</span> to <var>Minify</var> to strip all spacing and line breaks, or to <var>Pretty</var> to lay the JSON out over multiple indented lines. Tap the magnifying glass to pick.</li>
+                <li>When <span class="param icon icon-list">Format</span> is <var>Pretty</var>, an <span class="param icon icon-text">Indent</span> field appears. Enter the number of spaces to indent with (for example <code>2</code> or <code>4</code>), or write <code>Tab</code> to indent with tabs. The magnifying glass offers the common choices.</li>
+                <li>The result is placed in <var>%fj_formatted</var>.</li>
+                <li>Key order and value types from the input are preserved. The action fails if the input is not a valid JSON object or array.</li>
+            </ul>
+        </main>
+    </body>
+</html>

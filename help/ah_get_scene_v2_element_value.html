@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Get Scene v2 Values</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/actions">Actions</a></li>
+                        <li aria-current="page">Get Scene v2 Values</li>
+                    </ol>
+                </nav>-->
+                <h1>Get Scene v2 Values</h1>
+                <p class="description">Reads the values that a currently visible Scene V2 is outputting and stores them in local variables. </p>
+            </header>
+
+            <p>Every output variable that the scene's elements are configured to produce is returned, using the variable names you set up in the scene. </p>
+            <p><span class="param icon icon-text">Screen ID</span> is required and must match the Screen ID used when the scene was shown.</p>
+            <p>For example, a <i>TextInput</i> returns the text the user entered and a <i>Switch</i> returns its checked state. Elements with no output variable configured, such as a plain <i>Text</i> element, produce nothing.</p>
+            <p>If more than one element writes to the same variable name, that variable is returned as an array.</p>
+
+            <footer>
+                <h2>See also:</h2>
+                <ul>
+                    <li>Check <a href="../scenes_v2.html">Scenes V2 (Screen Builder) Manual</a> for full details on how Scenes V2 work.</li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

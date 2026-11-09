@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Update Scene V2 Overlay</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/actions">Actions</a></li>
+                    </ol>
+                </nav>-->
+                <h1>Update Scene V2 Overlay</h1>
+                <p class="description">Update the overlay configuration of a currently visible Scene V2 that was shown in <var>Overlay</var> mode.</p>
+            </header>
+
+            <p>This action lets you change the overlay's position, size, and blocking behavior after it has been shown.</p>
+            <p><span class="param icon icon-text">Screen ID</span> is required and must match the ID of the overlay scene you want to update.</p>
+            <p>Set <span class="param icon icon-text">X Position</span> and <span class="param icon icon-text">Y Position</span> to move the overlay to a new position on screen. Values can be:</p>
+            <ul>
+                <li>A positive number (e.g. <code>100</code>) — the overlay's left / top edge is placed that many <abbr title="Density-independent pixels">dp</abbr> from the left / top of the screen.</li>
+                <li>A negative number (e.g. <code>-20</code>) — the overlay's right / bottom edge is placed that many <abbr title="Density-independent pixels">dp</abbr> from the right / bottom of the screen.</li>
+                <li>A positive percentage (e.g. <code>50%</code>) — centers the overlay at that percentage from the left / top.</li>
+                <li>A negative percentage (e.g. <code>-50%</code>) — centers the overlay at that percentage from the right / bottom.</li>
+            </ul>
+            <p>Set <span class="param icon icon-text">Width</span> and <span class="param icon icon-text">Height</span> to resize the overlay. Values can be a number in <abbr title="Density-independent pixels">dp</abbr> (e.g. <code>200</code>) or a percentage of the screen size (e.g. <code>50%</code>).</p>
+            <p>Set <span class="param icon icon-boolean">Blocking Overlay</span> to control whether the overlay intercepts touch events or lets them pass through to the apps behind it.</p>
+            <p>Set <span class="param icon icon-text">Transition Duration (ms)</span> to animate the changes smoothly over the specified number of milliseconds (default is 400 ms). Set <span class="param icon icon-text">Transition Easing</span> to choose the animation curve.</p>
+            <p>Only the fields you fill in will be updated. Leave a field empty to keep its current value.</p>
+
+            <footer>
+                <h2>See also:</h2>
+                <ul>
+                    <li>Check <a href="../scenes_v2.html">Scenes V2 (Screen Builder) Manual</a> for full details on how Scenes V2 work.</li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

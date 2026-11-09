@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Assistant Action</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/events">Events</a></li>
+                        <li aria-current="page">Assistant Action</li>
+                    </ol>
+                </nav>-->
+                <h1>Assistant Action</h1>
+            </header>
+
+            <h2>Run Tasks Directly by Name</h2>
+            <p>By simply saying "<i>Ok Google, run <b>my task</b> in Tasker</i>" (where <i>my task</i> is any of your tasks' name) you'll be able to run any of your existing Tasks with your voice!</p>
+            <p>You can also say something like "<i>run <b>my task</b> with <b>something</b> and <b>other</b></i>" to set <var>%par1</var> to <code>something</code> and <var>%par2</var> to <code>other</code> when calling your tasks if you want.</p>
+            <p>Instead of run you can also use any of these words:</p>
+            <ul>
+                <li>start</li>
+                <li>do</li>
+                <li>set</li>
+                <li>send</li>
+            </ul>
+
+            <h2>Setup profiles with this Assistant Action event</h2>
+            <p>If you want more control over your voice commands you can setup profiles with the <b>Assistant Action</b> event and here you can filter you command any way you like using <a href="../matching.html">Tasker Pattern Matching</a>.</p>
+            <p>You can use this to receive variable inputs for example. You could have a command like "<i>run <b>turn off my bedroom lights</b> in <b>5 minutes</b> with Tasker</i>" and then parse that out and have Tasker wait <b>5 minutes</b> and after that <b>turn off your bedroom lights</b>.</p>
+  
+            <h2>English Only</h2>
+            <p>Assistant <b>App Actions</b> is a feature Google allows apps to have in US-English only for now (no other versions of English work). I'll add support for other languages as soon as <b>App Actions</b> allow it.</p>
+  
+            <h2>Command not being sent to Tasker?</h2>
+            <p>Unfortunately on some occasions Google gets it wrong and doesn't send the command to Tasker. Mostly in cases where a very similar and very commonly used command exists for the Google Assistant itself.</p>
+            <p>For example a command like "<i>run timer in Tasker</i>" might be interpreted by the assitant itself and create a timer there instead of running your task called <b>timer</b>.</p>
+            <p>In those cases you need to change the task name to something more unique or use the <a href="eh_assistant_action.html">Assistant Action event</a> with a custom command to trigger it.</p>
+        </main>
+    </body>
+</html>

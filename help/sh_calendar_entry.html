@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Calendar Entry</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/states">States</a></li>
+                        <li aria-current="page">Calendar Entry</li>
+                    </ol>
+                </nav>-->
+                <h1>Calendar Entry</h1>
+                <p class="description">An Android Calendar entry with the specified parameters is currently active.</p>
+            </header>
+
+            <p>Any unspecified parameters are ignored i.e. any calendar entry will be matched.</p>
+            <p>The <span class="param icon icon-text">Calendar</span> field is a pattern match, but the name of the calendar provider before the <code>:</code> (probably Google) is <strong>not</strong> e.g. <code>Google:*@test.com</code> is valid, <code>G*gle:one@test.com</code> is not.</p>
+
+            <section>
+                <h2>State Inputs</h2>
+                <h3 class="param icon icon-text">Start Early (Minutes)</h3>
+                <p>The amount of minutes to activate the state before the calendar event actually starts</p>
+                <hr />
+                <h3 class="param icon icon-text">End Later (Minutes)</h3>
+                <p>The amount of minutes to deactivate the state after the calendar event actually ends</p>
+            </section>
+
+            <footer>
+                <h2>See also</h2>
+                <ul>
+                    <li><a href="ah_test.html">Test</a> action</li>
+                    <li>variables <a href="../variables.html">%CALTITLE, %CALDESCR, %CALLOC</a></li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

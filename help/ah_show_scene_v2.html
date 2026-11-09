@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Show Scene V2</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/actions">Actions</a></li>
+                    </ol>
+                </nav>-->
+                <h1>Show Scene V2</h1>
+                <p class="description">Show a Scene V2 on screen. You can pick a previously created scene by name or provide raw JSON directly.</p>
+            </header>
+
+            <p>Scenes can be displayed in 3 modes: <var>Fullscreen</var> (takes over the whole screen), <var>Dialog</var> (centered window) or <var>Overlay</var> (floating window on top of other apps).</p>
+            <p>In <var>Overlay</var> mode you can configure the position (<span class="param icon icon-text">X Position</span>, <span class="param icon icon-text">Y Position</span>), size (<span class="param icon icon-text">Width</span>, <span class="param icon icon-text">Height</span>), whether it is blocking (<span class="param icon icon-boolean">Blocking Overlay)</span> (intercepts touches) or passthrough, and enter / exit animations.</p>
+            <p><span class="param icon icon-text">X Position</span> and <span class="param icon icon-text">Y Position</span> accept the following value formats:</p>
+            <ul>
+                <li>A positive number like <code>100</code> — the overlay's left / top edge is placed that many <abbr title="Density-independent pixels">dp</abbr> from the left/top of the screen. For example, an <span class="param icon icon-text">X Position</span> of <code>100</code> places the overlay's left edge 100 <abbr title="Density-independent pixels">dp</abbr> from the left of the screen.</li>
+                <li>A negative number like <code>-20</code> — the overlay's right / bottom edge is placed that many <abbr title="Density-independent pixels">dp</abbr> from the right / bottom of the screen. For example, an <span class="param icon icon-text">X Position</span> of <code>-20</code> places the overlay's right edge 20 <abbr title="Density-independent pixels">dp</abbr> from the right of the screen, and a <span class="param icon icon-text">Y Position</span> of <code>-0</code> places the overlay's bottom edge flush against the bottom.</li>
+                <li>A positive percentage like <code>50%</code> — centers the overlay at that percentage from the left / top. For example, an X of <code>50%</code> centers the overlay horizontally on screen.</li>
+                <li>A negative percentage like <code>-25%</code> — centers the overlay at that percentage from the right / bottom. For example, a Y of <code>-25%</code> centers the overlay vertically at 25% from the bottom of the screen.</li>
+            </ul>
+            <p><span class="param icon icon-text">Width</span> and <span class="param icon icon-text">Height</span> accept a number in <abbr title="Density-independent pixels">dp</abbr> (e.g. <code>200</code>) or a percentage of the screen size (e.g. <code>50%</code>).</p>
+            <p>If <span class="param icon icon-boolean">Continue Task Immediately</span> is disabled, the task will wait until the scene is dismissed before continuing. The scene's dismiss result will be returned in the output variables shown in the action's configuration.</p>
+            <p>Use <span class="param icon icon-text">Screen ID</span> to give the scene a custom identifier. This ID can then be used in other Scene V2 actions (<a href="ah_update_scene_v2.html">Update</a>, <a href="ah_dismiss_scene_v2.html">Dismiss</a>, etc.) to target this specific scene. If left empty, the scene's own name is used as the ID.</p>
+            <p>Use <span class="param icon icon-text">Auto Dismiss (ms)</span> to automatically dismiss the scene after a specified number of milliseconds.</p>
+            <p>Enable <span class="param icon icon-boolean">Show Over Everything</span> (requires the Tasker Accessibility Service) to show overlays on top of all apps, including the lock screen and status bar.</p>
+            <p>Enable <span class="param icon icon-boolean">Long Click Root To Dismiss</span> to be able to dismiss an overlay by long-clicking on the root element. This is useful as a safety net so overlays are never stuck on screen.</p>
+
+            <footer>
+                <h2>See also:</h2>
+                <ul>
+                    <li>Check <a href="../scenes_v2.html">Scenes V2 (Screen Builder) Manual</a> for full details on how Scenes V2 work.</li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

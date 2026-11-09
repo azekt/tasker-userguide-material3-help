@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Stop</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/actions">Actions</a></li>
+                        <li aria-current="page">Stop</li>
+                    </ol>
+                    </nav>-->
+                <h1>Stop</h1>
+                <p class="description">Stop execution of one or more tasks after any currently running action has finished.</p>
+            </header>
+
+            <p>If a <span class="param icon icon-text">Task</span> is specified, then <strong>all</strong> tasks with the same name currently executing are stopped.</p>
+            <p>If no <span class="param icon icon-text">Task</span> is specified, the current task is stopped (but <strong>not</strong> other tasks with the same name).</p>
+            <p>If <span class="param icon icon-boolean">With Error</span> is checked, the task(s) are marked as finished due to an error.</p>
+            <p><strong>Note:</strong> to stop a different task will often require that it has a lower priority than the task with the <i>Stop</i> action, since otherwise the <i>Stop</i> action will perhaps never be executed.</p>
+            <p>Currently running actions in a different task will not be interrupted by a <i>Stop</i> action, with the exception of <a href="ah_play_ringtone.html">Play Ringtone</a> and a non-root <a href="ah_run_shell.html">Run Shell</a>.</p>
+        </main>
+    </body>
+</html>

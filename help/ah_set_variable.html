@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Variable Set</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <!--<nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/actions">Actions</a></li>
+                        <li aria-current="page">Variable Set</li>
+                    </ol>
+                </nav>-->
+                <h1>Variable Set</h1>
+                <p class="description">Set the variable <span class="param icon icon-dynamic icon-text">Name</span> to the value <span class="param icon icon-boolean">To</span>.</p>
+            </header>
+
+            <p>Name can be any desired string, however it's advisable to make it a sequence that does not commonly occur in text otherwise it will match at unexpected times.</p>
+            <p>Names all in lower-case are <i>local</i> variables which are only visible in the current task.</p>
+            <p>If <span class="param icon icon-boolean">Recurse Variables</span> is checked, all variables mentioned in the <span class="param icon icon-text">To</span> parameter will be repeatedly replaced until there are no variable names left, otherwise only one round of variable replacement will take place.</p>
+            <p>If <span class="param icon icon-boolean">Append</span> is checked, <span class="param icon icon-text">To</span> is added to the existing value of the variable.</p>
+            <p>If <span class="param icon icon-boolean">Do&nbsp;Maths</span> is checked then at the time of assignment the value of <span class="param icon icon-text">To</span> will be evaluated as a mathematical expression.</p>
+            <p>Example:</p>
+            <div class="task-description">
+                <div class="action-description">
+                    <p><span class="icon icon-action-variable-set">Variable Set</span></p>
+                    <p><span class="param icon icon-text">Name</span><var>%FROG</var></p>
+                    <p><span class="param icon icon-text">To</span><var>%VOLC + 1</var></p>
+                    <p>
+                        <span class="param icon icon-boolean">Do Maths</span>
+                        <span class="checkbox"><img src="images/checkbox-marked.svg" alt="selected" /></span>
+                    </p>
+                </div>
+            </div>
+            <p>Assuming <var>%VOLC</var> is <code>8</code>, if <span class="param icon icon-boolean">Do Maths</span> is checked, <var>%FROG</var> will get the value <code>'9'</code>, otherwise it will get the value <code>'8&nbsp;+&nbsp;1'</code>.</p>
+            <p>If <span class="param icon icon-text">To</span> cannot be numerically evaluated (e.g. it is <code>'cat&nbsp;+&nbsp;3'</code>) then the current task will terminate.</p>
+
+            <footer>
+                <h2>See also</h2>
+                <ul>
+                    <li><a href="../variables.html">Variables</a> section in the Userguide.</li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>
