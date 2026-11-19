@@ -9,13 +9,14 @@ Material 3 (Material You) dynamic styling for Tasker help pages in WebView using
 ```text
 tasker-userguide-material3-help/
 ├── README.md
-├── compare_content.html        # Offline browser tool to compare text content between help folders
-└── help/                       # Styled help pages + stylesheet + assets
-    ├── styles.css              # Single stylesheet (Material 3 + fallbacks)
-    ├── images/                 # Lightweight vector icons (SVG)
-    ├── ah_set_variable.html    # Example action help page
-    ├── ah_show_scene_v2.html
-    └── ...
+├── compare_content.html    # Offline browser tool to compare text content between help folders (temporary development tool excluded from production)
+├── styles.css              # Single stylesheet (Material 3 + fallbacks)
+├── actions/                # Styled help pages for Tasker actions
+├── events/                 # Styled help pages for Tasker events
+├── states/                 # Styled help pages for Tasker states
+├── help/                   # Redirect pages to the categorized help pages
+├── images/                 # Lightweight vector icons (SVG)
+└── ...
 ```
 
 ---
