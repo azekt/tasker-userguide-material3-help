@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Read Line / Read Paragraph</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Read Line / Read Paragraph</h1>
+                <p class="description">Read a record (a line or paragraph) from a text file.</p>
+            </header>
+
+            <p><span class="param icon icon-text">Line</span> is the name of a variable containing the record number to read. If unspecified, the record after the previously read one <i>in that file</i> is read. A variable is used in place of a number here to permit e.g. reading a random record via the <a href="ah_set_variable_random.html">Variable Randomize</a> action.</p>
+            <p>If the end of the file was reached before the specified record number was found, it will contain the value <code>EOF</code>. The next line number then resets to 1.</p>
+            <p>Blank lines and any newline character at the end of a file are always ignored.</p>
+            <p>Don't try to read a non-text file with this, the results will probably be disastrous.</p>
+            <p>The action is not very efficient for reading all the records in a file, since it starts from the beginning each time.</p>
+        </main>
+    </body>
+</html>

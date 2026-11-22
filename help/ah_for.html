@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>For</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>For</h1>
+                <p class="description">Do a set of actions to process each of a set of values.</p>
+            </header>
+
+            <p>Values is a comma-separated list of items to iterate through</p>
+            <p>A <b>For</b> loop should be ended with a matching <b>End For</b> action (if one is not present, one is automatically added to the end of the task)</p>
+            <p>
+                Example <span class="param icon icon-text">Items</span>:<br />
+                <var>apple, 0, 2:4, 3:9:3, %ARR(1:2), pear</var>
+            </p>
+            <p>
+                This would set Variable one at a time to:<br />
+                <var>apple, 0, 2, 3, 4, 3, 6, 9, %ARR1, %ARR2, pear</var>
+            </p>
+
+            <footer>
+                <h2>See also:</h2>
+                <ul>
+                    <li><a href="../flowcontrol.html">Flow Control</a> in the Userguide</li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

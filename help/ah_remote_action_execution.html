@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Remote Action Execution</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Remote Action Execution</h1>
+                <p class="description">The Remote Action Execution action is used to obtain a "Remote Action Token" needed for executing actions on remote devices using Tasker. This token allows other devices to perform tasks or set variables on the device where the token was generated.</p>
+            </header>
+
+            <h2>Example</h2>
+            <ul>
+                <li><a href="https://tasker.joaoapps.com/tests/remote%20task%20execution%20example">Complete example web page that allows you to run a task remotely on your device.</a></li>
+            </ul>
+            <hr />
+
+            <p>Steps to use Remote Action Execution:</p>
+            <ul>
+                <li>Ensure setup is complete as per the <a href="../fcm.html">Remote Action Execution setup guide</a>.</li>
+                <li>Add the <b>Remote Action Execution</b> action in a Tasker task.</li>
+                <li>
+                    Choose the <span class="param icon icon-list">Execution Mode</span>:
+                    <ul>
+                        <li><var>Query</var>: Retrieve the current Remote Action Token.</li>
+                        <li><var>Reset Token</var>: Generate a new Remote Action Token if needed, for example, after a security incident.</li>
+                    </ul>
+                </li>
+                <li>Use the obtained token in the <b>Remote Device</b> field of other actions (like <a href="ah_run_task.html">Perform Task</a> or <a href="ah_set_variable.html">Variable Set</a>) to control remote devices.</li>
+            </ul>
+            <p>Usage Example:</p>
+            <ul>
+                <li>Get a Remote Action Token from your Pixel 5.</li>
+                <li>Send this token to Dropbox for easy access.</li>
+                <li>Utilize the token on your Pixel 6 to execute actions directly on your Pixel 5.</li>
+            </ul>
+            <p>The Remote Action Execution function operates using Firebase Cloud Messaging (FCM). For more detailed technical documentation, visit <a href="https://firebase.google.com/docs/cloud-messaging" target="_blank">Firebase Cloud Messaging docs</a>.</p>
+            <p>You can execute remote actions from anywhere by sending an HTTP request to FCM directly with a message formatted like this:</p>
+            <pre>
+{
+    "validate_only": false,
+    "message": {
+        "token": "...",
+        "android": {
+            "priority": "high"
+        },
+        "data": {
+            "task": "Test",
+            "%test": "some value"
+        }
+    }
+}</pre
+            >
+            <p>You can add any variables you want to the data section to customize the remote action.</p>
+        </main>
+    </body>
+</html>

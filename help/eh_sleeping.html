@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Sleeping</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Sleeping</h1>
+                <p class="description">Google Play Services on your device "think" you're sleeping.</p>
+            </header>
+
+            <p>Tasker doesn't have any control over how this state is detected. Tasker simply receives events from Google Play Services and relays them back to Tasker and to your profiles.</p>
+            <p>If this condition doesn't work, please don't blame Tasker or the developer since I really can't control how it works. As such, please use it at your own risk.</p>
+            <p><b>Note:</b> If you want this to trigger on every single event set the <span class="param icon icon-number">Minimum Confidence</span> to <var>0</var> and the <span class="param icon icon-number">Maximum Light</span> and <span class="param icon icon-number">Maximum Motion</span> to <var>6</var>.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-number">Minimum Confidence</h3>
+                <p>This represents the minimum confidence your phone has that you're sleeping.</p>
+                <p>When your phone tries to guess if you are sleeping it has a certain confidence that its guess is true.</p>
+                <p>A higher confidence value means that it's more certain that you are sleeping.</p>
+                <hr />
+                <h3 class="param icon icon-number">Maximum Light</h3>
+                <p>This represents the maximum amount of light around you to trigger this state on, based on the device's ambient light sensor readings.</p>
+                <p>Higher values indicate brighter surroundings, while lower values indicate darker surroundings.</p>
+                <hr />
+                <h3 class="param icon icon-number">Maximum Motion</h3>
+                <p>This represents the maximum amount of device motion to trigger this State on, based on the device's accelerometer readings.</p>
+                <p>Higher values indicate more movement of the device.</p>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Call Divert</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Call Divert</h1>
+                <p class="description">Divert outgoing calls from the specified number (pattern), to the specified (full) phone number.</p>
+            </header>
+
+            <p><span class="param icon icon-text">From Match</span>: the number (pattern) to divert. If any part of the outgoing number matches <span class="param icon icon-text">From Match</span> the diversion will take place. If no <span class="param icon icon-text">From Match</span> is specified, all calls will be diverted.</p>
+            <p><span class="param icon icon-text">To</span>: the number which will be called instead.</p>
+            <p>If <span class="param icon icon-boolean">Info</span> is checked, all diversions and blocks will be displayed after the action.</p>
+            <p>To stop diverting, use <a href="ah_revert_phonecalls.html">Call Revert</a>.</p>
+            <p><b>Note:</b> you can't block <b>and</b> divert a particular pattern.</p>
+        </main>
+    </body>
+</html>

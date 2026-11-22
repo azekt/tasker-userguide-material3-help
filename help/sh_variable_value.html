@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Variable Value</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Variable Value</h1>
+                <p class="description">The named user-defined variable matches the specified operator and value.</p>
+            </header>
+
+            <p>See the <a href="../flowcontrol.html">Flow Control</a> section in the Userguide for details of how the operator/value comparison functions.</p>
+            <p>This state can also trigger on some 'dynamic' built-in variables: see the <a href="../variables.html">Variables</a> section of the Userguide for details.</p>
+            <p><strong>Warning:</strong> if you want to trigger on a variable and then take some action which sets the thing the variable represents you should use the <a href="eh_variable_set.html">Variable Set</a> event instead. A <b>Variable Value</b> state will cause complications when the state exits and tries to restore the value again.</p>
+        </main>
+    </body>
+</html>

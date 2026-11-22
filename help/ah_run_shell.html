@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Run Shell</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Run Shell</h1>
+                <p class="description">Run a system shell command under linux.</p>
+            </header>
+
+            <h2>Related video</h2>
+            <ul>
+                <li><a href="https://youtu.be/9StQBtUuOl0">Tasker + Shizuku = Run Powerful Actions - Wifi Tether, Kill App, Disable Apps and Much More!</a></li>
+            </ul>
+            <hr />
+
+            <p>Most commands require root, so be aware of that.</p>
+            <p>If <span class="param icon icon-number">Timeout</span> is <var>0</var>, the command will never time-out.</p>
+            <p><span class="param icon icon-text">Store Output In</span> is a variable name for the output (stdout) of the command.</p>
+            <p>Similarly, <span class="param icon icon-text">Store Errors In</span> is for error output (stderr).</p>
+            <p>A result code of <code>256</code> indicates a technical failure executing the command, <code>257</code> indicates that the specified <span class="param icon icon-number">Timeout</span> value was exceeded, <code>258</code> indicates the process was interrupted.</p>
+            <p>Any non-zero result code will cause the task to stop, unless <span class="param icon icon-boolean">Continue On Error</span> is checked, otherwise the result code will be stored in <var>%err</var>.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-boolean">Use Tasker Settings</h3>
+                <p>Since Tasker started targeting API 30 some shell commands (like <i>"ip neigh"</i>) stopped working.</p>
+                <p>Use this option to use the Tasker Settings app to run the command instead of it running directly in Tasker.</p>
+            </section>
+        </main>
+    </body>
+</html>

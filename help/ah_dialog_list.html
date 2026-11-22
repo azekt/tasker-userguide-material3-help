@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>List Dialog</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>List Dialog</h1>
+                <p class="description">Show a dialog with a list of items</p>
+            </header>
+
+            <p>The items you select and the text on the button you clicked (if applicable) will be returned to you in the task in a local variable. Check the action's output variables for details.</p>
+            <p>If you cancel the dialog (click outside of it or press back on your device) the Tasker action will result in error and stop the task. You can make the task continue with the <span class="param icon icon-boolean">Continue Task After Error</span> option.</p>
+            <p>Will not work simultaneously with non-overlay scenes.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Items</h3>
+                <p>Can be a Tasker array variable or direct values.</p>
+                <p>
+                    If you use an array, use it as e.g. <var>%array</var> and not <var><del>%array()</del></var>
+                </p>
+                <p>If direct values are used, they should be a comma separated list of values. If you need a separator other than a comma build an array first with the <a href="ah_array_set.html">Array Set</a> action or similar and then use the array variable in this action.</p>
+                <hr />
+                <h3><span class="param icon icon-text">Selected Items</span> (for <var>Multiple Choices</var> mode)</h3>
+                <p>The text (not the index) of the items that should be pre-selected in the list.</p>
+            </section>
+        </main>
+    </body>
+</html>

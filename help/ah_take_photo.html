@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Take Photo</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Take Photo</h1>
+                <p class="description">Take a photo. The current activity will be interrupted for a couple of seconds.</p>
+            </header>
+
+            <p>Photos are in JPG format and stored in <code>/sdcard/dcim/Tasker/</code>. You should not attach the <code>.jpg</code> affix when specifying the filename prefix.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-boolean">Discreet</h3>
+                <p>If checked, there will be no visible or audible sign of the picture being taken, and the device will not turn on if it is already off (except on Eclair devices).</p>
+                <p>Without <span class="param icon icon-boolean">Discreet</span>, a small delay allows time for aiming.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Insert in Gallery</h3>
+                <p>Immediately insert a thumbnail in the Gallery application, otherwise it will not appear until the next time the SD card is scanned.</p>
+                <hr />
+                <h3 class="param icon icon-list">Naming Sequence</h3>
+                <ul>
+                    <li><var>Series</var>: photo names have an index number attached which increases with each one taken.</li>
+                    <li><var>Chronological</var>: the date and time is attached to the filename.</li>
+                </ul>
+            </section>
+
+            <footer>
+                <h2>See also:</h2>
+                <ul>
+                    <li><i>Menu / Preferences / Action / Camera Delay</i></li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

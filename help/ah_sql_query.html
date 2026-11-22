@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>SQL Query</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>SQL Query</h1>
+                <p class="description">Query an SQL database in a file or URI.</p>
+            </header>
+
+            <p>In <span class="param icon icon-list">Mode</span> <var>Raw</var>, the <span class="param icon icon-text">Query</span> must be entered as a full SQL statement.</p>
+            <p>In <var>URI Formatted</var> mode the URI refers to a specific table rather than a DB; an example is <var>content://com.android.contacts/groups</var>.</p>
+            <p>In both Formatted modes, SQL directives (<i>SELECT</i>, <i>WHERE</i> etc) should be ommitted.</p>
+            <p><span class="param icon icon-text">Selection</span> refers to the WHERE directive (<code>column &gt; 5</code>, <code>column = ?</code>)</p>
+            <p><span class="param icon icon-text">Selection Parameters</span> specifies content that fills each <code>?</code> in <span class="param icon icon-text">Selection</span> in the order they appear.</p>
+            <p>The result rows of the query are stored in the specified array with a row at each index. The columns within each row are separated by the <span class="param icon icon-text">Output Column Divider</span>.</p>
+            <p>Null DB values are represented as <code>&lt;null&gt;</code>, BLOBs as <code>&lt;blob&gt;</code>, problems with <code>&lt;???&gt</code>;</p>
+            <p>When making several transactions on a DB on external storage or which needs root to access, it will be much more efficient to first move the DB file to internal storage (using <a href="ah_move_file.html">Move</a> action) and operate on it there.</p>
+            <p>In Raw mode, only the following directives requiring writeable DB access are supported: <code>INSERT INTO</code>, <code>UPDATE</code>, <code>CREATE TABLE</code>, <code>DELETE FROM</code>, <code>ALTER TABLE</code>.</p>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Navigation Bar</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Navigation Bar</h1>
+                <p class="description">Change the buttons on the Android navigation bar that's usually at the bottom of the screen. To bring back the default buttons, run the action with all blank fields.</p>
+            </header>
+
+            <h2>This is a Secure Setting</h2>
+            <p>To use this setting, Tasker needs to be granted permission to change secure settings on your device</p>
+            <p>Please follow the <a href="ah_secure_setting_grant.html">instructions</a> to learn how to grant the permission.</p>
+            <h2>Important Note</h2>
+            <p>
+                If for some reason <b>System UI</b> crashes while using this action, use the following adb command to reset the navigation bar:<br />
+                <kbd>adb shell settings delete secure sysui_nav_bar</kbd>
+            </p>
+            <p>This will make the navigation bar back to what it was and make it stop crashing.</p>
+            <p>If you can, re-configure the action and leave all the fields empty and run it. That should make it reset as well.</p>
+
+            <h2>Unsupported Devices</h2>
+            <p>This action may not work on all devices. These are the ones that I've confirmed are not working correctly:</p>
+            <ul>
+                <li>Some (all?) OnePlus devices</li>
+                <li>Some (all?) LG devices</li>
+                <li>Huawei P20 Lite</li>
+                <li>Probably a lot (if not all) of Huawei devices</li>
+            </ul>
+            <p>Other devices may also not be compatible.</p>
+        </main>
+    </body>
+</html>

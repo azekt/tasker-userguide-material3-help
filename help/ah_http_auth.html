@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>HTTP Auth</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>HTTP Auth</h1>
+                <p class="description">Authenticate with a web service.</p>
+            </header>
+
+            <h2>Example</h2>
+            <ul>
+                <li><a href="https://forum.joaoapps.com/index.php?resources/add-a-row-of-data-to-a-google-spreadsheet-no-plugins.383/">Add a row of data to a Google Spreadsheet (no plugins)</a></li>
+            </ul>
+
+            <h2>OAuth 2.0</h2>
+            <p>Allows you to sign in a user and act on behalf of that user in a web service.</p>
+            <p>For example, if you sign in as a user on the Spotify API and give it proper permissions, you can then add songs to the user's Spotify playlists.</p>
+            <p>On most web services that use OAuth 2.0 you have to create an <i>app</i> on that service that you can then use to sign in the user.</p>
+            <p><strong>Very important</strong>: when creating the app on the web service make sure to set the <b>Redirect URI</b> to <b>https://tasker.joaoapps.com/auth.html</b>. If you really want to host the redirect page yourself make sure to copy the original page's source code and host it somewhere of your choosing. You then need to supply that custom Redirect URI in the <span class="param icon icon-text">Endpoint To Get Code</span> field as a query parameter. For example, if your endpoint to get code is <i>https://api/code</i> and your custom redirect URI is <i>https://myredirecturi/myauth.html</i> you would set <span class="param icon icon-text">Endpoint To Get Code</span> to <var>https://api/code?redirect_uri=https%3A%2F%2Fmyredirecturi%2Fmyauth.html</var></p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3><span class="param icon icon-text">Client ID</span> and <span class="param icon icon-text">Client Secret</span></h3>
+                <p>Given to you by the web service when you create an app on it.</p>
+                <hr />
+                <h3 class="param icon icon-text">Endpoint To Get Code</h3>
+                <p>A URL that is indicated in the web service documentation. Look for a URL in the docs that has the <code>response_type=code</code> parameter and use just the base URL.</p>
+                <p>For example, for Google web services that support OAuth 2.0 this URL is <i>https://accounts.google.com/o/oauth2/v2/auth</i> as you can see <a href="https://developers.google.com/identity/protocols/oauth2webserver" target="_blank">here</a>.</p>
+                <p><strong>Important Note:</strong> sometimes some APIs require additional parameters to be added to this URL. For example, the <a href="https://github.com/reddit-archive/reddit/wiki/oauth2#authorization" target="_blank">Reddit API</a> requires you to add an additional <code>duration=permanent</code> parameter. To do this, simply add these extra parameters to the endpoint URL. In the reddit example you would use <i>https://www.reddit.com/api/v1/authorize?duration=permanent</i> instead of just <i>https://www.reddit.com/api/v1/authorize</i>.</p>
+                <hr />
+                <h3 class="param icon icon-text">Endpoint To Get Refresh Token</h3>
+                <p>Also an URL that is indicated in the web service documentation. Look for a URL in the docs that has the <code>grant_type=refresh_token</code> parameter in the request body.</p>
+                <p>For example, for Google web services that support OAuth 2.0 this URL is <i>https://www.googleapis.com/oauth2/v4/token</i> as you can see <a href="https://developers.google.com/identity/protocols/oauth2webserver" target="_blank">here</a>.</p>
+                <hr />
+                <h3 class="param icon icon-text">Scopes</h3>
+                <p>One per line.</p>
+                <p>These will define the permissions that your app will request the user when acting on his/her behalf.</p>
+                <p>For example, to <a href="https://developers.google.com/calendar/v3/reference/calendarList/list" target="_blank">list a user's calendars in the Google Calendar API</a> you would need to use the <var>https://www.googleapis.com/auth/calendar.readonly</var> scope.</p>
+            </section>
+        </main>
+    </body>
+</html>

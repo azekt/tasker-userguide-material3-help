@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Notification</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Notification</h1>
+                <p class="description">A notification has been sent to the status bar.</p>
+            </header>
+
+            <p>If an <span class="param icon icon-text">Owner Application</span> is specified, the notification must have been sent by the corresponding package.</p>
+            <p>If the notification is a duplicate of one already in the status bar, it will still trigger the event (unless <span class="param icon icon-boolean">New Only</span> is checked, on Android 6+)</p>
+            <p><span class="param icon icon-text">Other Text</span> (Android 6+) is a collection of any other texts found in the notification.</p>
+            <p>This event is not triggered by Tasker-generated notifications.</p>
+        </main>
+    </body>
+</html>

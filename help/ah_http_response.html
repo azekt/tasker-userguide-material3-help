@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>HTTP Response</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>HTTP Response</h1>
+                <p class="description">Allows you to send back a response to an <a href="eh_http_request.html">HTTP Request</a> event.</p>
+            </header>
+
+            <h2>Taskernet Project</h2>
+            <ul>
+                <li><a href="https://taskernet.com/shares/?user=as35m8ne7oo4s%2badx%2fwlzjdftfvmwstg1ay5akpindrlosxezdffw1ipxiyjcvlnw0yn&id=project%3ahttp+server+example">HTTP Server Example Project</a></li>
+            </ul>
+            <hr />
+
+            <p>The most common use case for this action would be:</p>
+            <ul>
+                <li>Have a profile with the <a href="eh_http_request.html">HTTP Request</a> event condition</li>
+                <li>In the task for that profile do whatever you want with the request and then respond to that request using this <b>HTTP Response</b> making sure to use the <var>%http_request_id</var> variable in the <span class="param icon icon-text">Request ID</span> input (this variable is created by the mentioned event).</li>
+            </ul>
+            <p>However, you could choose not to respond in the same profile by simply storing the <var>%http_request_id</var> variable in a global variable for example, and then later, with any logic you want, respond to that request.</p>
+        </main>
+    </body>
+</html>

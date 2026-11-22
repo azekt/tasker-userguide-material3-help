@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Perform Task</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Perform Task</h1>
+                <p class="description">Run the selected Tasker task.</p>
+            </header>
+
+            <h2>Related video</h2>
+            <ul>
+                <li><a href="https://youtu.be/S9QG-e8Udok">Tasker - More Useful Action Search</a></li>
+            </ul>
+            <hr />
+
+            <p>More info about the parameters of this action is available in the <a href="https://github.com/joaomgcd/taskerdocumentation/blob/master/en/help/perform%20task%20info.md">documentation</a>.</p>
+            <p>You can 'nest' as many tasks as you wish.</p>
+            <p>When this action is used as part of an Enter task, the settings it contains are <strong>not</strong> restored when the profile exits.</p>
+            <p>When a task is started from an existing task, the existing task continues unless the Stop parameter is set.</p>
+            <p>If you set the priority lower than the current task, the current task will finish before the new one starts.</p>
+            <p>If you set the priority the same or higher than the current task (a good way to do this is to specify <var>%priority+1</var>), the new task will completely execute before the current one resumes.</p>
+            <p>Values assigned to <var>%par1</var> and <var>%par2</var> are available in the child task as normal variables.</p>
+            <p>If the child does a <a href="ah_return.html">Return</a> action, the <span class="param icon icon-text">Return Value Variable</span> in the parent task is set to the value specified in that <a href="ah_return.html">Return</a> action, however note that the value will not be returned if the <b>Perform Task</b> is the last action of the parent.</p>
+            <p>See <a href="../flowcontrol.html">Flow Control</a> in the Userguide for more info.</p>
+            <p>When you add an action in a task you can use the search field in the dialog to search for a task name directly and then select the <b>Perform Task</b> action to have the task name filled in automatically.</p>
+            <p>If you do this when adding a favorite action (long click the + button in task) you can have a direct shortcut to the specific task you searched for.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-boolean">Local Variable Passthrough</h3>
+                <p>If enabled all the variables that are available in this task will also be available in the Child task according to the restrictions below.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Reset Return Variable</h3>
+                <p>If this is enabled and a return variable is used, that variable will be cleared before the Child task is performed.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Allow Overwrite Variables</h3>
+                <p>If enabled the Child task is free to overwrite any variables that already exist in this parent task.</p>
+                <p>Please note that you need to enable the option to replace in the <a href="ah_return.html">Return</a> action as well.</p>
+                <p>This option is meant to be used with Child tasks that you know yourself and not any random Child tasks.</p>
+                <p>Please be aware that if you enable this, Child tasks can change the parents local and Project/Proflle/Task variables even if <span class="param icon icon-boolean">Local Variable Passthrough</span> is not checked and the contents of the parenťs variables are not visible to the Child task.</p>
+            </section>
+        </main>
+    </body>
+</html>

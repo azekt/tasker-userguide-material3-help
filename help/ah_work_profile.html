@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Toggle Work Profile</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Toggle Work Profile</h1>
+                <p class="description">This action allows you to toggle your Work Profile apps on or off. It's the equivalent of "Pausing Work Apps" in your launcher.</p>
+            </header>
+
+            <p>If you don't have a work profile on your device and want to create one you could use an app like <a href="https://f-droid.org/packages/net.typeblog.shelter/" target="_blank">Shelter</a> You can also use the adb command <kbd>pm create-user --profileOf 0 --managed Work</kbd> and reboot.</p>
+            <p>To use this, Tasker needs to be granted permission to <b>Modify The Work Profile</b> on your device.</p>
+            <h2>Easy Way</h2>
+            <p>Install the <a href="https://tasker.joaoapps.com/taskerpermissions.html">Tasker Permissions</a> app and follow the prompts.</p>
+            <h2>Hard Way (don't bother with this if you were able to do it the easy way)</h2>
+            <ol>
+                <li><a href="ah_adb_setup.html">Setup ADB on your PC</a> as described.</li>
+                <li>
+                    <p>
+                        Use these commands:<br />
+                        <kbd>adb shell pm grant net.dinglisch.android.taskerm android.permission.MODIFY_QUIET_MODE</kbd>
+                    </p>
+                    <p>
+                        If you're on a mac write<br />
+                        <kbd>./adb shell pm grant net.dinglisch.android.taskerm android.permission.MODIFY_QUIET_MODE</kbd>
+                    </p>
+                    <p><b>Note:</b> On MIUI devices you may have to open developer options and enable the <b>USB debugging (Security Settings)</b> setting (and the <b>Disable permission Monitoring</b> setting in some cases) to be able to run the above command.</p>
+                </li>
+            </ol>
+        </main>
+    </body>
+</html>

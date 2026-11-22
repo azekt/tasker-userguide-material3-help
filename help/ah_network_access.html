@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Network Access</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Network Access</h1>
+                <p class="description">Deny network access to all or selected apps.</p>
+            </header>
+
+            <p>When <span class="param icon icon-list">Mode</span> <var>Deny</var> is selected, all apps have network access except for those specified.</p>
+            <p>When <span class="param icon icon-list">Mode</span> <var>Allow</var> is selected, only the specified apps have access.</p>
+            <p>Use of this action overrides and replaces the effects of any previous use.</p>
+            <p>Notes:</p>
+            <ul>
+                <li>this action is implemented via a VPN local to the device and cannot be used in combination with other VPNs.</li>
+                <li>some devices will clear the users confirmation of Tasker's permission to setup a VPN after every boot</li>
+                <li>the icon which Android shows in the status bar cannot be avoided</li>
+                <li>Tasker does not examine the contents of any network packet</li>
+            </ul>
+        </main>
+    </body>
+</html>

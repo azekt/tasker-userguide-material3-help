@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Turn Off</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Turn Off</h1>
+                <p class="description">If the display is on, it will be turned off.</p>
+            </header>
+
+            <p>On some devices it takes about 3 seconds for it to really turn off, on others it might take around 10 seconds. Either way, a fully black screen will be shown while the screen doesn't really turn off.</p>
+            <p>The action attempts to set the display's timeout to the minimum possible value and displays a black screen until the screen turns off. After it runs, it resets the value to its original state.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-boolean">Dim</h3>
+                <p>Set the brightness to 0 prior to showing the black screen. Useful for non OLED displays.</p>
+                <hr />
+                <h3 class="param icon icon-text">Lock</h3>
+                <p>If set, will use the <i>Accessibility Service</i> to lock the screen, but you'll still be able to unlock it with Smart Unlock or by using your fingerprint, unlike with the <a href="ah_system_lock.html">System Lock</a> action where you'll have to unlock your screen with a password.</p>
+                <p>If Tasker has the <a href="ah_secure_setting_grant.html">Write Secure Settings</a> and <b>Write Settings</b> permissions, you don't need to turn your accessibility service for this to work.</p>
+            </section>
+        </main>
+    </body>
+</html>

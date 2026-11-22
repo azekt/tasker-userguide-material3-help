@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Variable Join</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Variable Join</h1>
+                <p class="description">Join all the values in the array <var>%ARR</var> into a single simple variable with the given <span class="param icon icon-text">Joiner</span>.</p>
+            </header>
+
+            <p>Example: if <var>%VAR1</var> = <code>I</code>, <var>%VAR2</var> = <code>like</code> and <var>%VAR3</var> = <code>humus</code> then after the action:</p>
+            <div class="task-description">
+                <div class="action-description">
+                    <p>Variable Join</p>
+                    <p><span class="param icon icon-text">Name</span><var>%VAR</var></p>
+                    <p><span class="param icon icon-text">Joiner</span><var>;</var></p>
+                    <p>
+                        <span class="param icon icon-boolean">Delete Parts</span><span class="checkbox"><img src="../images/checkbox-marked.svg" alt="selected" /></span>
+                    </p>
+                </div>
+            </div>
+            <p>there will be a single variable <var>%VAR</var> with the value <code>I;like;humus</code>.</p>
+            <p>Any missing indices in the array will be completely skipped.</p>
+        </main>
+    </body>
+</html>

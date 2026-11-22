@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Flash</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Flash</h1>
+                <p class="description">Flash a message up.</p>
+            </header>
+
+            <p>If <span class="param icon icon-boolean">Long</span> is selected, the message will flash up for longer.</p>
+            <p>A Flash is less intrusive than a popup: it is still possible to interact with the application below while the message is showing.</p>
+            <p>On some devices, disabling Notifications for Tasker in Android settings will also prevent flash messages.</p>
+            <p><b>Note:</b> Android 12+ seems to limit too many toasts in a row.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Tasker Layout</h3>
+                <p>Will show the text in a custom Tasker toast instead of using a normal system toast.</p>
+                <p>You can use HTML to format your text when this option is enabled. For example, you can use <code>&lt;font color=red&gt;Some Text&lt;/font&gt;</code> to show some text in red.</p>
+                <p>Useful to get advanced toast functionality or if your device doesn't support multi-line toasts for example.</p>
+                <hr />
+                <h3 class="param icon icon-text">Title</h3>
+                <p>Title to show up above the normal toast text. If not set, only the text will show.</p>
+                <hr />
+                <h3 class="param icon icon-text">Icon</h3>
+                <p>Icon to show on the toast.</p>
+                <p>If not set, no icon will be shown at all.</p>
+                <hr />
+                <h3 class="param icon icon-text">Icon Size</h3>
+                <p>Size of the icon in dip (density-independent pixels).</p>
+                <p>Default value is 24.</p>
+                <hr />
+                <h3 class="param icon icon-text">Background Colour</h3>
+                <p>Color for the background of the toast.</p>
+                <p>If not set the current Tasker theme background color will be used.</p>
+                <hr />
+                <h3 class="param icon icon-text">Task</h3>
+                <p>If set, will make the toast interactive and when clicked will call the chosen task.</p>
+                <p>All the variables available in the task where the toast is created will also be available in the called task.</p>
+                <hr />
+                <h3 class="param icon icon-text">Timeout</h3>
+                <p>Time in milliseconds the toast should appear on the screen.</p>
+                <p>If set will override the normal <span class="param icon icon-boolean">Long</span> setting above.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Continue Task Immediately</h3>
+                <p>If disabled, will not advance the task to the next action until the toast is gone from the screen.</p>
+                <hr />
+                <h3 class="param icon icon-text">Text Colour</h3>
+                <p>Color for the text of the toast.</p>
+                <p>If not set, an appropriate text color for the background color will be chosen so that it has good contrast.</p>
+                <p>If HTML is used in the text and color is sent that way, it'll override this setting just for those parts of the text.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Dismiss On Click</h3>
+                <p>If enabled, will make the flash go away as soon as it's clicked and the task is launched.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Show Over Everything</h3>
+                <p>If enabled, will make the toast show over system UI like the notification tray, lock screen, or even AOD on some devices. Tasker's accessibility service needs to be on for this to work.</p>
+                <p>If you want you can disable the <span class="param icon icon-boolean">Continue Task Immediately</span> option and Tasker will toggle the service on and off when needed automatically.</p>
+                <hr />
+                <h3 class="param icon icon-text">Position</h3>
+                <p>One of <var>TopLeft</var>, <var>Top</var>, <var>TopRight</var>, <var>Right</var>, <var>BottomRight</var>, <var>Bottom</var>, <var>BottomLeft</var> or <var>Left</var>.</p>
+                <p>Can optionally provide an offset in dip separated by a comma from the position.</p>
+                <p>Use the helper for easier setup.</p>
+                <hr />
+                <h3 class="param icon icon-text">ID</h3>
+                <p>If you set an ID and an existing flash is already showing with the same ID, it'll be replaced by the new one.</p>
+                <p>If no ID is set, they will appear on top of each other.</p>
+            </section>
+        </main>
+    </body>
+</html>

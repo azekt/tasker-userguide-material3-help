@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Progress Dialog</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Progress Dialog</h1>
+                <p class="description">Allows you to show a dialog with a message of your choosing, continue the task in the background and then dismiss the dialog.</p>
+            </header>
+
+            <p>The idea is, you first use this <span class="param icon icon-list">Action</span> with the <var>Show</var> option, do some stuff that takes some time to do in your tasks and then use the <var>Dismiss</var> option to close the dialog.</p>
+            <p>You can even update an already showing progress dialog with different values if your background task has several steps for example. You could do something like:</p>
+            <ul>
+                <li>Show the dialog initally with a message like "Loading..."</li>
+                <li>When you reach a certain stage in your task you could update it to something like "Processing step 1...", "Processing step 2...", etc</li>
+                <li>At the end of the task you could show a message like "All done!" for a second or so</li>
+                <li>You could finally dismiss the dialog.</li>
+            </ul>
+            <p>If you're updating the dialog you can omit the title or text and the value that was used before will be kept. For example, you could simply update the text and the previous title would remain the same.</p>
+            <p>If you create a dialog with the <span class="param icon icon-list">Type</span> <var>Progress Bar</var> and then later update it with an <span class="param icon icon-list">Type</span> <var>Animation</var>, the progress bar itself will be animated and won't show the progress. You can then later update it again with a numerical progress and the progress bar will resume updating. In this particular case the <span class="param icon icon-text">Animation Images</span> won't be applied to the dialog that is showing the progress bar.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-list">Action</h3>
+                <p>Whether to show/update a progress dialog or to hide an existing one.</p>
+                <p>If you choose to hide the dialog but the dialog isn't showing the action will end successfully right away.</p>
+                <hr />
+                <h3 class="param icon icon-text">Title</h3>
+                <p>You must set this if the dialog isn't already showing.</p>
+                <p>If it's already showing you can omit this and the last used value will be kept.</p>
+                <hr />
+                <h3 class="param icon icon-text">Text</h3>
+                <p>You must set this if the dialog isn't already showing.</p>
+                <p>If it's already showing you can omit this and the last used value will be kept.</p>
+                <hr />
+                <h3 class="param icon icon-list">Type</h3>
+                <p>You can either show a looping animation if you don't have a numeric progress to report, or show a progress bar where you can show numerical progress.</p>
+                <hr />
+                <h3 class="param icon icon-text">Animation Images</h3>
+                <p>A list of images to use as an animation in the dialog.</p>
+            </section>
+        </main>
+    </body>
+</html>

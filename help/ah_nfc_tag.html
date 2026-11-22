@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>NFC Tag</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>NFC Tag</h1>
+                <p class="description">Allows you to read and/or write data from and to an NFC Tag.</p>
+            </header>
+
+            <h2>Related video</h2>
+            <ul>
+                <li><a href="https://youtu.be/PMbj7bRoSKI">Tasker - Read/Write NFC Tag</a></li>
+            </ul>
+            <hr />
+
+            <p>You have a list of pre-defined variables that this action will create. These are visible in the configuration screen.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Payload To Write</h3>
+                <p>Optionally allows you to write data to the tag. If you leave this empty, data will just be read. Select different <span class="param icon icon-text">Payload Type</span> and then use the magnifying glass to help selecting a payload for the selected type.</p>
+                <hr />
+                <h3 class="param icon icon-text">Payload Type</h3>
+                <p>Optinally set a type for the payload. If none is set, the <var>Text</var> type will be automatically used.</p>
+                <p>Different <span class="param icon icon-text">Payload Type</span> will have different behaviours when the tag is later scanned:</p>
+                <ul>
+                    <li><var>Text</var>: The system will not react to this. You'll have to implement your own behaviour by using the <a href="eh_nfc_tag.html">NFC Tag</a> event.</li>
+                    <li><var>Uri</var>: The system will automatically open the selected Uri (like a web URL for example), even on a device that doesn't have Tasker installed.</li>
+                    <li><var>Application</var>: The system will automatically open the selected app, even on a device that doesn't have Tasker installed.</li>
+                </ul>
+            </section>
+        </main>
+    </body>
+</html>

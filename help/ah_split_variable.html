@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Variable Split</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Variable Split</h1>
+                <p class="description">Split the value of the given variable into several sub-variables.</p>
+            </header>
+
+            <p>Each time <span class="param icon icon-text">Splitter</span> is encountered in the variable value, a new variable is made with name <var>%VARX</var>.</p>
+            <p>If <span class="param icon icon-boolean">Delete Base</span> is selected, the original variable is removed after the split.</p>
+            <p>Example: <var>%VAR</var> contains <code>I;like;humus</code>. After the action:</p>
+            <div class="task-description">
+                <div class="action-description">
+                    <p><span class="icon icon-action-variable-join">Variable Split</span></p>
+                    <p><span class="param icon icon-text">Name</span><var>%VAR</var></p>
+                    <p><span class="param icon icon-text">Splitter</span><var>;</var></p>
+                    <p>
+                        <span class="param icon icon-boolean">Delete Parts</span><span class="checkbox"><img src="../images/checkbox-marked.svg" alt="selected" /></span>
+                    </p>
+                </div>
+            </div>
+            <p><var>%VAR</var> is replaced with 3 variables <var>%VAR1</var>, <var>%VAR2</var> and <var>%VAR3</var> containing <code>I</code>, <code>like</code> and <code>humus</code>.</p>
+        </main>
+    </body>
+</html>

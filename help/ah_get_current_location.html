@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Get Location v2</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Get Location v2</h1>
+                <p class="description">Allows you to get your location in a more accurate, fast and easy than the original <a href="ah_get_fix.html">Get Location</a> action.</p>
+            </header>
+
+            <p>The action will return a bunch of location related <a href="../variables.html">local variables</a> that you can use right away.</p>
+            <p><strong>Important Note</strong>: Some variables like <b>altitude</b>, <b>bearing</b> and <b>speed</b> are only set if the location is GPS based. To force GPS based location set the <span class="param icon icon-text">Min Speed Accuracy (m/s)</span> value.</p>
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Minimum Accuracy</h3>
+                <p>The maximum radius of uncertainty (in meters) that the returned location should have.</p>
+                <p>For example, if you want to get your location and make sure that it's really accurate you should use a value like <var>10</var> in this field.</p>
+                <p>Be aware that while you're indoors it's usually very hard for your phone to get an accurate location so the action might time out while trying to get a location with this filter set a value too low.</p>
+                <hr />
+                <h3><span class="param icon icon-text">Speed (meters/second)</span> and <span class="param icon icon-text">Altitude (meters)</span></h3>
+                <p>Use the magnifying glass to help you out with these.</p>
+                <p>You can use the <b>=,&gt;=,&lt;=,&gt;,&lt;</b> symbols to specify your condition.</p>
+                <p>For example, if you want to get your location when your speed is above 10 meters per second you would set the <span class="param icon icon-text">Speed (meters/second)</span> field to <var>&gt;10</var>.</p>
+                <hr />
+                <h3 class="param icon icon-text">Near Location</h3>
+                <p>Use the magnifying glass to help you out with this.</p>
+                <p>Format for this field is <b>latitude,longitude,radius</b></p>
+                <p>Setting this field will make Tasker wait until you're inside the radius for the specified location and only then will it return your location.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Enable Location If Needed</h3>
+                <p>If your location settings are off when this action is used Tasker can automatically enable location for you.</p>
+                <hr />
+                <h3 class="param icon icon-text">Min Speed Accuracy (m/s)</h3>
+                <p>Setting this field will make the action wait until the desired accuracy is achieved before returning its values to the task.</p>
+                <p>Since speed is only measured when using the GPS sensor on your phone you can set this field to force it to get the speed and other GPS related values.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Force High accuracy</h3>
+                <p>If enabled will force Tasker to use the GPS to get your location and will not use other location getting methods at all.</p>
+            </section>
+        </main>
+    </body>
+</html>

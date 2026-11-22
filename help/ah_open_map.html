@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Open Map</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Open Map</h1>
+                <p class="description">Launches Google Maps with a particular mode and location/destination.</p>
+            </header>
+
+            <p>Exactly one of <span class="param icon icon-text">Address</span> or <span class="param icon icon-text">Lat,Long</span> must be specified. <span class="param icon icon-text">Address</span> is not valid for <span class="param icon icon-list">Mode</span> <var>StreetView</var> .</p>
+            <p><span class="param icon icon-text">Address</span> is in the format <code>X+Y+Z</code> e.g. <var>Littleton+Delaware</var></p>
+            <p><span class="param icon icon-number">Zoom</span> is only possible with <var>Point</var> / <var>StreetView</var> and a <var>Lat,Long</var> specification.</p>
+            <p><span class="param icon icon-text">Label</span> is only possible with <span class="param icon icon-list">Mode</span> <var>Point</var>, it will show a marker with the specified label.</p>
+            <p>Google Maps version 3.2.1 or higher is (probably) required for Navigation.</p>
+        </main>
+    </body>
+</html>

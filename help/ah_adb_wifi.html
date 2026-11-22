@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>ADB Wifi Permission</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>ADB Wifi Permission</h1>
+            </header>
+
+            <div class="warning">
+                <p><strong>VERY IMPORTANT</strong>: by running the ADB command below you are opening a port on your device that other apps can access too, not just Tasker. If the port is found by other apps and they try to access it, you'll get a popup asking if you want to allow it. <strong>ONLY GIVE ACCESS TO APPS YOU TRUST!</strong> A malicious app could put your device at risk.</p>
+            </div>
+            <h2>USE AT YOUR OWN RISK</h2>
+            <p>To use this, Tasker needs to have ADB running in WiFi mode on your device</p>
+            <h2>Easy Way</h2>
+            <p>Install the <a href="https://tasker.joaoapps.com/taskerpermissions.html">Tasker Permissions</a> app and follow the prompts.</p>
+            <h2>Hard Way (don't bother with this if you were able to do it the easy way)</h2>
+            <p><strong>IMPORTANT NOTE:</strong>The ADB command below will have to be ran every time you reboot your device. There's no known way to run it on boot automatically.</p>
+            <ul>
+                <li>Setup ADB on your PC as described on <a href="ah_adb_setup.html">ADB Setup</a> page.</li>
+                <li>
+                    Use these commands: <kbd>adb tcpip 5555</kbd><br />
+                    If you're on a Mac write <kbd>./adb tcpip 5555</kbd>
+                </li>
+                <li>In Tasker use the <b>ADB Wifi</b> action with the following <span class="param icon icon-text">Command</span>: <var>test</var></li>
+                <li>
+                    This should make a dialog show up on your device asking you to authorize your device, like this:<br />
+                    <img src="../images/adbwifiprompt.png" alt="ADB Wifi Permission Dialog" />
+                </li>
+                <li>Accept the dialog and tick <b>Always allow from this computer</b>. (note: on first run the action will time out but after you accept to always allow it should run correctly)</li>
+                <li>If you can't accept the dialog because the system says something like <b>An app is obscuring a permission request. Settings can't verify your response.</b> disable all app's permissions to draw over other apps and all accessibility services and try again.</li>
+                <li>As noted above, <strong>never</strong> accept this dialog if you don't know why it popped up</li>
+                <li>If when you disconnect your USB cable the action stops working make sure to firstly enable the <i>allow debugging in charge only mode</i> option and then the <b>USB debugging option</b> in developer settings.</li>
+            </ul>
+            <p><b>Note:</b> by enabling this, other built-in actions like <a href="ah_airplane_mode.html">Airplane Mode</a> or <a href="ah_mobile_data_direct.html">Mobile Data</a> will also start to work on an unrooted device. If you use a port other than 5555 you can change the <b>Default ADB Wifi</b> port in Tasker Settings &gt; Misc so that Tasker uses that port in those actions.</p>
+            <p>Check out <a href="https://developer.android.com/studio/command-line/adb#shellcommands" target="_blank">some examples of commands to use</a>. Make sure to <strong>NOT</strong> include the <b>adb shell</b> part on any command you try so that it works correctly.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-boolean">Enable Debugging</h3>
+                <p>Most people don't need debugging to be enabled at all times on their Android devices. It might be a security risk if you accidentally accept an unknown request to start debugging which could put your phone at risk.</p>
+                <p>By enabling this option you can leave debugging off and the action will enable it when ran and disable it afterwards, leaving your phone "closed down" for the majority of time!</p>
+                <hr />
+                <h3 class="param icon icon-text">Result Encoding</h3>
+                <p>If you are expecting a result with non-standard characters (like à or é) you can use a different encoding for the result.</p>
+                <p>Try using <var>UTF-8</var> is situations like this, for example.</p>
+            </section>
+        </main>
+    </body>
+</html>

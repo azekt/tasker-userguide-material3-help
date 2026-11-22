@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Notify LED</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Notify LED</h1>
+                <p class="description">Show a notification on the top bar and flash an LED.</p>
+            </header>
+
+            <p>The specified <span class="param icon icon-text">Title</span> will appear on the bar initially. Notifications with a particular (non-empty) title replace existing ones with that title.</p>
+            <p>When the notification area is pulled down, the specified <span class="param icon icon-text">Text</span> will be visible.</p>
+            <p>A Number other than 0 causes that number to be included in the notification area.</p>
+            <p><span class="param icon icon-number">Rate</span> is the number of milliseconds the LED will flash on and then again be off. It must be at least <var>1</var>.</p>
+            <p>Not all devices support all colours. Many devices will only support red and green. In general, colours near the top of the list are more likely to be supported.</p>
+            <p>Some devices will only flash the LED when the device is off at the time the notification is received.</p>
+            <p>Up to 3 <i>Actions</i> can be specified which will appear in the notification area. In some cases it may be necessary to slide down to reveal the actions. Actions do not run as part of the notifying task.</p>
+        </main>
+    </body>
+</html>

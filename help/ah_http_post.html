@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>HTTP Post</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>HTTP Post</h1>
+                <p class="description">Send an HTTP POST request to a webserver.</p>
+            </header>
+
+            <p>The response code is stored in <var>%HTTPR</var>. A response code of <code>-1</code> indicates a problem making the request. Any returned data is stored in the variable <var>%HTTPD</var> if the content type is text-based (max 4K).</p>
+            <p>Returned header fields are stored in the local variable array <var>%header</var> (%header1, %header2 etc)</p>
+
+            <h2>Example: sending a script some data</h2>
+            <p><span class="param icon icon-text">Server:Port</span>: <var>www.small.com</var> [no port specified, use port 80]</p>
+            <p>Can be preceeded by:</p>
+            <ul>
+                <li><var>https://</var> to require a secure, trusted connection</li>
+                <li>a <var>username:password@</var> to add a Basic Authorization header field to the request.</li>
+            </ul>
+            <p><span class="param icon icon-text">Path</span>: <var>cgi-bin/grinder.pl</var></p>
+            <p><span class="param icon icon-text">Data</span></p>
+            <p class="vl">
+                <var>name=Fred</var><br />
+                <var>hair=Blond</var>
+            </p>
+            <p><span class="param icon icon-text">Cookies</span> parameter is of the form:<var>name1=value1;name2=value2</var></p>
+            <p><span class="param icon icon-number">Timeout</span>: <var>30</var> [read timeout after 30 seconds]</p>
+            <p><span class="param icon icon-text">Mime Type</span>: [default is: <var>x-www-form-urlencoded</var>, if not specified server value is used]</p>
+            <p>If <span class="param icon icon-text">Mime Type</span> is <var>x-www-form-urlencoded</var>, the data must be formatted as in the example and the keys and values will be encoded automatically.</p>
+            <p><span class="param icon icon-text">Output File</span>: <var>results.html</var> [optional: store returned data in <code>/sdcard/results.html</code>]</p>
+        </main>
+    </body>
+</html>

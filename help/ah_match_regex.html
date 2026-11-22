@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Simple Match/Regex</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Simple Match/Regex</h1>
+                <p class="description">Allows you to match some text with an easy to use pattern or with a powerful regex.</p>
+            </header>
+
+            <h2>Related video</h2>
+            <ul>
+                <li><a href="https://youtu.be/m-i0yRwVjN4">Tasker - Simple Match/Regex</a></li>
+            </ul>
+            <hr />
+
+            <p>Allows you to match and extract data from a random piece of text, optionally creating local variables with the data in the process.</p>
+            <h2>Simple Match</h2>
+            <p>Will try to match the input text with the provided simple pattern. For example, if you have</p>
+            <ul>
+                <li>
+                    Text: <var>my name is <b>Tim</b> and I'm <b>28</b> years old</var>
+                </li>
+                <li>
+                    Simple Pattern: <var>my name is <b>$name</b> and I'm <b>#age</b> years old</var>
+                </li>
+            </ul>
+            <p>you'll successfully match the input text and will have 2 variables available in the task:</p>
+            <ul>
+                <li><var>%name</var>: <code>Tim</code></li>
+                <li><var>%age</var>: <code>28</code></li>
+            </ul>
+            <p>The <b>Simple Pattern</b> has the following rules:</p>
+            <ul>
+                <li>it is case-insentive.</li>
+                <li>placeholder names as described below can only contain letters. No numbers allowed.</li>
+                <li>
+                    <var>$<code>variable</code></var> is used as a placeholder for any random text and will create a variable with that text
+                </li>
+                <li>
+                    <var>#<code>number</code></var> is used as a placeholder for any digits and will create a variable with those digits
+                </li>
+                <li>you can use just <var>$</var> or <var>#</var> if you want to add a placeholder for some text that you don't need a variable for. For example, you could match the above sentence with <var>$ name is $name and $ #age years old</var> and it would still work, but it would also work with a sentence like <var>his name is Tim and he's 28 years old</var></li>
+            </ul>
+           
+            <h2>Regex</h2>
+            <p>If simple matching is not working for you in a particular situation you can always resort to the power matching language, regex!</p>
+            <p><a href="https://www.regular-expressions.info/tutorial" target="_blank">Learn more about regex</a>.</p>
+            <p>In addition to normal regex rules, if you create a <a href="https://www.regular-expressions.info/named" target="_blank">named group</a> like <code>(?&lt;variable&gt;)</code> it'll create a variable with the same name in Tasker (<var>%variable</var> in the example).</p>
+            <h2>General Rules</h2>
+            <ul>
+                <li>Each created variable can also be accessed as an array. In the above example you could also access <var>%name()</var> and <var>%age()</var> for example. This is because you can get multiple matches with just one pattern.</li>
+                <li><var>%mt_match</var> will contain the full matched text that corresponds to the pattern used</li>
+                <li><var>%mt_match_found</var> will contain <code>true</code> if a match and <code>false</code> if not. Can be useful to decide what you want to do in the task depending if the match was successful or not.</li>
+            </ul>
+        </main>
+    </body>
+</html>

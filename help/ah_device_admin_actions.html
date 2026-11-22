@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Device Administrator Actions</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Device Administrator Actions</h1>
+                <p class="description">Allows you to run any of the Device Policy Manager actions from a Tasker task.</p>
+            </header>
+
+            <h2>Related video</h2>
+            <ul>
+                <li><a href="https://youtu.be/zBFNQiwXWFE">Tasker - Set App Permissions and Uninstall</a></li>
+            </ul>
+            <hr />
+
+            <p>Most of the actions that you can run are high-privilege actions and many require Tasker to be the <b>Device Owner</b>.</p>
+            <p>Please check on <a href="ah_device_owner.html">how to make Tasker your Device Owner</a>.</p>
+
+            <h2 class="like-h3">Custom Action</h2>
+            <p>This option allows you to select from any of the available <a href="https://developer.android.com/reference/android/app/admin/DevicePolicyManager" target="_blank">Device Policy Manager</a> actions and run them with the apporpriate parameters. Many actions will return results which you can access in the <span class="param icon icon-text">Output Variable</span> of this action.</p>
+            <p>The list of actions available here depends on your device and is not controlled by Tasker. Tasker simply looks up all actions that are available to you and lists them.</p>
+            <p><b>Note:</b> when one of these actions returns a result you can access it in the <var>%ao_output()</var> array. These are the ways output is formatted for different types:</p>
+            <ul>
+                <li><b>Bundle</b>: A JSON structure with all the key-value pairs</li>
+                <li><b>Any other type</b>: A string representation of the value</li>
+            </ul>
+
+            <h2 class="like-h3">Pre-Defined Actions</h2>
+            <p>You can select from any of the pre-defined actions which are just some of the above actions that the developer chose to make more easily avaialable because they are the most relevant.</p>
+            <p>Keep in mind that running one of pre-defined actions is the equivalent of running the same action in the <var>Custom</var> mode described above. It's just easier and more direct to select.</p>
+
+            <h2 class="like-h3">Freeze App vs Suspend App</h2>
+            <p>Although both actions are used for controlling apps and they seem similar, they address different functionalities. <var>Freeze App</var> is effectively like uninstalling an app, but it keeps the app's data. The app will be gone from absolutely everywhere on your device. <var>Suspend App</var> is just marking the app as not launchable by the user.</p>
+            <p>For example, if you try to launch a suspended app from Tasker, you'll get a system dialog alerting you that the app is suspended. If you try to do the same for a Frozen app, the Tasker action will end in error, just like the app wasn't even installed.</p>
+
+            <h2 class="like-h3">Kill App</h2>
+            <p>Killing an app is the equivalent of force stopping it. It will stop running immediately but can then be ran again right away.</p>
+        </main>
+    </body>
+</html>

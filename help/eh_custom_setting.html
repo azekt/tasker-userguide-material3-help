@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Custom Setting</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Custom Setting</h1>
+                <p class="description">Listen for changes in settings in the three <i>Settings Tables</i> on Android (<i>Global</i>, <i>Secure</i> and <i>System</i>)</p>
+            </header>
+
+            <h2>Example</h2>
+            <ul>
+                <li><a href="https://www.xda-developers.com/enable-android-p-dark-theme-night-light/" target="_blank">How to enable Android P’s Dark Theme when Night Light is on</a></li>
+            </ul>
+            <hr />
+
+            <p>If you don't set the <span class="param icon icon-text">Value</span> the event will trigger on any value.</p>
+            <p>In the task, the new value for the configured <i>Custom Setting</i> will be available in the <var>%evtprm3</var> variable.</p>
+            <p>You can get all the info about the change in the task by accessing the <var>%evtprm()</var> array</p>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>ADB Setup</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>ADB Setup</h1>
+                <p class="description">To use some features, Tasker needs to run some ADB commands on your device <b>through your PC</b></p>
+            </header>
+
+            <ol>
+                <li>Make sure that Tasker is installed on your Android device</li>
+                <li><b>Enable Developer Mode</b>: Go to Android Settings -&gt; About Phone and look for the <b>Build Number</b> option. Touch it multiple times until developer mode is enabled.</li>
+                <li><b>Enable USB Debugging</b>: Go to Android Settings -&gt; and look for the <b>Developer Options</b> option. In there, enable the <b>USB debugging</b> option.</li>
+                <li><b>Install ADB on your PC</b>: <a href="https://www.xda-developers.com/google-releases-separate-adb-and-fastboot-binary-downloads/" target="_blank">Check for a quick way to do it</a>.</li>
+                <li><b>Connect device to PC</b>: Connect your device to a PC and look on your phone. A prompt should show up asking you to allow your phone to be debugged by your PC. Accept this.</li>
+                <li>
+                    Open the command prompt from the file folder that contains the extracted downloads. To do this, press the <kbd><span class="icon icon-windows">Windows</span></kbd> key and type <kbd>cmd</kbd>. When the prompt opens, type <kbd>cd</kbd> followed by folder your downloaded ADB to.
+                </li>
+                <li><b>Grant permission</b>: Open a command line a on your PC and write the needed commands (one at a time).</li>
+            </ol>
+
+            <h2>Notes:</h2>
+            <ul>
+                <li>On MIUI devices you may have to open developer options and enable the <b>USB debugging (Security Settings)</b> setting (and the <b>Disable permission Monitoring</b> setting in some cases) to be able to run the above command.</li>
+                <li>If you're having trouble with it saying that your device is not authorized, please check <a href="https://www.addictivetips.com/android/fix-adb-device-unauthorized-message-android/" target="_blank">How To Fix ADB Device Unauthorized Message On Android</a>.</li>
+            </ul>
+        </main>
+    </body>
+</html>

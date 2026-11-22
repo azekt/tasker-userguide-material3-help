@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Get Pixel Colors</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Get Pixel Colors</h1>
+                <p class="description">Gets one or more pixel colors from an image.</p>
+            </header>
+
+            <p>If you want the color of a pixel from the current screen use the <a href="ah_take_screenshot.html">Take Screenshot</a> action and use the image from there in this action.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Pixel Coordinates</h3>
+                <p>X and Y coordinates in the <code>x,y</code> format, eg. to get the pixel color of the top-left most pixel in an image use <var>0,0</var>.</p>
+                <p>You can specify multiple coordinates by putting each set of coordinates in a separate line.</p>
+                <p>You can use the <code>%</code> sign at the end of a coordinate to specify that coordinate in percentage relative to the image's size in that dimension.</p>
+                <p>For example, if you want to get the pixel color for the exact center of an image you can use the coordinates <var>50%,50%</var>.</p>
+            </section>
+        </main>
+    </body>
+</html>

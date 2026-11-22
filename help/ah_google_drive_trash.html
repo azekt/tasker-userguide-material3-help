@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>GD Trash</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>GD Trash</h1>
+                <p class="description">Put a file or folder from Google Drive into or out of Trash.</p>
+            </header>
+
+            <p><b>Note:</b> For security reasons this action can't be used on App Factory generated apps.</p>
+            <h2>Output Variables</h2>
+            <p>Details about the trashed / untrashed file or folder</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Google Drive Account</h3>
+                <p>The account you want to the files with</p>
+                <hr />
+                <h3 class="param icon icon-list">Type</h3>
+                <ul>
+                    <li><var>File Id</var>: Trash a file by its ID. You can get the Id after you upload the file, or with a <a href="ah_google_drive_list.html">GD List</a> action (check the output variables).</li>
+                    <li><var>Remote Path</var>: Trash a file or folder by specifying its Google Drive path. If you only specify the <span class="param icon icon-text">Remote Folder</span> field, a folder and its contents will be trashed. If you also specify the <span class="param icon icon-text">Remote File Name</span> field, only a single file will be trashed.</li>
+                </ul>
+            </section>
+        </main>
+    </body>
+</html>

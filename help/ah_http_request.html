@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>HTTP Request</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>HTTP Request</h1>
+                <p class="description">Perform any HTTP request of any type.</p>
+            </header>
+
+            <h2>Example</h2>
+            <ul>
+                <li><a href="https://forum.joaoapps.com/index.php?resources/add-a-row-of-data-to-a-google-spreadsheet-no-plugins.383/" target="_blank">Add a row of data to a Google Spreadsheet (no plugins)</a></li>
+            </ul>
+            <hr />
+
+            <p>This action effectively replaces the HTTP Get, Head and Post actions and those are now deprecated.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">URL</h3>
+                <p>The full URL you want to call</p>
+                <hr />
+                <h3 class="param icon icon-text">Headers</h3>
+                <p>
+                    List of key value pairs.<br />
+                    Separate keys from values with the <code>:</code> character. Make sure there are no extra spaces.<br />
+                    One header per line.<br />
+                    Example:
+                </p>
+                <code>
+                    Key:Value<br />
+                    Content-Type:application/json<br />
+                    Authorization:Bearer MY_ACCESS_TOKEN<br />
+                    Other-Header:Some value
+                </code>
+                <hr />
+                <h3 class="param icon icon-text">Query Parameters</h3>
+                <p>List of key value pairs that you want to append to the URL as query parameters.</p>
+                <p>Same format as the <span class="param icon icon-text">Headers</span> field.</p>
+                <hr />
+                <h3 class="param icon icon-text">File / Directory To Save With Output</h3>
+                <p>If you set this, the output will be saved to the selected file instead of the <var>%http_data variable</var>.</p>
+                <hr />
+                <h3 class="param icon icon-number">Timeout</h3>
+                <p>Max number of seconds that the action will try to wait before giving up.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Trust Any Certificate</h3>
+                <p>Some HTTP (non-secure) servers will require you to enable this option so that the request can go through.</p>
+
+                <h2>When Sending Content</h2>
+                <p>If you want to send content to a server (with <var>POST</var> or <var>PUT</var> for example), you can send some data, a file, or both.</p>
+
+                <h3 class="param icon icon-text">Body</h3>
+                <p>A piece of text data that you want to send to the server. This can be a number of different things depending on what the server is expecting. This should be written exactly how the server is expecting it. Tasker will not change it at all. For example, if the server expects a key-value list with a POST request it's most probably expecting something like <var>key1=value1&key2=value2&key3=value3</var>.</p>
+                <p>There is only one exception to this: When sending a file with a specified name as outlined below, Tasker modifies the contents of the <span class="param icon icon-text">Body</span> field to comply with the multipart/form-data specification. In this scenario, you should input the body as query parameters (e.g., <var>key1=value1&key2=value2</var>, etc.), and Tasker will automatically transform it into a format compatible with the multipart/form-data standard.</p>
+                <hr />
+                <h3 class="param icon icon-text">File To Send</h3>
+                <p>A file to send to the server. This can be sent in conjunction or instead of the Body depending on server requirements.</p>
+                <p>If your request needs to set a name for the file (in <i>multipart/form-data</i> requests) prepend the file path with that name followed by a colon. Something like <var>myfilename:DCIM/Camera/photo.jpg</var> for example.</p>
+                <p><b>Note:</b> if you send both <span class="param icon icon-text">Body</span> and <span class="param icon icon-text">File</span>, it'll send them both as a <b>multipart/related</b> request.</p>
+                <p><b>Note 2:</b> If the server is expecting the file parameter to be named (usually on <i>multipart/form-data requests</i>) you can set the file's parameter name by prepending the file path with <code>name</code>:, for example, <var>photo:Images/photo.jpg</var> but don't forget to also send a <span class="param icon icon-text">Body</span> with this request.</p>
+            </section>
+        </main>
+    </body>
+</html>

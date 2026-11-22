@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Received Share</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Received Share</h1>
+                <p class="description">This event will trigger when you share something to Tasker from any app with share capabilities.</p>
+            </header>
+
+            <h2>Related video</h2>
+            <ul>
+                <li><a href="https://youtu.be/DfTicfzYM6g">Tasker - NEW! Received Share Event</a></li>
+            </ul>
+
+            <h2>Share Triggers</h2>
+            <p>Share Triggers allow you to more easily "direct" how shared content is consumed by you in Tasker. For example, you could create a "Copy Text To PC" Share Trigger that, when used, would run a task that copies the shared text to your computer.</p>
+            <p>Share Triggers will be shown to you when you share something into Tasker and are automatically populated from your enabled Tasker profiles.</p>
+            <p><img src="../images/eh_received_share_share_trigger.jpg" /></p>
+
+            <h2>App Filters</h2>
+            <p>App Filters allow you to specify which apps certain Share Triggers should appear in. This ensures that only relevant triggers show up in appropriate applications, enhancing task efficiency. For example, you could create a "Copy File" trigger that would only appear in a File Manager app if you wanted to.</p>
+            <p><img src="../images/eh_received_share_app_filter.jpg" /></p>
+
+            <h2>Additional Filters</h2>
+            <p>You can filter received shares by a variety of fields, allowing granular control over how each piece of shared content is processed.</p>
+
+            <h2>Direct Share Targets</h2>
+            <p>When enabled in Tasker Preferences, Share Triggers can be displayed directly in the share sheet, allowing for quick access without navigating through Tasker dialogs.</p>
+            <p><img src="../images/eh_received_share_share_sheet.png" /></p>
+
+            <h2>Share Data</h2>
+            <p>Tasker receives comprehensive data from shared content (you can access that all in the event's created variables) and additional information can be accessed using the <var>%rs_all_extras</var> variable, which includes all shared data in JSON format. This can potentially reveal additional information provided by the source app.</p>
+        </main>
+    </body>
+</html>

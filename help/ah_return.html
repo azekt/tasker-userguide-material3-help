@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Return</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Return</h1>
+                <p class="description">Return a value to the parent of this task i.e. the one that started it via <a href="ah_run_task.html">Perform Task</a>.</p>
+            </header>
+
+            <p>The parent task must have started it's child at equal or higher priority and have specified a <i>Return Value Variable</i> in it's <a href="ah_run_task.html">Perform Task</a> action, which will then be set to the <span class="param icon icon-text">Value</span> specified in this <b>Return</b> action.</p>
+            <p>If <span class="param icon icon-boolean">Stop</span> is checked, this task (the child) will terminate after returning the <span class="param icon icon-text">Value</span> to the parent.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-boolean">Local Variable Passthrough</h3>
+                <p>If enabled all the variables that are available in this task will also be available in the parent task according to the restrictions below.</p>
+            </section>
+
+            <footer>
+                <h2>See also:</h2>
+                <ul>
+                    <li><a href="../flowcontrol.html">Flow Control</a> in the Userguide</li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

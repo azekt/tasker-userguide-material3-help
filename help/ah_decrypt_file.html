@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Decrypt File</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Decrypt File</h1>
+                <p class="description">Decrypt the specified SD card file which was previously encrypted with Tasker's <a href="ah_encrypt_file.html">Encrypt File</a> action.</p>
+            </header>
+
+            <p>The path starts in the root directory of the SD card e.g. <code>secret.txt</code>, <code>secret/recording.mp3</code>.</p>
+            <p><span class="param icon icon-text">Key Name</span> is the name of the encryption key to use.</p>
+            <p>The key is not deleted unless <span class="param icon icon-boolean">Clear Key</span> is set, since you will usually want to use the same key to encrypt the file again at some point.</p>
+            <p>There must be space left on the SD card at least equal to the size of the file before starting decryption.</p>
+            <p>See <a href="../encryption.html">Encryption</a> in the Userguide for details.</p>
+        </main>
+    </body>
+</html>

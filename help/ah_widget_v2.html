@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Widget v2</title>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Widget v2</h1>
+                <p class="description">This action allows you to create widgets on your home screen with various layouts, and makes it easy to run your tasks from it.</p>
+            </header>
+
+            <h2>Examples</h2>
+            <ul>
+                <li><a href="https://taskernet.com/shares/?user=AS35m8ne7oO4s%2BaDx/wlzjdFTfVMWstg1ay5AkpiNdrLoSXEZdFfw1IpXiyJCVLNW0yn&id=Project:Widget+Reddit">Example Reddit Widget</a></li>
+                <li><a href="https://taskernet.com/shares/?user=AS35m8ne7oO4s%2BaDx/wlzjdFTfVMWstg1ay5AkpiNdrLoSXEZdFfw1IpXiyJCVLNW0yn&id=Project:Remote+Device+Widget">Example Remote Device Widget</a></li>
+                <li><a href="https://forum.joaoapps.com/index.php?resources/dynamic-multiple-icons-widget-for-your-homescreen.533/">Tutorial on how to create a buttons list</a></li>
+                <li><a href="https://taskernet.com/shares/?user=AS35m8ne7oO4s%2BaDx/wlzjdFTfVMWstg1ay5AkpiNdrLoSXEZdFfw1IpXiyJCVLNW0yn&id=Project:Media+Widget">Example Dynamic Media Widget </a></li>
+            </ul>
+            <hr />
+
+            <p class="mb-0">To use these widgets:</p>
+            <ul class="mt-0">
+                <li>add a new <i>Widget v2</i> Tasker widget to your home screen</li>
+                <li>configure it on your home screen to give it a name that you can then use reference it in Tasker</li>
+                <li>in Tasker, in a task add the <b>Widget v2</b> action</li>
+                <li>in <span class="param icon icon-text">Widget Name</span> use the magnifying glass to select the widget you added to your home screen</li>
+                <li>select the <span class="param icon icon-text">Layout</span> you want to use</li>
+                <li>configure the fields below to your liking</li>
+            </ul>
+
+            <h2>Widget Layouts</h2>
+            <h3>Buttons</h3>
+            <p>One or more icons and labels similar to the home screen app icons you have on your launcher.</p>
+            <p>Set images for the buttons in the <span class="param icon icon-text">Images</span> input, and set the labels in the <span class="param icon icon-text">Texts</span> input.</p>
+            <p><img src="../images/ah_widget_v2_buttons.png"></p>
+
+            <h3>Media</h3>
+            <p>A media-player-like widget with a big image on the left, some text at the top and some control buttons at the bottom. You can use this for media but also for any functionality you like.</p>
+            <p>The first image you set in the <span class="param icon icon-text">Images</span> input will be used for the big image on the left. The rest of the images will be used for the buttons on the bottom.</p>
+            <p>The <span class="param icon icon-text">Title</span> will be used as the top text while the <span class="param icon icon-text">Texts</span> will be used as bottom texts.</p>
+            <p><img src="../images/ah_widget_v2_media.png"></p>
+
+            <h3>Circular Image</h3>
+            <p>A simple image with a circular cutout.</p>
+            <p><img src="../images/ah_widget_v2_circularimage.png"></p>
+
+            <h3>Table</h3>
+            <p>A list of rows that will be structured like a table.</p>
+            <p>Each <b>Cell</b> in the table can contain either an <b>image</b> or a <b>text</b> but <b>not both</b>.</p>
+            <p>To get a table with 2 rows, with 3 images at the top and 3 texts at the bottom you would set:</p>
+            <ul>
+                <li><span class="param icon icon-text">Images</span>: <var>image1.png,image2.png,image3.png</var></li>
+                <li><span class="param icon icon-text">Texts</span>: <var>,,,text 1, text 2, text 3</var></li>
+            </ul>
+            <p>Notice how the first 3 texts were left empty to accomodate for the 3 cells in which texts aren't used.</p>
+            <p><img src="../images/ah_widget_v2_table.png"></p>
+
+            <h3>Custom</h3>
+            <p>Any layout you want! 😁 You can infinitely customize the layout exactly to your liking!</p>
+            <p><img src="../images/ah_widget_v2_custom.png"></p>
+
+            <p><a href="../widgetv2_custom.html">More info about the Custom Layout</a></p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Background Colour</h3>
+                <p>The background color of the whole widget.</p>
+                <p>If you don't specify text color, it'll automatically be chosen to contrast with this.</p>
+                <hr>
+                <h3 class="param icon icon-text">Texts</h3>
+                <p class="mb-0">Depending on the chosen layout, these texts can appear in different places:</p>
+                <ul class="mt-0">
+                    <li>Buttons: are used as labels for each button</li>
+                    <li>Media: is used as the subtitle for the widget</li>
+                </ul>
+                <hr>
+                <h3 class="param icon icon-text">Text Styles</h3>
+                <p>Styles for each of the texts above.</p>
+                <p>If you specify less styles than texts, the last specified style will be used for the remainder of the texts.</p>
+                <p class="mb-0">A style can be:</p>
+                <ul class="mt-0">
+                    <li> a color in HTML notation or one of the color Material Design tokens (<var>primary</var>, <var>onPrimary</var>, <var>secondary</var>, etc.)</li>
+                    <li> a number to set the text size in <abbr title="Scale-independent Pixels">sp</abbr></li>
+                    <li> one of <var>sansserif</var>, <var>serif</var>, <var>monospace</var>, <var>cursive</var> to set the font family</li>
+                    <li> one of <var>left</var>, <var>right</var>, <var>center</var>, <var>start</var>, <var>end</var> to set text alignment</li>
+                    <li><var>italic</var></li>
+                    <li><var>bold</var></li>
+                    <li><var>underline</var></li>
+                    <li><var>linethrough</var></li>
+                </ul>
+                <p>For example, you could set 2 texts with 2 different styles:</p>
+                <ul>
+                    <li><var>red, bold text</var></li>
+                    <li><var>green, italic, underlined text</var></li>
+                </ul>
+                <p>by setting this to <var>#FF0000 bold,#00FF00 italic underline.</var></p>
+                <p><strong>Important</strong>: Keep in mind that the title also counts as a text, so the first style you provide is assigned to the title.</p>
+                <hr>
+                <h3 class="param icon icon-text">Images</h3>
+                <p>Depending on the chosen layout, these images can appear in different places:</p>
+                <ul>
+                    <li>Buttons: are used as the main image for each button</li>
+                    <li>Media: the first image will be used as the main one on the left. The rest are used as buttons below.</li>
+                </ul>
+                <hr>
+                <h3 class="param icon icon-text">Image Tints</h3>
+                <p>If you set this, you'll colorize the images above with a single, solid color.</p>
+                <p>You can specify an image not to be tinted by leaving the value empty.</p>
+                <p>If you specify less colors than images, the last specified colour will be used for the remainder of the images.</p>
+                <hr>
+                <h3 class="param icon icon-text">Image Sizes</h3>
+                <p>The size or sizes you want the images to have in <abbr title="Density Independent Pixels">dp</abbr>.</p>
+                <p>If you specify less sizes than images, the last specified size will be used for the remainder of the images.</p>
+                <hr>
+                <h3 class="param icon icon-text">Tasks</h3>
+                <p>Tasks to be ran when you tap on the texts/images above.</p>
+                <p>Specify one task for each of the text/image, or leave blank to make them not clickable.</p>
+                <hr>
+                <h3 class="param icon icon-text">Commands</h3>
+                <p>Commands to be ran when you tap on the texts/images above.</p>
+                <p>Specify one command for each of the text/image, or leave blank to make them not clickable.</p>
+                <p>These commands will trigger the <a href="ah_command.html">Command</a> event in Tasker. Check that for more info.</p>
+                <hr>
+                <h3 class="param icon icon-text">Command Prefix</h3>
+                <p>If set, will prepend <code>prefix=:=</code> to all your commands above (where <var>prefix</var> is the actual prefix you specify here).</p>
+                <hr>
+                <h3 class="param icon icon-text">Material You Colors</h3>
+                <p>If enabled, will use Material You Colors whenever colors are not set explicitly above, which means, the Widget colors will match your wallpaper.</p>
+                <hr>
+                <h3 class="param icon icon-text">Number of Columns</h3>
+                <p>The number of columns the widget will have to show your data.</p>
+                <p>For example, if you specify 10 texts and set <span class="param icon icon-text">Number of Columns</span> to <var>5</var>, you'll get 2 rows with 5 columns each.</p>
+            </section>
+        </main>
+    </body>
+</html>

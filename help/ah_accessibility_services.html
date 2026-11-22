@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Accessibility Services</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Accessibility Services</h1>
+                <p class="description">Allows you to control if accessibility services on your device are running or not.</p>
+            </header>
+
+            <h2>Related videos</h2>
+            <ul>
+                <li><a href="https://youtu.be/otQYsZhgpR0">Tasker - Accessibility Service Management</a></li>
+                <li><a href="https://youtu.be/KrRSP_a7bv4">Tasker - Query Accessibility Services</a></li>
+            </ul>
+            <hr />
+
+            <h2>Action Inputs</h2>
+            <h3 class="param icon icon-list">Action</h3>
+            <p>The action to take on the services below.</p>
+            <p>The "...Keep Running" actions will change the general Tasker Setting available in <i>Menu / Preferences / Monitor / Keep Accessibility Running</i>.</p>
+            <ul>
+                <li><var>Start</var>: will start any services in the <span class="param icon icon-text">Services</span> field. All other services will keep their state</li>
+                <li><var>Stop</var>: will stop any services in the <span class="param icon icon-text">Services</span> field. All other services will keep their state</li>
+                <li><var>Stop All</var>: will stop all accessibility services on your device.</li>
+                <li><var>Add To Keep Running</var>: will add the services in the <span class="param icon icon-text">Services</span> to the <i>Keep Running Accessibility</i> setting available in Tasker Preferences.</li>
+                <li><var>Remove From Keep Running</var>: will remove the services in the <span class="param icon icon-text">Services</span> from the <i>Keep Running Accessibility</i> setting available in Tasker Preferences.</li>
+                <li><var>Toggle</var>: if a service in the <span class="param icon icon-text">Services</span> field is currently not running, it will start running. If it's already running, it will be stopped.</li>
+            </ul>
+            <hr />
+            <h3 class="param icon icon-text">Services</h3>
+            <p>A comma separated list of accessibility services to act on with the action above.</p>
+            <p>Each service is represented by the app's package name followed by a "/" followed by the services class name.</p>
+        </main>
+    </body>
+</html>

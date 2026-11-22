@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Record Audio</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Record Audio</h1>
+                <p class="description">Record from the microphone to an SD card file.</p>
+            </header>
+
+            <p><span class="param icon icon-text">File</span> is the path to the file on the SD card. It will have extension .3gp added.</p>
+            <p><span class="param icon icon-list">Source</span> is where to record from. Not all sources are available on all hardware, for instance the <var>Call</var> source is not available on the G1.</p>
+            <p>The <span class="param icon icon-number">Max Filesize</span> is the maximum size of the resulting audio file in kilobytes.</p>
+            <p>A zero value for <span class="param icon icon-number">Max Filesize</span> places no limit, in which case the recording will not stop until the SD card is full or the Tasker action <a href="ah_sound_record_stop.html">Record Audio Stop</a> is performed.</p>
+            <p><b>Note:</b> playback of the resulting files can be done with Tasker's <a href="ah_music_play.html">Music Play</a> action, amongst others.</p>
+            <p><strong>Warning:</strong> in many countries, recording of individuals' speech without their consent is illegal.</p>
+        </main>
+    </body>
+</html>

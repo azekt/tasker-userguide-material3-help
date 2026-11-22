@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>App Changed</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>App Changed</h1>
+                <p class="description">Will trigger whenever an app is opened (brought to the foreground).</p>
+            </header>
+
+            <p>If you need extra info on the app that was opened, use the <a href="ah_app_info.html">App Info</a> action in the entry task of the profile with the <span class="param icon icon-text">Package</span> field set to <var>%app_package</var>.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Package</h3>
+                <p>Optionally make this trigger only on selected apps.</p>
+                <p>If not set will trigger on all app changes.</p>
+            </section>
+        </main>
+    </body>
+</html>

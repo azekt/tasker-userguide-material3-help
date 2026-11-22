@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Sound Mode</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Sound Mode</h1>
+                <p class="description">Only works correctly on some devices (like Samsung for example)</p>
+            </header>
+
+            <p><i>Do not disturb</i> settings on the phone may override this in some situations.</p>
+            <p><b>Important Note</b>: if you use this action while DND is enabled on your phone, DND will be turned off and on again by Tasker, so your phone will report that it was Tasker that changed DND last.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-list">Mode</h3>
+                <ul>
+                    <li><var>Sound</var>: Your phone uses the sounds, vibrations, and volume levels you have chosen in <i>Sound settings</i> for notifications and alerts.</li>
+                    <li><var>Vibrate</var>: Your phone vibrates for notifications and alerts. This uses the <i>Vibration intensity</i> you choose in <i>Sound settings</i>.</li>
+                    <li><var>Mute</var>: Your phone plays no sounds or vibrations. Onscreen reminders will still occur.</li>
+                </ul>
+                <hr />
+                <h3 class="param icon icon-boolean">Ignore DND</h3>
+                <p>If enabled, will not try to restore the active DND mode after changing the sound mode.</p>
+            </section>
+        </main>
+    </body>
+</html>

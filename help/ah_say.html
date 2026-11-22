@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Say</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Say</h1>
+                <p class="description">Synthesize the given <span class="param icon icon-text">Text</span> into speech.</p>
+            </header>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Engine:Voice</h3>
+                <p>Specifies the speech engine and voice/language to use. <var>default:en</var> specifies the default engine and English voice.</p>
+                <hr />
+                <h3 class="param icon icon-list">Stream</h3>
+                <p>Stream specifies a sound channel where the sound should go.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Network</h3>
+                <p>Use network synthesis, if supported by the current engine/voice. This may result in better quality.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Continue Task Immediately</h3>
+                <p>If selected, Tasker will continue with the next queued action while the speech is still ongoing. You must select this in order to do a <a href="ah_shut_up.html">Shut Up</a> action later.</p>
+                <p>Android settings may override locale, speed and pitch. Please see the <i>Always use my settings option</i> in <i>Android's Text-To-Speech settings</i> section.</p>
+                <p>If <i>Reduce Resource Usage</i> in Tasker <i>Menu / Preferences / Misc</i> is checked, the speech engine will be shutdown after each utterance, meaning the speech will always begin later for subsequent <b>Say</b> actions.</p>
+            </section>
+        </main>
+    </body>
+</html>

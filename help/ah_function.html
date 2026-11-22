@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Tasker Function</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Tasker Function</h1>
+                <p class="description">This is a place for all Tasker actions that are so small/niche that they wouldn't make sense in a standalone action.</p>
+            </header>
+
+            <h2>Related video</h2>
+            <ul>
+                <li><a href="https://youtu.be/S9QG-e8Udok">Tasker - More Useful Action Search</a></li>
+            </ul>
+            <hr />
+
+            <p>
+                You call these functions with the following format:<br />
+                <code>functionName(arg1,arg2,arg3,argX...)</code>
+            </p>
+            <p><b>Note:</b> When you add an action in a task you can use the search field in the dialog to search for a function name directly and then select the <b>Tasker Function</b> action to have the function name filled in automatically and the helper will help you setup its parameters.</p>
+            <p>If you do this when adding a favorite action (long click the + button in task) you can have a direct shortcut to the specific function you searched for.</p>
+            <p>Check out which functions you can use by using the magnifying glass and use the helper to pick a function.</p>
+            <p>These are some examples:</p>
+            <h2>Throttle Notifications</h2>
+            <p>You can make certain app notifications not be reacted by Tasker as frequently as they are posted.</p>
+            <p>
+                For example, Google Maps notifications are updated very frequently but maybe you just want to react to them at most every 10 seconds. To do that you would write the function:<br />
+                <var>addThrottleNotifications(<code>10</code>,<code>com.google.android.apps.maps</code>)</var><br />
+                where <code>10</code> is the number of seconds and <code>com.google.android.apps.maps</code> is the Google Maps' package name.
+            </p>
+            <p>
+                You can also remove the throttling by doing<br />
+                <var>removeThrottleNotifications(<code>com.google.android.apps.maps</code>)</var><br />
+                where <code>com.google.android.apps.maps</code> is the Google Maps' package name.
+            </p>
+            <p>When you throttle an app's notifications, that throttling will persist until you explicitly remove throttling yourself.</p>
+        </main>
+    </body>
+</html>

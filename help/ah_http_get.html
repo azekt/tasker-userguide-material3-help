@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>HTTP Get</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>HTTP Get</h1>
+                <p class="description">Send an HTTP GET request to a webserver.</p>
+            </header>
+
+            <p>The response code is stored in <var>%HTTPR</var>. A response code of <code>-1</code> indicates a problem making the request. Any returned data is stored in the variable <var>%HTTPD</var> if the content type is text-based (max 4K).</p>
+            <p>Returned header fields are stored in the local variable array <var>%header</var> (%header1, %header2 etc)</p>
+
+            <h2>Example: running a script</h2>
+            <p><span class="param icon icon-text">Server:Port</span>: <var>www.big.com</var> [no port specified, use port 80]</p>
+            <p>Can be preceeded by:</p>
+            <ul>
+                <li><var>https://</var> to require a secure, trusted connection</li>
+                <li>a <var>username:password@</var> to add a Basic Authorization header field to the request.</li>
+            </ul>
+            <p><span class="param icon icon-text">Path</span>: <var>cgi-bin/palpable.pl</var></p>
+            <p><span class="param icon icon-text">Attributes</span>: [must be separated by newlines, no spaces please]</p>
+            <p><span class="param icon icon-text">Cookies</span> parameter is of the form:<var>name1=value1;name2=value2</var></p>
+            <p class="vl">
+                <var>colour=pink</var><br />
+                <var>scent=rosy</var>
+            </p>
+            <p><span class="param icon icon-number">Timeout</span>: <var>30</var> [read timeout after 30 seconds]</p>
+            <p><span class="param icon icon-text">Mime Type:</span> [if nothing specified, use server-specified value]</p>
+            <p><span class="param icon icon-text">Output File</span>: <var>results.html</var> [optional: store returned data in <code>/sdcard/results.html</code>]</p>
+            <p>Attribute keys and values are url-encoded automatically.</p>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Custom Setting</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Custom Setting</h1>
+                <p class="description">Allows you to change settings in the three Settings Tables on Android (Global, Secure and System)</p>
+            </header>
+
+            <h2>Related video</h2>
+            <ul>
+                <li><a href="https://youtu.be/NiJrtmHIiiE">Tasker Custom Setting</a></li>
+            </ul>
+            <hr />
+
+            <p>Settings whose values are 0 and 1 are usually "on" and "off" settings. You can toggle these by setting the <span class="param icon icon-text">Value</span> to <var>=:=toggle=:=</var>.</p>
+            <p>Some values can only be changed with root.</p>
+            <p>You can leave the <span class="param icon icon-text">Value</span> empty and only fill in the <span class="param icon icon-text">Read Setting To</span> field to get the current value for the setting.</p>
+            <p>If you set both the <span class="param icon icon-text">Value</span> and <span class="param icon icon-text">Read Setting To</span> inputs, the setting will be read into the variable <b>after</b> it has been changed. Can be useful for when you're toggling a setting and need to know what value you ended up with.</p>
+            <h2>How To Grant Permission</h2>
+            <p>Please follow the <a href="ah_secure_setting_grant.html">instructions</a> to learn how to grant the permission.</p>
+            <h2>Example Usage</h2>
+            <p>Change any setting on your device from anywhere (PC, notification, watch, etc) with an <a href="https://joaoapps.com/autoapps-command-system/">AutoApps Command</a> - <a href="http://forum.joaoapps.com/index.php?resources/change-any-android-setting-from-anywhere-with-autoapps.331/">Full Tutorial</a></p>
+            <p><b>Note:</b> If you change your keyboard setting to an empty value and apps start crashing, simply change the keyboard back to a normal value in Android settings to fix it.</p>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Variable Map</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Variable Map</h1>
+                <p class="description">Allows you to take the input from a certain range and map it to another range.</p>
+            </header>
+
+            <p>For example, let's say you have:</p>
+            <ul>
+                <li>a UI slider that goes from <b>0</b> to <b>100</b></li>
+                <li>a song whose length is <b>180</b> seconds</li>
+            </ul>
+            <p>If you want to use the above slider to seek to a certain position on that song, you'll need to convert the <b>0-100</b> range to the <b>0-180</b> range.</p>
+            <p>Using the <b>Variable Map</b> action you can do that very easily by setting</p>
+            <ul>
+                <li><span class="param icon icon-text">Input</span> to whatever <b>position</b> the slider is in</li>
+                <li><span class="param icon icon-text">Input Minimum</span> and <span class="param icon icon-text">Input Maximum</span> to <var>0</var> and <var>100</var> respectively (corresponding to the total range on the slider)</li>
+                <li><span class="param icon icon-text">Output Minimum</span> and <span class="param icon icon-text">Input Maximum</span> to <var>0</var> and <var>180</var> respectively (corresponding to the range of seconds the song has)</li>
+            </ul>
+            <p>If you set the input to <var>50</var> for example (which is the middle point in the input range), you'll get an output of <code>90</code> (which is the middle point of the song in seconds)</p>
+            <p>The above use case could be translated into the following graphic:</p>
+            <img src="../images/variable_map.png" alt="Variable Map Example" />
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-boolean">Invert</h3>
+                <p>Will map the output in reverse.</p>
+                <p>In the above example, if you set the input to <var>10</var>, you'd get an output of <code>18</code>. If you enable <span class="param icon icon-boolean">Invert</span> you'll get an output of <code>162</code> instead (which is the max value of the output range minus 18)</p>
+                <h3 class="param icon icon-text">Restrict Range</h3>
+                <p>Will not allow the output to be outside of the output range.</p>
+                <p>In the above example, if you set the input to <var>110</var> (which is outside of the input range) you'd normally get an output of <code>198</code> (which is outside of the output range). By enabling <span class="param icon icon-boolean">Restrict Range</span> you'll get an output of <code>180</code> instead (which is the max of the output range)</p>
+            </section>
+        </main>
+    </body>
+</html>

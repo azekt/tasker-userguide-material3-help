@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Call Screened</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Call Screened</h1>
+                <p class="description">Allows you to react to a call being screened. In other words, this event will trigger when Tasker is set as your <b>Caller ID &amp; spam app</b> in <i>Android settings</i> and you get a call.</p>
+            </header>
+
+            <h2>Taskernet Project</h2>
+            <ul>
+                <li><a href="https://taskernet.com/shares/?user=as35m8ne7oo4s%2badx%2fwlzjdftfvmwstg1ay5akpindrlosxezdffw1ipxiyjcvlnw0yn&id=project%3aonly+allow+calls+from+contacts">Only Allow Calls From Contacts Project</a></li>
+            </ul>
+            <hr />
+
+            <p>This event will trigger before the phone starts to ring.</p>
+            <p>After this triggers you have a few seconds to use the <a href="ah_call_screening.html">Call Screening</a> action in your task to decide what you want to do with the call (reject, accept, etc).</p>
+            <p>If specified, Caller must match the incoming call (see <a href="../matching.html#caller">Pattern Matching</a> in the Userguide).</p>
+            <p>Check out <a href="https://developer.android.com/reference/android/telecom/Call.Details" target="_blank">possible values for call capabilities and properties</a>. Capabilites start with <code>CAPABILITY_</code> and properties start with <code>PROPERTY_</code>.</p>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Arrays Merge</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Arrays Merge</h1>
+                <p class="description">Allows you to merge 2 or more arrays together with a given format.</p>
+            </header>
+
+            <h2>Related video</h2>
+            <ul>
+                <li><a href="https://youtu.be/wV3DLmTZums">Tasker - Arrays Merge</a></li>
+            </ul>
+            <h2>Taskernet Project</h2>
+            <ul>
+                <li><a href="https://taskernet.com/shares/?user=as35m8ne7oo4s%2badx%2fwlzjdftfvmwstg1ay5akpindrlosxezdffw1ipxiyjcvlnw0yn&id=task%3acheck+crypto+coin">Check Crypto Coin Project</a> (<a href="https://youtu.be/0hjHtMwfGeM">demo</a> for task)</li>
+            </ul>
+            <hr />
+
+            <p>A lot of times in Tasker you end up with multiple related arrays.</p>
+            <p>For example, if you have</p>
+            <ul>
+                <li>array <var>%names</var> with the values <code>João,John</code></li>
+                <li>array <var>%lastnames</var> with the values <code>Dias,Days</code></li>
+            </ul>
+            <p>you can merge them together with a simple white space joiner and end up with an array like <code>João Dias,John Days</code> or you could use the format <code>%lastnames is %names's last name</code> wich would result in another 2 item array with the values <code>Dias is João's last name,Days is John's last name</code></p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Names</h3>
+                <p>One or more array names, each on its line.</p>
+                <p>Each of these arrays will need to have the same number of valuse.</p>
+                <hr />
+                <h3 class="param icon icon-text">Joiner</h3>
+                <p>Will simply merge each position of the arrays above with the joiner.</p>
+                <p>For example, if you have 2 arrays <var>%names</var> and <var>%ages</var> and use the <span class="param icon icon-text">Joiner</span> <var>-</var> it'll join <code>%names(1) - $ages(1)</code>, <code>%names(2) - $ages(2)</code> and so on.</p>
+                <hr />
+                <h3 class="param icon icon-text">Output</h3>
+                <p>Name of the array that will contain the formatted values.</p>
+                <p>Each position of this array will contain the corresponding positions of all the input arrays joined with the rules above.</p>
+                <hr />
+                <h3 class="param icon icon-text">Join Output</h3>
+                <p>If set, will join the resulting array and make the output variable a single value instead of an array.</p>
+            </section>
+        </main>
+    </body>
+</html>

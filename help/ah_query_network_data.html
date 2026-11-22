@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Get Network Data Usage</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Get Network Data Usage</h1>
+                <p class="description">Allows you to get the amount of data you've used for a certain period.</p>
+            </header>
+
+            <h2>Related video</h2>
+            <ul>
+                <li><a href="https://youtu.be/i0JOg5L3qtM">Tasker - Get Network Data Usage</a></li>
+            </ul>
+            <hr />
+
+            <p>You can get the data used for either Wifi or Mobile Data.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">From</h3>
+                <p>The start time for your data query in milliseconds since the Jan 1, 1970, 00:00:00.000 GMT (epoch time).</p>
+                <p>This input determines the start point of the period you want to look up.</p>
+                <hr />
+                <h3 class="param icon icon-text">To</h3>
+                <p>The end time for your data query in milliseconds since the Jan 1, 1970, 00:00:00.000 GMT (epoch time).</p>
+                <p>You can use the <var>%TIMEMS</var> variable to look up data until right now.</p>
+                <hr />
+                <h3 class="param icon icon-text">Package</h3>
+                <p>If empty, the data for the whole device will be gotten and not just a specific app or apps.</p>
+            </section>
+        </main>
+    </body>
+</html>

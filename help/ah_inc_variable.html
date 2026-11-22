@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Variable Add</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Variable Add</h1>
+                <p class="description">Increase the value of the variable <span class="param icon icon-text">Name</span>.</p>
+            </header>
+
+            <p>The value is increased by the integer <span class="param icon icon-number">Value</span>.</p>
+            <p>If the variable does not contain a numeric value (e.g. <code>3</code>) this action will end in error.</p>
+            <p>If the variable does not exist, it will first be created with a value of <code>0</code>.</p>
+            <p>If a <span class="param icon icon-text">Wrap Around</span> is not zero, then when the final result is equal to or greater than the <span class="param icon icon-text">Wrap Around</span> value, it will wrap back to <code>0</code> e.g. with <span class="param icon icon-text">Wrap Around</span> <var>5</var>, 2 + 4 = <code>1</code>.</p>
+            <p>Use a <a href="ah_set_variable.html">Variable Set</a> action for non-integer addition.</p>
+
+            <footer>
+                <h2>See also:</h2>
+                <ul>
+                    <li><a href="../flowcontrol.html">Conditions and Loops</a> section</li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

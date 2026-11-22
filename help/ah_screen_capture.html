@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Screen Capture</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Screen Capture</h1>
+                <p class="description">Record the screen on your phone.</p>
+            </header>
+
+            <p>You can also optionally add sound to your recording. The sound will be captured from your microphone.</p>
+            <p>Typical usage is:</p>
+            <ul>
+                <li>Use <span class="param icon icon-list">Mode</span> <var>Start</var>to begin recording in a task</li>
+                <li>Use <span class="param icon icon-list">Mode</span> <var>Stop</var> to stop recording in a later task</li>
+                <li>If yo need to check the current status of the recording use the <span class="param icon icon-list">Mode</span> <var>Query</var></li>
+            </ul>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-list">Mode</h3>
+                <p>You can either start, stop or query a screen capture.</p>
+                <p>Starting a capture when it's already started will result in an error.</p>
+                <p>Stopping a capture when it's already stopped will result in an error.</p>
+                <p>Use <var>Query</var> to know if a capture is currently ongoing or not (check the <var>%sc_is_capturing variable</var>).</p>
+                <hr />
+                <h3 class="param icon icon-text">Video Encoder</h3>
+                <p>Will be H264 by default.</p>
+                <hr />
+                <h3 class="param icon icon-text">Resolution</h3>
+                <p>Will use your screen's resolution by default.</p>
+                <hr />
+                <h3 class="param icon icon-text">Video Bitrate</h3>
+                <p>The higher the bitrate, the less pixelated will the final video look.</p>
+                <p>Not all bitrates may be supported by all devices.</p>
+                <p>If not manually set, will be <var>5000000</var>.</p>
+            </section>
+        </main>
+    </body>
+</html>

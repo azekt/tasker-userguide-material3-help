@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Any Sensor Conditions Explained</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Any Sensor Conditions Explained</h1>
+            </header>
+
+            <h2>Related video</h2>
+            <ul>
+                <li><a href="https://youtu.be/766S-KRnaiE">Live Creations #42 - New Sensor State, Event and Actions</a></li>
+            </ul>
+            <hr />
+
+            <p>The <a href="eh_any_sensor.html">Any Sensor</a> event and state will allow you to trigger tasks based on <b>any</b> of your device's sensors report.</p>
+            <p>Use the built-in helper (magnifying glass) to quickly find the sensor you want to monitor.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Type</h3>
+                <p>The sensor type you want to monitor. Can be the sensor's <a href="https://developer.android.com/reference/android/hardware/Sensor.html#TYPE_ACCELEROMETER" target="_blank">type number constant</a> (ie. 1 for accelerometer, 13 for temperature, etc) or the sensor's name as detected by Tasker.</p>
+                <hr />
+                <h3 class="param icon icon-text">Interval</h3>
+                <p>How often Tasker will ask for the sensor to report values. You're guaranteed to never receive updates faster than this value, but may receive updates slower than this value depending on the sensor.</p>
+                <hr />
+                <h3 class="param icon icon-text">Interval Type</h3>
+                <p>How Tasker will report the events:</p>
+                <ul>
+                    <li><var>Throttle</var> will trigger with the first event in each check interval and see if it matches the condition</li>
+                    <li><var>Sample</var> will trigger with the last event in each check interval and see if it matches the condition</li>
+                    <li><var>Debounce</var> will only trigger with events from the sensor if they stop being sent during the time set in <span class="param icon icon-text">Interval</span> (for example, if you want to trigger a task on orientation change, and you turn your phone upside down, without debouncing, 2 events could be triggered, but with debouncing only one would be triggered)</li>
+                    <li><var>Buffer</var> will gather the events in each check interval and return them all at once to the task, so you can for example make a task based on all of the events that happened in the last 5 seconds if you want (for example, do something if phone is upside down, then upright, then upside down again)</li>
+                    <li><var>None</var> will trigger your task as soon as the event is received from the sensor. Not recommended for sensors that report a lot of events like the gravity sensor or gyroscope related sensors.</li>
+                    <li><var>Buffer Debounce</var> is a combination of the <var>Buffer</var> and <var>Debounce</var> modes. It will gather the events into an array but won't trigger the profile until the specified amount of time without sensor events happening has passed.</li>
+                </ul>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Media Button</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Media Button</h1>
+                <p class="description">One of the media buttons is pressed.</p>
+            </header>
+
+            <p>Not all devices have all represented buttons.</p>
+            <p>If <span class="param icon icon-boolean">Held</span> is checked, the key must have been held down for minimally the normal key repeat time for this context to become active. <span class="param icon icon-boolean">Held</span> will not function on most devices with Google Voice Search.</p>
+            <p>If <span class="param icon icon-boolean">Stop Event</span> is checked, Tasker will try to prevent the event being passed on to other apps when it's received. This does not have effect use on Android 2.2+ devices because usually one or more apps will try to <span class="param icon icon-boolean">Grab</span> (see below) the event and no others will see it. The changes in Android 2.2 have made media button handling very complicated...</p>
+            <p><span class="param icon icon-boolean">Grab</span> is only relevant for Android 2.2+ devices, which changed the way in which the media button is handled. It indicates that Tasker should become the sole receiver of media button events. If you don't do this, Tasker may not receive the events e.g. because a media player has requested the events.</p>
+            <p><b>Note 1:</b> if you <b>do</b> enable <span class="param icon icon-boolean">Grab</span>, you probably want to add another context to this profile e.g. an application context, so that Tasker doesn't interfere with media control the whole time.</p>
+            <p><b>Note 2:</b> Tasker grabs the event control as soon as it's necessary and releases it as soon as possible. Another app may grab control at a later time and so block events to Tasker.</p>
+            <p><b>Note 3:</b> if you enable <span class="param icon icon-text">Grab</span> for any media button, it blocks <b>all</b> media button events to other apps.</p>
+            <p><b>Note 4:</b> you can regrab the focus with <a href="ah_grab_media_button.html">Media Button Events</a> action</p>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Media Control</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Media Control</h1>
+                <p class="description">Send a command to a media playback application.</p>
+            </header>
+
+            <p>A target app need only be specified when multiple apps are interpreting the command.</p>
+            <p><b>Note:</b> the <var>Toggle Pause</var> function may not work unless playback has already been started manually.</p>
+            <p><b>Note:</b> Tasker's Music XXX actions are not controlled by this action.</p>
+            <p>If you enable the <span class="param icon-boolean">Use Notification If Available</span> option, Tasker will try to find a suitable notification with media control capabilities and control it that way. If it cannot find the notification it'll fall back to the other methods.</p>
+            <p>On some media notifications the Android System will report that the media was correctly controlled via the notification where in reality it was not, so if this option is not working for your media app, please contact their app's developers to correctly implement it.</p>
+        </main>
+    </body>
+</html>

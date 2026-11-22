@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Pick Input Dialog</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Pick Input Dialog</h1>
+                <p class="description">Allows you to easily pick a bunch of different types of input that you can then use in your task.</p>
+            </header>
+
+            <h2>Related video</h2>
+            <ul>
+                <li><a href="https://youtu.be/jjNlEYqN-Aw">Tasker - Pick Input Dialog</a></li>
+            </ul>
+            <hr />
+
+            <p>Will not work simultaneously with non-overlay scenes.</p>
+            <p><b>Note:</b> When you add an action in a task you can use the search field in the dialog to search for one of the dialog types available here directly and then select the <b>Pick Input Dialog</b> action to have the type filled in automatically.</p>
+            <p>If you do this when adding a favorite action (long click the + button in task) you can have a direct shortcut to the specific type you searched for.</p>
+
+            <h2>Data Formats</h2>
+            <p>Each type of picker has a specific output format. These are the formats used for each one.</p>
+            <ul>
+                <li><b>True Or False</b>: either <var>true</var> or <var>false</var></li>
+                <li><b>Yes Or No</b>: either <var>yes</var> or <var>no</var></li>
+                <li><b>File/Files/Directory</b>: path to the files/folder usable in other Tasker actions</li>
+                <li><b>Contact</b>: name of contact</li>
+                <li><b>Contact or Contact Group</b>: name of contact or contact group pattern used in compatible fields (like the <a href="eh_phone_ringing.html">Phone Ringing</a> or <a href="eh_call_screened.html">Call Screened</a> event)</li>
+                <li><b>Time</b>: time in the <var>HH.mm</var> format</li>
+                <li><b>Date</b>: date in the <var>yyyy-MM-dd</var> format</li>
+                <li><b>App and Launcher</b>: an app's package name</li>
+            </ul>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Title</h3>
+                <p>If set will make a dialog appear prior to picking the input with the title and text, unless the specific input picker has a place for the title (like the Time dialog for example).</p>
+                <hr />
+                <h3 class="param icon icon-text">Text</h3>
+                <p>Will appear in the dialog if the <span class="param icon icon-text">Title</span> is also set.</p>
+            </section>
+        </main>
+    </body>
+</html>

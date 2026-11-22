@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Notification Settings</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Notification Settings</h1>
+                <p class="description">Allows you to open an app's notification settings screen.</p>
+            </header>
+
+            <p>You can optionally provide a notification category, so that the screen opens directly on that.</p>
+            <p>Unfortunately it's not possible for Tasker to get other app's notification categories.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Package</h3>
+                <p>The app's package name. If left blank, the current package name will be used, which means that if you're in an App Factory app, that app's package name will be used, if not Tasker's package name will be used.</p>
+                <hr />
+                <h3 class="param icon icon-text">Category</h3>
+                <p>If set, will open the specific category instead of the notification settings overview screen for the app. Only available for Android 8 or above.</p>
+            </section>
+        </main>
+    </body>
+</html>

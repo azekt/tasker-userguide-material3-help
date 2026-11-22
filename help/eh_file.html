@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>File Events</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>File Events</h1>
+                <p class="description">The named operation was just carried out on the specified SD card file.</p>
+            </header>
+
+            <p>There will always be an <strong>OPEN</strong> event before <strong>MODIFY</strong> (if the file is written) then <strong>CLOSE</strong> events.</p>
+            <p>The file must exist when Tasker's UI is exited or the SD card is inserted for this event to be active.</p>
+            <p>Be very careful if you act on a file event by doing an action with the file. For instance, if you respond to an open event by copying the file make sure you have <i>Abort New Task</i> set in task properties, since the act of copying the file will trigger another open event and an endless loop will occur otherwise.</p>
+            <p><b>Limitation:</b> if a file is deleted and recreated, subsequent file events will not be reported.</p>
+        </main>
+    </body>
+</html>

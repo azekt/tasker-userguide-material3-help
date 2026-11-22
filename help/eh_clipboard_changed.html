@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Clipboard Changed</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Clipboard Changed</h1>
+                <p class="description">Allows you to react to the clipboard on your device being changed.</p>
+            </header>
+
+            <p>Depending on what the clipboard was changed to, the various variables can have or not have values. For example, if the clipboard was changed to have a text value, the <var>%cl_image_uri</var> variable will not have a value.</p>
+            <p>You can add conditions in the event itself so that it only triggers when certain variables have certain values, e.g. you could add a trigger for <var>%cl_image_uri Is Set</var> to make it only trigger if the clipboard contains an image</p>
+            <p>If you enable the <span class="param icon icon-boolean">Ignore Set By Tasker</span> option, this event will not trigger if Tasker was the app to set the clipboard.</p>
+        </main>
+    </body>
+</html>

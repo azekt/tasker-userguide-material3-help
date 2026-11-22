@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Parse/Format DateTime</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Parse/Format DateTime</h1>
+                <p class="description">Allows you to format a date and/or time in any format, from any kind of input date.</p>
+            </header>
+
+            <h2>Related videos</h2>
+            <ul>
+                <li><a href="https://youtu.be/UR5Qf7KpDXQ">Tasker - Parse/Format DateTime</a></li>
+                <li><a href="https://youtu.be/t51RS7a2myM">Tasker - Add or Subtract Time</a></li>
+            </ul>
+            <h2>Taskernet Projects</h2>
+            <ul>
+                <li><a href="https://taskernet.com/shares/?user=as35m8ne7oo4s%2badx%2fwlzjdftfvmwstg1ay5akpindrlosxezdffw1ipxiyjcvlnw0yn&id=task%3aget+sunset+sunrise">Get Sunset Sunrise Project</a></li>
+                <li><a href="https://taskernet.com/shares/?user=as35m8ne7oo4s%2badx%2fwlzjdftfvmwstg1ay5akpindrlosxezdffw1ipxiyjcvlnw0yn&id=project%3acalculate+days+to+go#">Calculate Days to Go Project</a></li>
+            </ul>
+            <hr />
+
+            <p>This action follows the principle of being very simple to use but, if you really want to, you can do some pretty crazy combinations of configurations. Easy to use, but powerful if you need it!</p>
+            <ul>
+                <li>If you don't configure anything, the action will simply output a bunch of variables (day, month, year, etc) regarding the current date</li>
+                <li>
+                    <p>You can specify an <span class="param icon icon-text">Output Format</span> to, additionally, output another variable with the format you specify</p>
+                    <p><a href="https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat">Check out all the output format options</a></p>
+                </li>
+                <li>You can specify multiple <span class="param icon icon-text">Output Formats</span> if you want to simultaneously output into different formats. For example, you could want the date and time in different variables, and this allows you to do that easily</li>
+                <li>You can change the Formatted Variable Names so that you can for example specify 2 output formats and give them relevant names directly in this action.</li>
+                <li>If you change the <span class="param icon icon-list">Input Type</span> from <var>Now</var> to something else, you can format/get variables regarding a date that's not the current one</li>
+                <li>You can use <var>%TIMEMS</var> (Milliseconds Since Epoch), <var>%TIMES</var> (Seconds since Epoch), ISO 8601 (a widely used format) or any other custom format you want with the <span class="param icon icon-list">Input Type</span> <var>Custom</var></li>
+                <li>If you use the <span class="param icon icon-list">Input Type</span> <var>Custom</var> you can input one or multiple input dates each with its own <span class="param icon icon-text">Input Format</span> if you want (you can use 1 input format for all of the inputs too if you want)</li>
+                <li>If you use multiple <span class="param icon icon-text">Input</span>s and multiple <span class="param icon icon-text">Output Format</span>s at the same time, you'll get all the inputs formatted in all the outputs. For example, if you have 2 inputs and 3 output formats you'll end up with 6 output variables each with its own different input/format combination</li>
+                <li>On top of all of this you can enable the <span class="param icon icon-boolean">Get All Details</span> option which will add a bunch of pre-determined variables to the output. Stuff like <b>Minute of Day</b>, <b>Week of Year</b>, <b>Is Week Day</b> and many more. Stuff that you may not always want but that can be handy sometimes!</li>
+            </ul>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Input</h3>
+                <p>One or more dates.</p>
+                <p>
+                    Can be direct values, values from variables or direct arrays (use <var>%array</var>, not <var><del>%array()</del></var
+                    >.
+                </p>
+                <hr />
+                <h3 class="param icon icon-text">Input Format</h3>
+                <p>One or more date formats.</p>
+                <p>For example, <var>yyyy/MM/dd HH:mm</var> will correctly parse a date like <code>2021/03/05 14:18</code>.</p>
+                <p>You can use a different format for each input.</p>
+                <p>If there are more inputs than formats, the last format on the list will be used for all the remainder of the inputs.</p>
+                <hr />
+                <h3 class="param icon icon-text">Input Separator</h3>
+                <p>Separator will be comma or newline by default, depending if one of these characters is present in your text or not.</p>
+                <p>Set to a different separator manually if needed.</p>
+                <hr />
+                <h3 class="param icon icon-text">Output Format</h3>
+                <p>One or more date formats.</p>
+                <p>For example, <var>yyyy/MM/dd HH:mm</var> will produce a date like <code>2021/03/05 14:18</code>.</p>
+                <p>If you specify more than one output format, those formats will be applied to each input, so you'll have all the possible combinations of inputs and formats.</p>
+                <p>For example, if you have 2 inputs and 3 output formats, you'll get a total of 6 formatted values.</p>
+                <p>Check out all the possible formats below.</p>
+                <hr />
+                <h3 class="param icon icon-text">Output Offset Type</h3>
+                <p>If you want you can add seconds, minutes, hours or days to the output. This offset type will be applied to all outputs.</p>
+                <hr />
+                <h3 class="param icon icon-text">Output Offset</h3>
+                <p>The amount of offset for the type above.</p>
+                <p>Can be negative values.</p>
+                <p>You can use multiple offsets if you have more than one output.</p>
+                <hr />
+                <h3 class="param icon icon-text">Time Zone</h3>
+                <p>The time zone for the input time.</p>
+                <p>Useful if you want to format date/time for timezones other than the current one.</p>
+            </section>
+        </main>
+    </body>
+</html>

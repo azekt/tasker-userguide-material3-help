@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>GD Download</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>GD Download</h1>
+                <p class="description">Get a file or folder from Google Drive for a given account.</p>
+            </header>
+
+            <p>While the content is downloading, a notification will be shown with the progress.</p>
+            <p><b>Note:</b> For security reasons this action can't be used on App Factory generated apps.</p>
+            <h2>Output Variables</h2>
+            <p>Array of local file paths corresponding to the files that were downloaded.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Google Drive Account</h3>
+                <p>The account you want to download the files from.</p>
+                <hr />
+                <h3 class="param icon icon-list">Type</h3>
+                <ul>
+                    <li><var>File Id</var>: Download a file by its ID. You can get the Id after you upload the file, or with a <a href="ah_google_drive_list.html">GD List</a> action (check the output variables)</li>
+                    <li><var>Remote Path</var>: Download a file or folder by specifying its Google Drive path. If you only specify the <span class="param icon icon-text">Remote Folder</span> field, a folder will be downloaded. If you also specify the <span class="param icon icon-text">Remote File Name</span> field, only a single file will be downloaded.</li>
+                </ul>
+                <hr />
+                <h3 class="param icon icon-text">Local Path</h3>
+                <p>Place to store the files / folders on local storage. If you are downloading a folder, then this path must be a folder. If you are downloading a file, this can be either a folder or file.</p>
+            </section>
+        </main>
+    </body>
+</html>

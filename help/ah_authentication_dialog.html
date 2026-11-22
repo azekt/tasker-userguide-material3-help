@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Authentication Dialog</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Authentication Dialog</h1>
+                <p class="description">Show a dialog that allows the current user to authenticate. This can be used to allow for secure execution of certain tasks.</p>
+            </header>
+
+            <h2>Action Inputs</h2>
+            <h3 class="param icon icon-list">Type</h3>
+            <ul>
+                <li>
+                    <p><b>Credentials</b>: Works on all Android versions.</p>
+                    <p>Shows the standard Android authentication dialog and asks for whatever credentials you currently have setup on your device. It doesn't work if you don't have any credentials setup at the moment of running.</p>
+                </li>
+                <li>
+                    <p><b>Biometric: </b>Only works for Android 9 and above.</p>
+                    <p>If you fail to authenticate 5 times in a row Android will block access to this for 30 seconds</p>
+                </li>
+            </ul>
+            <hr />
+            <h3 class="param icon icon-text">Read Result To</h3>
+            <p>Will set the authentication result into both a variable and an array with that variable name:</p>
+            <ul>
+                <li>
+                    <p><b>Variable</b>: Will contain the last authentication result. Can be <code>success</code> or whatever error there was in case of an error. You will probably use this most of the time.</p>
+                </li>
+                <li>
+                    <p><b>Array</b>: For advanced uses. Will contain all authentication results that resulted from the dialog, ie, if your finger wasn't recognized first but then it was you'll have an array with 2 items: an error and success.</p>
+                </li>
+            </ul>
+            <p>If you want to handle errors use the <span class="param icon icon-boolean">Continue Task After Error</span> option and check the result variable.</p>
+        </main>
+    </body>
+</html>

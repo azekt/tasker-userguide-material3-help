@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Multiple Variables Set</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Multiple Variables Set</h1>
+                <p class="description">Set the value on multiple variables in a single action.</p>
+            </header>
+
+            <p>Directly Setting Values in the <span class="param icon icon-text">Names</span> field (Tasker 6.3.3-beta+)</p>
+            <p>As of Tasker 6.3.3-beta you can use an alternative way of setting the variables. If</p>
+            <ul>
+                <li>the <span class="param icon icon-text">Names</span> field contains the <span class="param icon icon-text">Values Names Splitter</span></li>
+                <li>the <span class="param icon icon-text">Values</span> field is empty</li>
+                <li>the <span class="param icon icon-text">Values Names Splitter</span> field does not contain valid Tasker variable name characters only</li>
+            </ul>
+            <p>then you can set values directly in the <span class="param icon icon-text">Names</span> field.</p>
+            <p>For example, if you use this configuration:</p>
+            <img src="../images/ah_set_variables_example.png" />
+            <p>then</p>
+            <ul>
+                <li><var>%aaa</var> will be set to <code>aaa</code></li>
+                <li><var>%bbb</var> will be set to <code>bbb</code></li>
+            </ul>
+            <p>This allows for a more visual style of setting the variables.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Names</h3>
+                <p>One or more comma separated variable names</p>
+                <hr />
+                <h3 class="param icon icon-text">Variable Names Splitter</h3>
+                <p>Splitter for the variable names above.</p>
+                <p>By default is <code>,</code> or new line depending on what you use.</p>
+                <hr />
+                <h3 class="param icon icon-text">Values</h3>
+                <p>One or more values, each corresponding to the variable names above.</p>
+                <p>If more variable names than values exist, those variables will be unset.</p>
+                <hr />
+                <h3 class="param icon icon-text">Values Splitter</h3>
+                <p>Splitter for the values above.</p>
+                <p>By default is <code>,</code> or new line depending on what you use.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Do Maths</h3>
+                <p>Will do maths on the values that support maths and leave the others as normal text.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Keep Existing</h3>
+                <p>Will only set the values of variables if they don't already exist by this point in the task.</p>
+            </section>
+        </main>
+    </body>
+</html>

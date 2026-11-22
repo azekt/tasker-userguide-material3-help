@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Check running services Permission</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Check running services Permission</h1>
+                <p class="description">To use this, Tasker needs to be granted permission to check what services are running on your device</p>
+            </header>
+
+            <h2>Easy Way</h2>
+            <p>Install the <a href="https://tasker.joaoapps.com/taskerpermissions.html">Tasker Permissions</a> app and follow the prompts.</p>
+            <h2>Hard Way (don't bother with this if you were able to do it the easy way)</h2>
+            <ol>
+                <li><a href="ah_adb_setup.html">Setup ADB on your PC</a> as described.</li>
+                <li>
+                    <p>
+                        Use these commands:<br />
+                        <kbd>adb shell pm grant net.dinglisch.android.taskerm android.permission.DUMP</kbd>
+                    </p>
+                    <p>
+                        If you're on a Mac write:<br />
+                        <kbd>./adb shell pm grant net.dinglisch.android.taskerm android.permission.DUMP</kbd>
+                    </p>
+                </li>
+            </ol>
+        </main>
+    </body>
+</html>

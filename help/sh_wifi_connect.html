@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Wifi Connected</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Wifi Connected</h1>
+                <p class="description">The device is connected to a Wi-Fi Access Point (AP).</p>
+            </header>
+
+            <p>If any of the parameters are specified, the AP must match that parameter, otherwise any AP will match.</p>
+            <p>You can use the variable <a href="../variables.html#wifii">Wifi Info</a> to see information about the current AP (when connected).</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">SSID</h3>
+                <p>The SSID of the AP e.g. <var>SKY34312</var></p>
+                <hr />
+                <h3 class="param icon icon-text">MAC</h3>
+                <p>The MAC address of the AP e.g. <var>00:1f:35:34:43:4a</var></p>
+                <hr />
+                <h3 class="param icon icon-text">IP</h3>
+                <p>The IP address of the AP e.g. <var>192.156.98.4</var></p>
+                <hr />
+                <h3 class="param icon icon-list">Active</h3>
+                <p>Specifies whether or not the Wi-Fi network must be the network currently in use in order to match. Setting it to <var>Yes</var> means the Wi-Fi must be the default route to the internet. If <var>Yes</var> and you enable VPN, the Wi-Fi state rightfully becomes inactive, as that Wi-Fi connection is only used to route traffic to the VPN. The VPN has default route to internet. <var>Any</var> means it doesn't matter if Wi-Fi is route to internet or not, as long as you are connected to a Wi-Fi</p>
+            </section>
+        </main>
+    </body>
+</html>

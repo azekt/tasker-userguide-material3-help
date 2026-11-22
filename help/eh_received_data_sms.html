@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Received Data SMS</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Received Data SMS</h1>
+                <p class="description">A data SMS has been received.</p>
+            </header>
+
+            <p>Data SMSs are sent to particular ports. This event will trigger on an SMS to any port, unless a particular one is specified.</p>
+            <p>Data is the Base64-encoded binary data which was received, accessible via <var>%evtprm3</var> in the resulting task.</p>
+            <p>It can be e.g. written to a file with <a href="ah_write_binary.html">Write Binary</a> or converted decoded to a string (assuming the binary data represents a string) with the <a href="ah_convert_variable.html">Variable Convert</a> action.</p>
+        </main>
+    </body>
+</html>

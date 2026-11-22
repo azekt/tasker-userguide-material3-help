@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>WiFi Tether (Hotspot)</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>WiFi Tether (Hotspot)</h1>
+                <p class="description">Turn on sharing of the device's Internet connection via Wi-Fi.</p>
+            </header>
+
+            <p>If Wifi was on, it will be turned off, you will need to enable it manually after the tether.</p>
+            <p>If the action fails for you, saying that you need to the <i>android.permission.TETHER_PRIVILEGED</i> permission you can still make it work <b>if you have a rooted device</b>:</p>
+            <ul>
+                <li>Make a a backup of your Tasker setup</li>
+                <li>Copy <code>/data/app/net.dinglisch.android.taskerm</code> folder to <code>/system/priv-app</code></li>
+                <li>Uninstall Tasker and reboot</li>
+                <li>After the reboot Tasker should be installed as a System app</li>
+                <li>Restore Tasker data</li>
+            </ul>
+            <p><b>Note:</b> The current status/state of the Hotspot can be checked using the <a href="../variables.html#tether"><var>%TETHER</var></a> global variable</p>
+        </main>
+    </body>
+</html>

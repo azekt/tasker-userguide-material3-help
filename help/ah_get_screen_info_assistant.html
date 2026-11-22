@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Get Screen Info (Assistant)</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Get Screen Info (Assistant)</h1>
+                <p class="description">Gets various visible and invisible info about the currently opened screen on your device.</p>
+            </header>
+
+            <p>The <var>%ai_texts</var> variable will contain a JSON Array structure (note: you can <a href="../variables.html#json">read JSON natively in Tasker</a>) where every element usually just has a <b>text</b> field. In some cases (like if you use this action while Chrome is open) you might get and <b>extras</b> field with some more info as well.</p>
+            <p>Here's an excerpt of what you might get if you use this action while Chrome is open:</p>
+            <pre>
+[
+    {
+        "text":"Tasker Share"
+    },
+    {
+        "text":"Report"
+    },
+    {
+        "text":"Last Modified: 2022-04-05 16:57:30"
+    },
+    {
+        "text":"Counter Test"
+    },
+    {
+        "extras":{
+            "htmlTag":"a",
+            "display":"inline",
+            "href":"/?user\\...",
+            "target":"_blank"
+        }
+    },
+    {
+        "text":"Other Shares From This User"
+    },
+    {
+        "extras":{
+            "htmlTag":"a",
+            "display":"inline",
+            "href":"/?public",
+            "target":"_blank"
+        }
+    },
+    "..."
+]</pre
+            >
+            <p>The <var>%ai_extras</var> variable can contain arbitrary info that the currently opened app provides in a JSON structure, so it's recommended that, if you're interested in a certain app's extra info, you first try this action while that app is open and use a <a href="ah_dialog_text.html">Text/Image Dialog</a> to show what this variable contains</p>
+        </main>
+    </body>
+</html>

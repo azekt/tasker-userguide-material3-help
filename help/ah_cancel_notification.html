@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Notify Cancel</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Notify Cancel</h1>
+                <p class="description">Cancel a notification (created by Tasker) currently in the System Notification bar.</p>
+            </header>
+
+            <p><span class="param icon icon-text">Title</span> is the title of the notification to cancel. If <span class="param icon icon-text">Title</span> is not specified, all notifications will be cancelled (including 'permanent') ones.</p>
+            <p>If more than one notification with the specified <span class="param icon icon-text">Title</span> is currently being displayed, only the last one displayed will be cancelled, the otherwise will need to be cancelled manually.</p>
+            <p><span class="param icon icon-boolean">Warn Not Exist</span>: if set, a warning will be flashed if there is no matching notification.</p>
+        </main>
+    </body>
+</html>

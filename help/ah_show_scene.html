@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Show Scene</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Show Scene</h1>
+                <p class="description">Display a scene, creating it first if necessary.</p>
+            </header>
+
+            <p>All Overlays are displayed over the current application and persist until hidden or destroyed.</p>
+            <p>Blocking overlays only block touches on the part of the screen they cover.</p>
+            <p>Non-blocking Overlays are also displayed over the Keyguard.</p>
+            <p>Dialogs are little popup windows which take all user input while they are displayed and can be dismissed with the Back key.</p>
+            <p>Activities are standard Android app views.</p>
+            <p>Offsets are percentages of the screen size with in the range 0-200, (<var>0</var> - 100% left, <var>100</var> - centre, <var>200</var> - 100% right).</p>
+            <p>Animation is only relevant for non-overlay scenes and when animations are enabled in Android settings.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-boolean">Allow Outside Boundaries</h3>
+                <p>If enabled, will allow the scene to be shown outside normal Ul boundaries.</p>
+                <p>This is necessary to display overlays on the status bar on phones with notches, or on the navigation bar for example.</p>
+                <p>To display scenes outside boundaries, manually enter the horizontal and vertical positions (using the cross—arrow button on each field) and input appropriate values, including negative ones.</p>
+                <p>When using this mode any values entered manually (instead of using the seek control) will be in pixels instead of the normal 0-200 range to allow more fine-grained control.</p>
+                <p>If the Tasker Accessibility Service is enabled when this scene is created and you enable the <span class="param icon icon-boolean">Blocking Overlay +</span> option below, you'll be able to interact with the scene even if it is on the status bar or navigation bar, meaning that you can create custom buttons for your navigation bar for example!</p>
+                <p>These scenes will also show on your lock screen and some <i>Always-On-Displays</i> (depending on your phone) and can be interacted with on the lock screen even if the phone is locked!</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Overlay +</h3>
+                <p>Will make an overlay scene show on the lock screen and over the notification tray.</p>
+                <p>If you run this action with this option enabled and the Tasker accessibility service is not running an error notification will be shown and the action will error out.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Blocking Overlay +</h3>
+                <p>Will make an overlay scene show (and be interactive) on the lock screen and on some devices even in the <i>Always-On-Display</i>.</p>
+                <p>It'll also make scenes clickable even if they are on the status or notification bars.</p>
+                <p>If you run this action with this option enabled and the Tasker accessibility service is not running an error notification will be shown and the action will error out.</p>
+                <p>Useful if you want to show a blocking overlay that is interactive even if on the status/navigation bar and lock screen.</p>
+                <p>If this option is not enabled the scene will not show on the lock screen and won't be clickable if it's over the status/navigation bar.</p>
+            </section>
+
+            <footer>
+                <h2>See also:</h2>
+                <ul>
+                    <li><a href="../scenes.html">Scenes</a> in the Userguide</li>
+                </ul>
+            </footer>
+        </main>
+    </body>
+</html>

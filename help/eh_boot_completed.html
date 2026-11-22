@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Device Boot</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Device Boot</h1>
+                <p class="description">The phone has just finished turning on (after being shut down, not just the screen blanking).</p>
+            </header>
+
+            <p>It's advisable that any tasks linked to this event start with a <a href="ah_wait.html">Wait</a> action of e.g. 5 seconds, because Android is extremely busy immediately after a boot. Note also that the SD card may not be yet mounted when this event is received, which is another reason for delaying the task if it relies on the SD card being present.</p>
+        </main>
+    </body>
+</html>

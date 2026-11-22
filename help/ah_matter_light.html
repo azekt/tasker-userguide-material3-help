@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Matter Light</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Matter Light</h1>
+                <p class="description">Allows you to control a <a href="https://csa-iot.org/all-solutions/matter/" target="_blank">Matter</a> compatible light with Tasker.</p>
+            </header>
+
+            <p>You can either add a light directly into Tasker (use the magnifying glass to start the helper) or<a href="https://youtube.com/shorts/y1fCUgTc6Wc?feature=share"> share a Matter device from another app to Tasker</a>.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">Device IDs/Names</h3>
+                <p>After adding a Matter light to Tasker you can select it with the helper (magnifying glass). You'll be able to either select its name or ID. If you have multiple devices with similar names you might prefer to use its ID to make sure you're controlling the correct one.</p>
+                <hr />
+                <h3 class="param icon icon-text">Set</h3>
+                <p>Select if you want to turn on, off or toggle the light. You can use the magnifying glass helper to select the correct option. Possible options are <var>On</var>, <var>Off</var> or <var>Toggle</var>.</p>
+                <hr />
+                <h3 class="param icon icon-text">Colour</h3>
+                <p>A color in the <var>#RRGGBB</var> format to use for the light. If the light is turning off, this value will be ignored. If Alpha is used (with the <var>#AARRGGBB</var> format), Alpha will be ignored. Again, use the magnifying glass to help you out.</p>
+                <hr />
+                <h3 class="param icon icon-text">Brightness</h3>
+                <p>A value from 0 to 100 that controls how bright the light will be if turned on. If turned off, this value will be ignored.</p>
+            </section>
+        </main>
+    </body>
+</html>

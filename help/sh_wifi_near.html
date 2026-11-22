@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Wifi Near</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Wifi Near</h1>
+                <p class="description">The device is near a Wi-Fi Access Point (AP).</p>
+            </header>
+
+            <p>On recent Android versions Wi-Fi scanning is only available for apps with the location permission, so that's why Tasker asks for it.</p>
+            <p>If any of the parameters are specified, the AP must match that parameter, otherwise any AP will match.</p>
+
+            <section>
+                <h2>Action Inputs</h2>
+                <h3 class="param icon icon-text">SSID</h3>
+                <p>The SSID of the AP e.g. <var>SKY34312</var></p>
+                <hr />
+                <h3 class="param icon icon-text">MAC</h3>
+                <p>The MAC address of the AP e.g. <var>00:1f:35:34:43:4a</var></p>
+                <hr />
+                <h3 class="param icon icon-text">Capabilities</h3>
+                <p>E.g. [WPA-PSK-TKIP]</p>
+                <hr />
+                <h3 class="param icon icon-number">Min Activate Signal Level</h3>
+                <p>The minimum signal strength to activate the context. It's ignored once the context is active.</p>
+                <hr />
+                <h3 class="param icon icon-number">Channel</h3>
+                <p>The frequency channel.</p>
+                <hr />
+                <h3 class="param icon icon-boolean">Toggle Wifi</h3>
+                <p>If Wi-Fi on the device is disabled, enable it for the period of the scan, probably around 15 seconds. On Android 6+ this is rarely needed, unless you disabled the <i>Scanning Always Available</i> option in Android settings. Toggling cannot take place when the Wi-Fi Tether (Hotspot) is enabled on the device. On Android 4.3+ devices, consider enabling <i>Scanning Always Available</i> in Android advanced Wi-Fi settings, instead of toggling.</p>
+                <p>A seen AP which is no longer visible for approximately two times the scan period is forgetten. This is to help prevent the profile bouncing on and off at the edge of the signal reception area.</p>
+                <p>The period for Wi-Fi scanning is specified in <i>Menu / Preferences / Monitor / Wifi Scan Time</i>.</p>
+                <p>You can use the variable <a href="../variables.html#wifi_info">Wifi Info</a> to see information about nearby APs (when not connected).</p>
+                <p>When any profile has a <b>Wifi Near</b> state context, it will do regular scans for nearby APs (see <i>Menu / Preferences / Monitor / Wifi Scan Period</i>. This requires the device's Wi-Fi radio to be enabled.</p>
+            </section>
+        </main>
+    </body>
+</html>

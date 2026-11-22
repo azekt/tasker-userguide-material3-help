@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Read System Logs Permission</title>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1><span class="name">Read System Logs</span> Permission</h1>
+                <p class="description">To use this, Tasker needs to be granted permission to <span class="name">read system logs</span> on your device</p>
+            </header>
+
+            <h2>Easy Way</h2>
+            <p>Install the <a href="https://tasker.joaoapps.com/taskerpermissions.html">Tasker Permissions</a> app and follow the prompts.</p>
+
+            <h2>Hard Way (don't bother with this if you were able to do it the easy way)</h2>
+            <ol>
+                <li><a href="ah_adb_setup.html">Setup ADB on your PC</a> as described.</li>
+                <li><p>Use these commands:<br>
+                    <kbd>adb shell pm grant net.dinglisch.android.taskerm android.permission.<wbr>READ_LOGS</kbd><br>
+                    <kbd>adb shell am force-stop net.dinglisch.android.taskerm</kbd></p>
+                    <p>If you're on a Mac write<br>
+                    <kbd>./adb shell pm grant net.dinglisch.android.taskerm android.permission.<wbr>READ_LOGS</kbd><br>
+                    <kbd>./adb shell am force-stop net.dinglisch.android.taskerm</kbd></p>
+                </li>
+                <li>This will close Tasker, so open Tasker again manually so that it can resume functioning normally.</li>
+            </ol>
+        </main>
+    </body>
+</html>

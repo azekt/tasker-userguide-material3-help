@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Card Mounted</title>
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Card Mounted</h1>
+                <p class="description">An inserted card has been registered by the system and is ready for use.</p>
+            </header>
+
+            <p>If you specify <span class="param icon icon-text">Card Title</span>, only the card with a title containing the specified characters will match this event context, thus allowing you to do different things depending on which card is inserted.</p>
+            <p>You can set the title of a card by creating a file in its base (root) directory called <code>xxxxx.ttl</code> (replace <code>xxxxx</code> with the desired title).</p>
+            <p>If you specify a <span class="param icon icon-text">Frequency</span> and it's greater than <var>1</var>, the event will only match if the card has been mounted a multiple of <span class="param icon icon-text">Frequency</span> times since the last reboot. For example, a <span class="param icon icon-text">Frequency</span> of <var>3</var> will match when the card has been mounted 3, 6, 9... times.</p>
+        </main>
+    </body>
+</html>
