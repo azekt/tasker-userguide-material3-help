@@ -35,7 +35,7 @@
                 <p>Check how much additional time you held the button down in the task by checking <var>%evtprm(2)</var>.</p>
                 <p>If not set, Tasker will simply trigger the event once, when it detects the long press on the selected volume button.</p>
                 <p>If set, will make Tasker only react only in certain conditions:</p>
-                <ul>
+                <ul class="para-list">
                     <li><b>Number</b>: Only trigger after the button has been pressed for those many seconds after the long press is detected. For example, setting it to <var>3</var> will make the event only trigger if you press the volume button for a bit more than 3 seconds</li>
                     <li><b>Continuous Mode</b>: Only trigger after the button has been pressed for <code>x</code> many seconds after the long press is detected and then trigger again for each additional second that the button is held. For example, setting it to <var>continuous(0)</var> will make the event trigger right after the long press is detected and then trigger again each second until you release the button. Another example: setting it to <var>continuous(3)</var> will wait 3 seconds before it starts triggering continuously.</li>
                     <li><b>Continuous Mode With Limit</b>: Same as above but with a limit of triggers for a button press. For example, setting it to <var>continuous(0,3)</var> will make the event trigger in the same conditions as above but at most 3 times. If you want to trigger it again after that you have to release the button and long press it again.</li>

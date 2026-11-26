@@ -14,13 +14,13 @@
             </header>
 
             <p>For example, let's say you have:</p>
-            <ul>
+            <ul class="para-list">
                 <li>a UI slider that goes from <b>0</b> to <b>100</b></li>
                 <li>a song whose length is <b>180</b> seconds</li>
             </ul>
             <p>If you want to use the above slider to seek to a certain position on that song, you'll need to convert the <b>0-100</b> range to the <b>0-180</b> range.</p>
             <p>Using the <b>Variable Map</b> action you can do that very easily by setting</p>
-            <ul>
+            <ul class="para-list">
                 <li><span class="param icon icon-text">Input</span> to whatever <b>position</b> the slider is in</li>
                 <li><span class="param icon icon-text">Input Minimum</span> and <span class="param icon icon-text">Input Maximum</span> to <var>0</var> and <var>100</var> respectively (corresponding to the total range on the slider)</li>
                 <li><span class="param icon icon-text">Output Minimum</span> and <span class="param icon icon-text">Input Maximum</span> to <var>0</var> and <var>180</var> respectively (corresponding to the range of seconds the song has)</li>

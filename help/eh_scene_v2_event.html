@@ -17,14 +17,14 @@
             <p>Set <span class="param icon icon-text">Scene Name</span> to only react to interactions on a specific scene. Leave empty to match any scene. Pattern matching is supported (see <a href="../matching.html">Pattern Matching</a> in the Userguide).</p>
             <p>Set <span class="param icon icon-text">Element ID</span> to only react to interactions on a specific element. Leave empty to match any element on the scene. Pattern matching is supported.</p>
             <p>Set <span class="param icon icon-text">Interaction Type</span> to only react to a specific kind of interaction. Leave empty to match any interaction. Generic gesture types apply to almost any element:</p>
-            <ul>
+            <ul class="para-list">
                 <li><code>single</code> - a single tap</li>
                 <li><code>multi_2</code>, <code>multi_3</code>, ... - a double tap, triple tap, and so on</li>
                 <li><code>long_press</code> - a long press</li>
                 <li><code>swipe</code> - a swipe gesture (when the swipe ends, swipe-related output variables are populated)</li>
             </ul>
             <p>On top of the generic gestures, each component type defines its own interaction types for things that only make sense for it. A few examples:</p>
-            <ul>
+            <ul class="para-list">
                 <li><code>text_changed</code> - fired by <var>TextInput</var> when its text changes</li>
                 <li><code>checked_changed</code> - fired by <var>Switch</var> / <var>Checkbox</var> when toggled</li>
                 <li><code>slider_value_changed</code> - fired by <var>Slider</var> when its value changes</li>

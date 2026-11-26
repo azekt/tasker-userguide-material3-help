@@ -26,7 +26,7 @@
             <p>This event condition will trigger on appropriate requests made to the server that match the various inputs specified here.</p>
             <p>For example, if you create a condition with <span class="param icon icon-text">Port</span> set to <var>1921</var> and <span class="param icon icon-text">Method</span> set to <var>POST</var>, then the profile will trigger when Tasker receives an HTTP Request on that port with the POST method.</p>
             <p>When you receive an HTTP Request in Tasker you should respond to it. You can respond in 2 ways:</p>
-            <ul>
+            <ul class="para-list">
                 <li>Set the <span class="param icon icon-text">Quick Response</span> field directly which will simple send back the text you specify there with the 'text/plain' mimetype.</li>
                 <li>Use the <a href="ah_http_response.html">HTTP Response</a> action in a task and use this event's <var>%http_request_id</var> to specify that you're responding to this specific request. This action allows you to fully customize your response. You don't necessarily need to respond to a request in the same profile, as long as you use the correct request ID in your response (e.g. you could save it in a global variable and use it later)</li>
             </ul>

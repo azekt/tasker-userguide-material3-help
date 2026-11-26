@@ -175,6 +175,20 @@ hr {
     margin: 1rem 0;
 }
 
+p:has(+ ul.para-list) {
+    margin-bottom: 0rem;
+}
+
+p:has(+ ol.para-list) {
+    margin-bottom: 0rem;
+}
+
+ul.para-list,
+ol.para-list {
+    margin-top: 0rem;
+}
+
+
 .m-0 {
     margin-top: 0rem;
     margin-bottom: 0rem;

@@ -31,7 +31,7 @@
                 <hr />
                 <h3 class="param icon icon-text">Interval Type</h3>
                 <p>How Tasker will report the events:</p>
-                <ul>
+                <ul class="para-list">
                     <li><var>Throttle</var> will trigger with the first event in each check interval and see if it matches the condition</li>
                     <li><var>Sample</var> will trigger with the last event in each check interval and see if it matches the condition</li>
                     <li><var>Debounce</var> will only trigger with events from the sensor if they stop being sent during the time set in <span class="param icon icon-text">Interval</span> (for example, if you want to trigger a task on orientation change, and you turn your phone upside down, without debouncing, 2 events could be triggered, but with debouncing only one would be triggered)</li>

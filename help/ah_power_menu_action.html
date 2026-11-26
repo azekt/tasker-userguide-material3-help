@@ -37,7 +37,7 @@
                 <hr />
                 <h3 class="param icon icon-list">Type</h3>
                 <p>You can create several types of tiles:</p>
-                <ul>
+                <ul class="para-list">
                     <li><var>Button</var>: A simple button with no state. It doesn't turn on or off.</li>
                     <li><var>Toggle</var>: Like a switch, it turns on or off. It's state can be configured with the <span class="param icon icon-text">Active</span> input field.</li>
                     <li><var>Range</var>: Is set to a current value in a range. For example, you could set a range of 1 to 10, and let the current value be 5 and it would create a button just half selected.</li>
@@ -59,7 +59,7 @@
                 <p>The command will trigger Tasker's <a href="ah_command.html">Command</a> Event.</p>
                 This uses the <a href="https://tasker.joaoapps.com/commandsystem.html">Tasker Command System</a>.
                 <p>Depending on the type of tile, the command will be sent differently:</p>
-                <ul>
+                <ul class="para-list">
                     <li><b>Button</b>: only the command will be sent</li>
                     <li><b>Toggle</b>: The command will be sent followed by the new state of the tile, eg. <code>command=:=state</code>, where <code>state</code> is either <b>true</b> or <b>false</b></li>
                     <li><b>Range</b>: The command will be sent followed by the current selected value in the range, eg. <code>command=:=current_value</code></li>
